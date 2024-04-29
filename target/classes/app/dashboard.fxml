@@ -41,11 +41,14 @@
                </font>
             </Label>
             <MenuButton fx:id="menuStatus" layoutX="71.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Status">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
+               <items>
+                  <MenuItem text="Active" onAction="#handleStatusMenuItemClicked" />
+                  <MenuItem mnemonicParsing="false" text="Completed" onAction="#handleStatusMenuItemClicked" />
+                  <MenuItem mnemonicParsing="false" text="Failed" onAction="#handleStatusMenuItemClicked" />
+                  <MenuItem mnemonicParsing="false" text="Delayed" onAction="#handleStatusMenuItemClicked" />
+               </items>
             </MenuButton>
+
             <TextField fx:id="rxtTo1" alignment="CENTER" layoutX="282.0" layoutY="97.0" prefHeight="25.0" prefWidth="106.0" />
             <Label alignment="CENTER" layoutX="189.0" layoutY="97.0" prefHeight="25.0" prefWidth="106.0" style="-fx-font-weight: bold;" text="Company:" textFill="WHITE">
                <font>
