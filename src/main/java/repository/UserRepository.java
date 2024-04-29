@@ -1,48 +1,61 @@
 package repository;
 
-import database.DatabaseUtil;
 import databaseConnection.DatabaseUtil;
 import model.User;
-import model.dto.CreateUserDto;
-import service.DBConnector;
+import service.PasswordHasher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserRepository {
-//
-//    public static boolean create(CreateUserDto userData){
-//        Connection conn = DBConnector.getConnection();
-//        String query = """
-//                INSERT INTO USER (firstName, lastName, email, salt, passwordHash)
-//                VALUE (?, ?, ?, ?, ?)
-//                """;
-//        //String query = "INSERT INTO USER VALUE (?, ?, ?, ?, ?)";
-//        try{
-//            PreparedStatement pst = conn.prepareStatement(query);
-//            pst.setString(1, userData.getFirstName());
-//            pst.setString(2, userData.getLastName());
-//            pst.setString(3, userData.getEmail());
-//            pst.setString(4, userData.getSalt());
-//            pst.setString(5, userData.getPasswordHash());
-//            pst.execute();
-//            pst.close();
-//            conn.close();
-//            return true;
-//        }catch (Exception e){
-//            return false;
-//        }
-//
-//    }
 
 
-    public static User getByEmail(String email){
-        String query = "SELECT * FROM USER WHERE email = ? LIMIT 1";
+    public static boolean insertSuperAdmin(){
+
+        String firstName = "superAdmin";
+        String lastName = "superAdmin";
+        String username = "superAdmin";
+        String email = "superAdmin@gmail.com";
+        String salt = PasswordHasher.generateSalt();
+        String password = "superAdmin";
+        String hashPassword = PasswordHasher.generateSaltedHash(password,salt);
+        String role = "superAdmin";
+
+        String query = "insert into users values(?,?,?,?,?,?,?)";
+        Connection connection =DatabaseUtil.getConnection();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setString(3, username);
+            preparedStatement.setString(4, email);
+            preparedStatement.setString(5, salt);
+            preparedStatement.setString(6, hashPassword);
+            preparedStatement.setString(7, role);
+            preparedStatement.execute();
+            preparedStatement.close();
+
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+
+
+
+
+    public static User getByUsername(String username){
+        String query = "SELECT * FROM USER WHERE username = ? LIMIT 1";
         Connection connection = DatabaseUtil.getConnection();
         try{
             PreparedStatement pst = connection.prepareStatement(query);
-            pst.setString(1, email);
+            pst.setString(1, username);
             ResultSet result = pst.executeQuery();
             if(result.next()){
                 return getFromResultSet(result);
