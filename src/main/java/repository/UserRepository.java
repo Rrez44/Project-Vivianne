@@ -1,5 +1,6 @@
 package repository;
 
+import ENUMS.Role;
 import databaseConnection.DatabaseUtil;
 import model.User;
 import service.PasswordHasher;
@@ -75,7 +76,7 @@ public class UserRepository {
             String email = result.getString("email");
             String salt = result.getString("salt");
             String passwordHash = result.getString("passwordHash");
-            String role = result.getString("role");
+            Role role = Role.valueOf(result.getString("role"));
 
             return new User(
                     id, firstName, lastName,username, email, salt, passwordHash,role

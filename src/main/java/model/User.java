@@ -1,5 +1,7 @@
 package model;
 
+import ENUMS.Role;
+
 public class User {
 
     private int id;
@@ -9,10 +11,10 @@ public class User {
     private String email;
     private String salt;
     private String hashedPassword;
-    private String role;
+    private Role role;
 
 
-    public User(int id, String firstName, String lastName, String username, String email, String salt, String hashedPassword, String role) {
+    public User(int id, String firstName, String lastName, String username, String email, String salt, String hashedPassword, Role role) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,7 +54,7 @@ public class User {
         return hashedPassword;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 }
