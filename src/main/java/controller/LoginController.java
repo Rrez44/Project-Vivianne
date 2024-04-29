@@ -16,11 +16,17 @@ public class LoginController {
     @FXML
     private TextField txtPassword;
 
+//    public void insertUser(){
+//    }
+
+
+
+
     public void handleLogin(ActionEvent actionEvent) throws IOException {
 
         LoginUserDto loginUserDto = new LoginUserDto(txtUsername.getText(), txtPassword.getText());
         boolean checkLogin = UserService.login(loginUserDto);
-        UserService.insertSuperAdmin();
+//        UserService.insertSuperAdmin();
 
         if (checkLogin) {
             Navigator.navigate(actionEvent, Navigator.HOME_PAGE);

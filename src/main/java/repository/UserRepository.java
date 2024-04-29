@@ -23,7 +23,7 @@ public class UserRepository {
         String hashPassword = PasswordHasher.generateSaltedHash(password,salt);
         String role = "superAdmin";
 
-        String query = "insert into users values(?,?,?,?,?,?,?)";
+        String query = "insert into users(firstName,lastName,username,email,salt,passwordHash,role) values(?,?,?,?,?,?,?)";
         Connection connection =DatabaseUtil.getConnection();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -51,7 +51,7 @@ public class UserRepository {
 
 
     public static User getByUsername(String username){
-        String query = "SELECT * FROM USER WHERE username = ? LIMIT 1";
+        String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
         Connection connection = DatabaseUtil.getConnection();
         try{
             PreparedStatement pst = connection.prepareStatement(query);
