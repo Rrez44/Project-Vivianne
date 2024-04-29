@@ -1,6 +1,6 @@
 package controller;
 
-public class dashboard {
+public class Dashboard {
 
 
     public void handleDashboard(){

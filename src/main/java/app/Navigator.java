@@ -20,6 +20,7 @@ public class Navigator {
         try{
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
         }catch (IOException ioe){
             ioe.printStackTrace();
