@@ -49,7 +49,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="404.0" maxWidth="640.0" minHeight="404.0" minWidth="640.0" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.loginController">
+<VBox maxHeight="404.0" maxWidth="640.0" minHeight="404.0" minWidth="640.0" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -93,7 +93,7 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="398.0" prefWidth="640.0" style="-fx-background-color: #ED2F4;" VBox.vgrow="ALWAYS">
          <children>
             <Button fx:id="txtLogin" layoutX="383.0" layoutY="231.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="34.0" prefWidth="180.0" style="-fx-background-color: EF2334; -fx-background-radius: 0px; -fx-font-family: Verdana;" text="Log In" textFill="WHITE" />
-            <TextField fx:id="txtEmail" alignment="CENTER" layoutX="383.0" layoutY="126.0" prefHeight="38.0" prefWidth="180.0" promptText="Email" scaleZ="10.0" style="-fx-background-radius: 0px; -fx-font-family: Verdana; -fx-border-color: black; -fx-border-width: 0.5px; -fx-background-color: white;" translateZ="10.0" />
+            <TextField fx:id="txtUsername" alignment="CENTER" layoutX="383.0" layoutY="126.0" prefHeight="38.0" prefWidth="180.0" promptText="Username" scaleZ="10.0" style="-fx-background-radius: 0px; -fx-font-family: Verdana; -fx-border-color: black; -fx-border-width: 0.5px; -fx-background-color: white;" translateZ="10.0" />
             <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="383.0" layoutY="178.0" prefHeight="38.0" prefWidth="180.0" promptText="Password" style="-fx-background-radius: 0px; -fx-font-family: Verdana; -fx-border-color: black; -fx-border-width: 0.5px; -fx-background-color: white;" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="383.0" layoutY="86.0" prefHeight="26.0" prefWidth="180.0" style="-fx-font-family: Verdana;" text="LOG IN">
                <font>
