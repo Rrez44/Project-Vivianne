@@ -42,7 +42,7 @@
             </Label>
             <MenuButton fx:id="menuStatus" layoutX="71.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Status">
                <items>
-                  <MenuItem text="Active" onAction="#handleStatusMenuItemClicked" />
+                  <MenuItem mnemonicParsing="false" text="Active" onAction="#handleStatusMenuItemClicked" />
                   <MenuItem mnemonicParsing="false" text="Completed" onAction="#handleStatusMenuItemClicked" />
                   <MenuItem mnemonicParsing="false" text="Failed" onAction="#handleStatusMenuItemClicked" />
                   <MenuItem mnemonicParsing="false" text="Delayed" onAction="#handleStatusMenuItemClicked" />
