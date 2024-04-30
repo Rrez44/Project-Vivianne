@@ -29,7 +29,7 @@ public class Dashboard {
 
     }
     @FXML
-    private void handleStatusMenuItemClicked(ActionEvent event) {
+    public void handleStatusMenuItemClicked(ActionEvent event) {
         MenuItem menuItem = (MenuItem) event.getSource();
         menuStatus.setText(menuItem.getText());
     }

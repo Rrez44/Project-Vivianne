@@ -12,11 +12,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
+
 <AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2d2b42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Company">
    <children>
       <Pane layoutX="15.0" layoutY="47.0" prefHeight="638.0" prefWidth="876.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
          <children>
-            <Pane layoutX="15.0" layoutY="14.0" prefHeight="207.0" prefWidth="847.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10px;">
+            <Pane layoutX="15.0" layoutY="14.0" prefHeight="219.0" prefWidth="847.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10px;">
                <children>
                   <TextField fx:id="txtCompanyName" layoutX="14.0" layoutY="14.0" prefHeight="37.0" prefWidth="662.0" promptText="Company Name" style="-fx-background-radius: 0;" />
                   <TextArea fx:id="txtAreaDescription" layoutX="14.0" layoutY="69.0" prefHeight="110.0" prefWidth="662.0" promptText="Description" style="-fx-background-radius: 0;" />
@@ -40,7 +41,7 @@
                   <DropShadow />
                </effect>
             </Pane>
-            <ScrollPane hbarPolicy="NEVER" layoutX="15.0" layoutY="232.0" prefHeight="392.0" prefWidth="847.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;">
+            <ScrollPane hbarPolicy="NEVER" layoutX="15.0" layoutY="244.0" prefHeight="380.0" prefWidth="847.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;">
                <effect>
                   <DropShadow />
                </effect>
@@ -50,7 +51,7 @@
             <DropShadow />
          </effect>
       </Pane>
-      <MenuBar layoutY="-4.0" prefHeight="19.0" prefWidth="906.0">
+      <MenuBar layoutY="-4.0" prefHeight="31.0" prefWidth="906.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>

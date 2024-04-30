@@ -11,6 +11,7 @@ import java.io.IOException;
 public class Navigator {
     public final static String LOGIN_PAGE = "login.fxml";
     public final static String HOME_PAGE = "dashboard.fxml";
+    public final static String COMPANY_PAGE = "company.fxml";
 
     public static void navigate(Stage stage, String page){
         FXMLLoader loader = new FXMLLoader(
