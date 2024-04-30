@@ -24,15 +24,15 @@ public class LoginController {
 
     public void handleLogin(ActionEvent actionEvent) throws IOException {
 
-        LoginUserDto loginUserDto = new LoginUserDto(txtUsername.getText(), txtPassword.getText());
-        boolean checkLogin = UserService.login(loginUserDto);
+//        LoginUserDto loginUserDto = new LoginUserDto(txtUsername.getText(), txtPassword.getText());
+//        boolean checkLogin = UserService.login(loginUserDto);
 //        UserService.insertSuperAdmin();
 
-        if (checkLogin) {
+//        if (checkLogin) {
             Navigator.navigate(actionEvent, Navigator.HOME_PAGE);
-        }else{
-            System.out.println("Login Failed");
-        }
+//        }else{
+//            System.out.println("Login Failed");
+//        }
 
 
 

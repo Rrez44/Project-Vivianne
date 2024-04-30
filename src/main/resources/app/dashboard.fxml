@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -42,10 +43,10 @@
             </Label>
             <MenuButton fx:id="menuStatus" layoutX="71.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Status">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Active" onAction="#handleStatusMenuItemClicked" />
-                  <MenuItem mnemonicParsing="false" text="Completed" onAction="#handleStatusMenuItemClicked" />
-                  <MenuItem mnemonicParsing="false" text="Failed" onAction="#handleStatusMenuItemClicked" />
-                  <MenuItem mnemonicParsing="false" text="Delayed" onAction="#handleStatusMenuItemClicked" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Active" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Completed" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Failed" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Delayed" />
                </items>
             </MenuButton>
 
@@ -57,7 +58,10 @@
             </Label>
             <Button layoutX="419.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #ef233c; -fx-font-weight: bold;" text="Clear" textFill="WHITE" />
             <Button layoutX="556.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #edf2f4; -fx-font-weight: bold;" text="Search" />
-         </children></Pane>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect></Pane>
       <Pane layoutY="20.0" prefHeight="662.0" prefWidth="180.0">
          <children>
             <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleDashboard" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Dashboard" textFill="WHITE">
