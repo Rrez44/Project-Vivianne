@@ -1,10 +1,11 @@
 package model;
 
 import ENUMS.Role;
+import INTERFACES.Identifiable;
 
-public class User {
+public class User implements Identifiable {
 
-    private int id;
+    private String id;
     private String firstName;
     private String lastName;
     private String username;
@@ -15,7 +16,7 @@ public class User {
 
 
     public User(int id, String firstName, String lastName, String username, String email, String salt, String hashedPassword, Role role) {
-        this.id = id;
+        this.id = generateId();
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -26,7 +27,7 @@ public class User {
     }
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

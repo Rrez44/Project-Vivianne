@@ -1,6 +1,6 @@
 package ENUMS;
 
-public enum CompanyStatus {
+public enum ActivityStatus {
     ACTIVE,
     SUSPENDED
 }
