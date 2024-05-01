@@ -46,9 +46,18 @@
                   <DropShadow />
                </effect>
             </ScrollPane>
-            <TextField fx:id="txtLineID" layoutX="15.0" layoutY="222.0" prefHeight="25.0" prefWidth="98.0" promptText="LineID" style="-fx-background-radius: 0;" />
-            <DatePicker fx:id="dateSearchDate" layoutX="127.0" layoutY="222.0" prefHeight="25.0" prefWidth="98.0" promptText="Date" style="-fx-background-radius: 0;" />
-            <Button fx:id="btnFilter" layoutX="236.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleFilter" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Filter" textFill="WHITE" />
+            <TextField fx:id="txtLineID" layoutX="15.0" layoutY="222.0" prefHeight="25.0" prefWidth="98.0" promptText="LineID" style="-fx-background-radius: 0;">
+               <effect>
+                  <DropShadow />
+               </effect></TextField>
+            <DatePicker fx:id="dateSearchDate" layoutX="127.0" layoutY="222.0" prefHeight="25.0" prefWidth="98.0" promptText="Date" style="-fx-background-radius: 0;">
+               <effect>
+                  <DropShadow />
+               </effect></DatePicker>
+            <Button fx:id="btnFilter" layoutX="236.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleFilter" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Filter" textFill="WHITE">
+               <effect>
+                  <DropShadow />
+               </effect></Button>
          </children>
          <effect>
             <DropShadow />

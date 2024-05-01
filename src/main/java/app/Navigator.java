@@ -12,6 +12,8 @@ public class Navigator {
     public final static String LOGIN_PAGE = "login.fxml";
     public final static String HOME_PAGE = "dashboard.fxml";
     public final static String COMPANY_PAGE = "company.fxml";
+    public final static String SEARCH_COMPANY_PAGE = "searchCompany.fxml";
+    public final static String ADD_BUS_PAGE = "addBus.fxml";
 
     public static void navigate(Stage stage, String page){
         FXMLLoader loader = new FXMLLoader(
@@ -34,4 +36,8 @@ public class Navigator {
         Stage stage = (Stage) node.getScene().getWindow();
         navigate(stage, page);
     }
+
+
+
+
 }
