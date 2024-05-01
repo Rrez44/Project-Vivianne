@@ -2,6 +2,8 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -12,6 +14,19 @@ public class Company {
 
     @FXML
     private TextArea txtAreaDescription;
+
+    @FXML
+    private TextField txtLineID;
+
+    @FXML
+    private DatePicker dateSearchDate;
+
+    @FXML
+    private MenuButton menuStatus;
+
+    @FXML
+    private MenuButton menuAreaCode;
+
 
 
     public void handleManageBuses(ActionEvent event) {
@@ -29,5 +44,8 @@ public class Company {
     }
 
     public void handleAreaCode(ActionEvent actionEvent) {
+    }
+
+    public void handleFilter(ActionEvent actionEvent) {
     }
 }

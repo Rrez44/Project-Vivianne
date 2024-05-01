@@ -41,7 +41,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <MenuButton fx:id="menuStatus" layoutX="71.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Status">
+            <MenuButton fx:id="menuStatus" layoutX="71.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: white;" text="Status">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Active" />
                   <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Completed" />
