@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2b2d42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Register">
+   <children>
+      <Pane layoutX="97.0" layoutY="19.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <TextField fx:id="txtUsername" layoutX="162.0" layoutY="152.0" prefHeight="42.0" prefWidth="396.0" promptText="Username" style="-fx-background-radius: 0;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <StackPane layoutX="155.0" layoutY="46.0" prefHeight="58.0" prefWidth="396.0" style="-fx-background-color: #2b2d42;">
+               <children>
+                  <Label style="-fx-text-fill: white; -fx-font-weight: bold;" text="Register">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+            <TextField fx:id="txtFirstName" layoutX="162.0" layoutY="230.0" prefHeight="42.0" prefWidth="149.0" promptText="FirstName" style="-fx-background-radius: 0;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtLastName" layoutX="406.0" layoutY="230.0" prefHeight="42.0" prefWidth="149.0" promptText="LastName" style="-fx-background-radius: 0;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <DatePicker fx:id="dateBirthday" layoutX="162.0" layoutY="310.0" prefHeight="42.0" prefWidth="396.0" promptText="Birthday" style="-fx-background-radius: 0;" />
+            <PasswordField fx:id="pwdPassword" layoutX="162.0" layoutY="379.0" prefHeight="42.0" prefWidth="396.0" promptText="Password" style="-fx-background-radius: 0;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <PasswordField fx:id="pwdConfirmPassword" layoutX="162.0" layoutY="453.0" prefHeight="42.0" prefWidth="396.0" promptText="Confirm Password" style="-fx-background-radius: 0;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="btnAddBus" layoutX="406.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleAddBus" prefHeight="42.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Save" textFill="WHITE" />
+            <Button fx:id="btnSuspend" layoutX="162.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleSuspend" prefHeight="42.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Discard" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
