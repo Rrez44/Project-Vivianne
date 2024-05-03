@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-public class SearchCompany {
+public class SearchCompany extends BGmain{
 
     @FXML
     protected TextField txtCompanyName;

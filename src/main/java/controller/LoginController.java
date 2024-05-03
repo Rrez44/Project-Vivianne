@@ -9,7 +9,7 @@ import service.UserService;
 
 import java.io.IOException;
 
-public class LoginController {
+public class LoginController extends BGmain {
 
     @FXML
     private TextField txtUsername;
