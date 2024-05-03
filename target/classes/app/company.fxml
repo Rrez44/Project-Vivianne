@@ -2,30 +2,68 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2d2b42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Company">
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2B2D42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Company">
    <children>
-      <Pane layoutX="100.0" layoutY="23.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+      <Pane layoutY="20.0" prefHeight="662.0" prefWidth="180.0">
+         <children>
+            <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleDashboard" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label fx:id="txtEmri" alignment="CENTER" layoutX="-1.0" layoutY="74.0" prefHeight="36.0" prefWidth="180.0" style="-fx-font-family: Verdana;" text="Rrezon" textFill="WHITE" />
+            <ImageView fitHeight="36.0" fitWidth="42.0" layoutX="17.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="64.0" fitWidth="69.0" layoutX="56.0" layoutY="10.0">
+               <image>
+                  <Image url="@../Images/man.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnCreateLine" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="210.0" mnemonicParsing="false" onAction="#handleCreateLine" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Create Line" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnReport" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="274.0" mnemonicParsing="false" onAction="#handleReport" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold; -fx-text-alignment: left;" text="Report" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnRegister" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="338.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Register" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnLogOut" alignment="BASELINE_LEFT" layoutX="38.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="180.0" layoutY="20.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
          <children>
             <Pane layoutX="15.0" layoutY="14.0" prefHeight="199.0" prefWidth="682.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10px;">
                <children>
                   <TextField fx:id="txtCompanyName" layoutX="14.0" layoutY="14.0" prefHeight="37.0" prefWidth="535.0" promptText="Company Name" style="-fx-background-radius: 0;" />
                   <TextArea fx:id="txtAreaDescription" layoutX="14.0" layoutY="69.0" prefHeight="110.0" prefWidth="535.0" promptText="Description" style="-fx-background-radius: 0;" />
                   <MenuButton fx:id="menuStatus" alignment="CENTER" layoutX="565.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleStatus" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: white; -fx-background-radius: 0; -fx-font-weight: bold;" text="Status">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                     </items>
                   </MenuButton>
                   <Button fx:id="btnManageBuses" layoutX="565.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleManageBuses" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-font-weight: bold;" text="Manage Buses" />
                   <Button fx:id="btnAddBus" layoutX="565.0" layoutY="118.0" mnemonicParsing="false" onAction="#handleAddBus" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Add Bus" textFill="WHITE" />
@@ -49,38 +87,22 @@
             <TextField fx:id="txtLineID" layoutX="15.0" layoutY="222.0" prefHeight="25.0" prefWidth="98.0" promptText="LineID" style="-fx-background-radius: 0;">
                <effect>
                   <DropShadow />
-               </effect></TextField>
+               </effect>
+            </TextField>
             <DatePicker fx:id="dateSearchDate" layoutX="127.0" layoutY="222.0" prefHeight="25.0" prefWidth="98.0" promptText="Date" style="-fx-background-radius: 0;">
                <effect>
                   <DropShadow />
-               </effect></DatePicker>
+               </effect>
+            </DatePicker>
             <Button fx:id="btnFilter" layoutX="236.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleFilter" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Filter" textFill="WHITE">
                <effect>
                   <DropShadow />
-               </effect></Button>
+               </effect>
+            </Button>
          </children>
          <effect>
             <DropShadow />
          </effect>
       </Pane>
-      <MenuBar layoutY="-4.0" prefHeight="19.0" prefWidth="906.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
    </children>
 </AnchorPane>

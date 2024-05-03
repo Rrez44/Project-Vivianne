@@ -22,9 +22,9 @@
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2b2d42" height="122.0" layoutX="15.0" layoutY="27.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 20px; -fx-arc-width: 20px;" width="677.0" />
             <ScrollPane hbarPolicy="NEVER" layoutX="15.0" layoutY="189.0" prefHeight="458.0" prefWidth="677.0" style="-fx-background-radius: 10px; -fx-background-color: black;">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-              </content>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+               </content>
             </ScrollPane>
             <TextField fx:id="txtFrom" alignment="CENTER" layoutX="71.0" layoutY="49.0" prefHeight="25.0" prefWidth="106.0" promptText="From" />
             <TextField fx:id="rxtTo" alignment="CENTER" layoutX="220.0" layoutY="49.0" prefHeight="25.0" prefWidth="106.0" promptText="To" />

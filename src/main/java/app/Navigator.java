@@ -14,11 +14,14 @@ public class Navigator {
     public final static String COMPANY_PAGE = "company.fxml";
     public final static String SEARCH_COMPANY_PAGE = "searchCompany.fxml";
     public final static String ADD_BUS_PAGE = "addBus.fxml";
+    public final static String ADD_BUS_LINE = "RegisterLine.fxml";
+    public final static String REGISTER_PAGE = "register.fxml";
 
     public static void navigate(Stage stage, String page){
         FXMLLoader loader = new FXMLLoader(
                 Navigator.class.getResource(page)
         );
+
 
         try{
             Scene scene = new Scene(loader.load());

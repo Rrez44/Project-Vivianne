@@ -19,7 +19,6 @@ public class BusLine implements Identifiable {
     private Company companyAssigned;
     private Bus busModel;
     private int passengerCapacity;
-
     private String startLocation;
     private String endLocation;
 

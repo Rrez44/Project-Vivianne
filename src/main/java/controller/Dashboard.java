@@ -16,4 +16,10 @@ public class Dashboard extends BGmain{
         menuStatus.setText(menuItem.getText());
     }
 
+    public void handleAddBus(ActionEvent event) {
+    }
+
+    public void handleSuspend(ActionEvent event) {
+
+    }
 }
