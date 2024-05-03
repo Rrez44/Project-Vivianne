@@ -7,7 +7,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class Company {
+public class Company extends BGmain{
 
     @FXML
     private TextField txtCompanyName;

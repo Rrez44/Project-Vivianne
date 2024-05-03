@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 import org.w3c.dom.events.MouseEvent;
 
-public class AddBus {
+public class AddBus extends BGmain {
 
     @FXML
     private SVGPath svgStar1;
@@ -21,12 +21,7 @@ public class AddBus {
     private SVGPath svgStar5;
 
     public void handleFillStar1(ActionEvent event) {
-
-
         changeColors(1);
-
-
-
     }
     public void handleFillStar2(ActionEvent event) {
 
