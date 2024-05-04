@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2b2d42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddBus">
    <children>
-      <Pane layoutX="97.0" layoutY="23.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+      <Pane fx:id="paneAddBus" layoutX="97.0" layoutY="23.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;">
          <children>
             <Button layoutX="287.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleFillStar5" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: white;" />
             <Button layoutX="125.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar2" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" />
