@@ -25,7 +25,14 @@ public class Company implements Identifiable {
         this.description = Description;
     }
 
-
+    public Company(String companyId, String companyName, String description, AreaCode areaCode, ActivityStatus companyStatus) {
+        this.companyId = companyId;
+        this.companyName = companyName;
+        this.description = description;
+        this.areaCode = areaCode;
+        this.companyStatus = companyStatus;
+        this.companyBuses = new ArrayList<>();
+    }
 
     //  ################  GETTER SETTER   ################
     public String getCompanyId() {

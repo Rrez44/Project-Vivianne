@@ -17,6 +17,8 @@ public class Navigator {
     public final static String ADD_BUS_LINE = "RegisterLine.fxml";
     public final static String REGISTER_PAGE = "register.fxml";
 
+    public final static String CREATE_COMPAMY = "createCompany.fxml";
+
     public static void navigate(Stage stage, String page){
         FXMLLoader loader = new FXMLLoader(
                 Navigator.class.getResource(page)

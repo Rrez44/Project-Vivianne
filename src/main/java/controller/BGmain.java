@@ -4,6 +4,7 @@ import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import repository.CompanyRepository;
 
 public abstract class BGmain {
     public void handleDashboard(ActionEvent event){
@@ -16,7 +17,8 @@ public abstract class BGmain {
     }
 
     public void handleReport(ActionEvent event){
-        Navigator.navigate(event,Navigator.COMPANY_PAGE);
+        Navigator.navigate(event,Navigator.SEARCH_COMPANY_PAGE);
+
     }
 
     public void handleRegister(ActionEvent event){
