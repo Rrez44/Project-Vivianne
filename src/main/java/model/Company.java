@@ -10,18 +10,21 @@ import java.util.ArrayList;
 public class Company implements Identifiable {
     private String companyId;
     private String companyName;
+    private String description;
     private AreaCode areaCode;
     private ActivityStatus companyStatus;
     private ArrayList<Bus> companyBuses;
 
 
-    public Company(String companyName, AreaCode areaCode) {
+    public Company(String companyName, AreaCode areaCode, String Description) {
         this.companyId = generateId();
         this.companyName = companyName;
         this.areaCode = areaCode;
         this.companyStatus = ActivityStatus.ACTIVE;
         this.companyBuses = new ArrayList<>();
+        this.description = Description;
     }
+
 
 
     //  ################  GETTER SETTER   ################
@@ -41,6 +44,10 @@ public class Company implements Identifiable {
         return companyStatus;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public ArrayList<Bus> getCompanyBuses() {
         return companyBuses;
     }
@@ -51,6 +58,10 @@ public class Company implements Identifiable {
 
     public void setAreaCode(AreaCode areaCode) {
         this.areaCode = areaCode;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setCompanyStatus(ActivityStatus companyStatus) {
