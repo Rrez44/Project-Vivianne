@@ -1,10 +1,10 @@
 package ENUMS;
 
 public enum BusType {
-    MiniBus("Mini Bus"),
-    SingleDeck("Single Deck"),
-    Coach("Coach"),
-    DoubleDecker("Double Decker");
+    MINIBUS("Mini Bus"),
+    SINGLE_DECKER("Single Deck"),
+    COACH("Coach"),
+    DOUBLE_DECKER("Double Decker");
 
     private final String label;
 
