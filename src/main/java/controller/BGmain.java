@@ -2,6 +2,8 @@ package controller;
 
 import app.Navigator;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public abstract class BGmain {
     public void handleDashboard(ActionEvent event){
@@ -24,4 +26,20 @@ public abstract class BGmain {
     public void handleLogOut(ActionEvent event){
         Navigator.navigate(event,Navigator.LOGIN_PAGE);
     }
+    protected void showError(String header, String message) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(header);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    protected void showConfirmation(String header, String message) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(header);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+
 }

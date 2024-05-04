@@ -11,9 +11,9 @@ import java.sql.SQLException;
 
 public class CompanyRepository
 {
-    public static boolean createCompany(String companyName, AreaCode areaCode){
-        Company company = new Company(companyName,areaCode);
-        String query = "INSERT INTO companies(company_id,company_name, area_code, company_status) values(?,?,?,?)";
+    public static boolean createCompany(String companyName, AreaCode areaCode,String description){
+        Company company = new Company(companyName,areaCode,description);
+        String query = "INSERT INTO companies(company_id,company_name, area_code, company_status, description) values(?,?,?,?,?)";
         Connection conn = DatabaseUtil.getConnection();
         try{
 
@@ -22,6 +22,7 @@ public class CompanyRepository
             preparedStatement.setString(2, company.getCompanyName());
             preparedStatement.setString(3, company.getAreaCode().toString());
             preparedStatement.setString(4, company.getCompanyStatus().name());
+            preparedStatement.setString(5, company.getDescription());
             preparedStatement.execute();
             preparedStatement.close();
             return true;
