@@ -6,7 +6,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class Register extends Dashboard {
+public class Register extends BGmain{
 
 
     @FXML

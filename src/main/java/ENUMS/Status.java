@@ -4,5 +4,4 @@ public enum Status {
     ACTIVE,
     COMPLETED,
     FAILED,
-    DELAYED
 }

@@ -23,7 +23,7 @@ public class BusLine implements Identifiable {
     private String endLocation;
 
 
-    public BusLine(LocalDateTime startTime, LocalDateTime endTime, User creator,  int passengerCapacity, String startLocation,  String endLocation, Company company, Bus bus) {
+    public BusLine(LocalDateTime startTime, LocalDateTime endTime, User creator, String startLocation, String endLocation, Company company, Bus bus) {
         this.lineId = generateId();
         this.status = Status.ACTIVE;
         this.startTime = startTime;
@@ -31,11 +31,11 @@ public class BusLine implements Identifiable {
         this.creator = creator;
         this.creationTime = LocalDateTime.now();
         this.stops = new HashMap<>();
-        this.passengerCapacity = passengerCapacity;
         this.startLocation = startLocation;
         this.endLocation = endLocation;
         this.companyAssigned = company;
         this.busModel = bus;
+        this.passengerCapacity = this.busModel.getPassangerCapacity();
     }
 
 
