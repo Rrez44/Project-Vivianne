@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane layoutY="20.0" prefHeight="662.0" prefWidth="180.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Dashboard">
+   <children>
+      <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleDashboard" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Dashboard" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="txtEmri" alignment="CENTER" layoutX="-1.0" layoutY="74.0" prefHeight="36.0" prefWidth="180.0" style="-fx-font-family: Verdana;" text="Rrezon" textFill="WHITE" />
+      <ImageView fitHeight="36.0" fitWidth="42.0" layoutX="17.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="64.0" fitWidth="69.0" layoutX="56.0" layoutY="10.0">
+         <image>
+            <Image url="@../Images/man.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnCreateLine" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="210.0" mnemonicParsing="false" onAction="#handleCreateLine" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Create Line" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnReport" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="274.0" mnemonicParsing="false" onAction="#handleReport" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold; -fx-text-alignment: left;" text="Report" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRegister" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="338.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLogOut" alignment="BASELINE_LEFT" layoutX="38.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Log Out" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
