@@ -1,7 +1,7 @@
 package ENUMS;
 
 public enum Role {
-    SuperAdmin,
-    Admin,
-    User
+    SUPER_ADMIN,
+    ADMIN,
+    USER
 }
