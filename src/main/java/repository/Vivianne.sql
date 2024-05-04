@@ -59,3 +59,6 @@ CREATE TABLE `company_buses` (
     FOREIGN KEY (`company_id`) REFERENCES `companies` (`company_id`) ON DELETE CASCADE,
     FOREIGN KEY (`bus_id`) REFERENCES `buses` (`bus_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `companies`
+ADD COLUMN `description` VARCHAR(500);
