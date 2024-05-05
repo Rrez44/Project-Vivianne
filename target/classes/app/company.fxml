@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -30,7 +31,10 @@
                      <font>
                         <Font size="15.0" />
                      </font></TextArea>
-                  <Button fx:id="btnManageBuses" layoutX="565.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleManageBuses" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-font-weight: bold;" text="Manage Buses" />
+                  <Button fx:id="btnManageBuses" layoutX="565.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleManageBuses" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-font-weight: bold;" text="Manage Buses">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Button fx:id="btnAddBus" layoutX="565.0" layoutY="118.0" mnemonicParsing="false" onAction="#handleAddBus" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Add Bus" textFill="WHITE">
                      <effect>
                         <InnerShadow radius="10.5975" width="23.39">
@@ -38,11 +42,17 @@
                               <Color red="0.03844054415822029" green="0.3052631616592407" blue="0.03391812741756439" />
                            </color>
                         </InnerShadow>
-                     </effect></Button>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Button fx:id="btnSuspend" layoutX="565.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleStatusManager" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Suspend" textFill="WHITE">
                      <effect>
                         <InnerShadow />
-                     </effect></Button>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <MenuButton fx:id="mbtnAreaCode" alignment="CENTER" layoutX="565.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: white; -fx-background-radius: 0; -fx-font-weight: bold;" text="Area Code" visible="false">
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#handleAreaCode" text="PRISTINA" />
@@ -84,9 +94,18 @@
                      </color>
                   </DropShadow>
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="btnEdit" layoutX="576.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="25.0" prefWidth="56.0" text="Edit" />
-            <Button fx:id="btnSave" disable="true" layoutX="641.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="25.0" prefWidth="56.0" text="Save" />
+            <Button fx:id="btnEdit" layoutX="576.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="25.0" prefWidth="56.0" text="Edit">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="btnSave" disable="true" layoutX="641.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="25.0" prefWidth="56.0" text="Save">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
          <effect>
             <DropShadow />

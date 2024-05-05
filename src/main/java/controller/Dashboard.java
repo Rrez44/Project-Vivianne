@@ -1,11 +1,12 @@
 package controller;
 
+import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 
-public class Dashboard extends BGmain{
+public class Dashboard extends BGmain {
 
     @FXML
     private MenuButton menuStatus;
@@ -22,4 +23,5 @@ public class Dashboard extends BGmain{
     public void handleSuspend(ActionEvent event) {
 
     }
+
 }

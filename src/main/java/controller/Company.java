@@ -62,6 +62,8 @@ public class Company extends BGmain implements Initializable {
 
     }
     public void handleAddBus(ActionEvent actionEvent) {
+        AddBus.passData(company);
+        Navigator.navigate(actionEvent, Navigator.ADD_BUS_PAGE);
     }
 
 
