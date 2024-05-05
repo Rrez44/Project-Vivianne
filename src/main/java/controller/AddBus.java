@@ -23,7 +23,7 @@ public class AddBus extends BGmain {
     private SVGPath svgStar4;
     @FXML
     private SVGPath svgStar5;
-    @FXML
+
     private MenuButton mbtnBusType;
 
     @FXML
@@ -59,54 +59,20 @@ public class AddBus extends BGmain {
     }
 
 
-    public void changeColors(int changeIT) {
 
-        switch (changeIT) {
-            case 1:
-                svgStar1.setFill(Color.GOLD);
-                svgStar2.setFill(Color.WHITE);
-                svgStar3.setFill(Color.WHITE);
-                svgStar4.setFill(Color.WHITE);
-                svgStar5.setFill(Color.WHITE);
-                num = 1;
-                break;
+    public void changeColors(int num){
+        SVGPath[] svgStars={svgStar1,svgStar2,svgStar3,svgStar4,svgStar5};
 
-            case 2:
-                svgStar1.setFill(Color.GOLD);
-                svgStar2.setFill(Color.GOLD);
-                svgStar3.setFill(Color.WHITE);
-                svgStar4.setFill(Color.WHITE);
-                svgStar5.setFill(Color.WHITE);
-                num =2;
-                break;
-            case 3:
-                svgStar1.setFill(Color.GOLD);
-                svgStar2.setFill(Color.GOLD);
-                svgStar3.setFill(Color.GOLD);
-                svgStar4.setFill(Color.WHITE);
-                svgStar5.setFill(Color.WHITE);
-                num = 3;
-                break;
-            case 4:
-                svgStar1.setFill(Color.GOLD);
-                svgStar2.setFill(Color.GOLD);
-                svgStar3.setFill(Color.GOLD);
-                svgStar4.setFill(Color.GOLD);
-                svgStar5.setFill(Color.WHITE);
-                num = 4;
-                break;
-            case 5:
-                svgStar1.setFill(Color.GOLD);
-                svgStar2.setFill(Color.GOLD);
-                svgStar3.setFill(Color.GOLD);
-                svgStar4.setFill(Color.GOLD);
-                svgStar5.setFill(Color.GOLD);
-                num = 5;
-                break;
+        for(int i=0;i< svgStars.length;i++){
+
+            if(i<num){
+                svgStars[i].setFill(Color.GOLD);
+            }else{
+                svgStars[i].setFill(Color.WHITE);
+            }
+
         }
-
     }
-
 
 
     public void handleCreate(ActionEvent actionEvent) {

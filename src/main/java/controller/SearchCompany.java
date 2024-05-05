@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -25,6 +26,9 @@ public class SearchCompany extends BGmain implements Initializable {
     protected Pane paneSearchCompany;
     @FXML
     protected VBox paneQueryResult;
+
+    @FXML
+    private ScrollPane paneSearchCompanyScrollPane;
 
 
     public void handleSearch(ActionEvent actionEvent) {
@@ -49,6 +53,7 @@ public class SearchCompany extends BGmain implements Initializable {
 
 
     private void displayCompanies(List<model.Company> companies) {
+        double totalHeight=0;
         paneQueryResult.getChildren().clear();
         for (model.Company company : companies) {
             try {
@@ -58,11 +63,14 @@ public class SearchCompany extends BGmain implements Initializable {
                 Pane companyPane = loader.load();
                 ComponentCompanySearch companyController = loader.getController();
                 companyController.setData(company);
-
                 paneQueryResult.getChildren().add(companyPane);
+
+                totalHeight += companyPane.getPrefHeight() + paneQueryResult.getSpacing();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            paneQueryResult.setPrefHeight(totalHeight);
         }
     }
 
