@@ -107,6 +107,24 @@ public class CompanyRepository
             throw new RuntimeException(se.getMessage());
         }
     }
+    public static boolean updateCompany(Company c) throws RuntimeException{
+        Connection conn = DatabaseUtil.getConnection();
+        String query = "UPDATE companies SET company_name = ?, area_code = ?, company_status = ?, description = ? WHERE company_id = ?";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1,c.getCompanyName());
+            stmt.setString(2,c.getAreaCode().name());
+            stmt.setString(3,c.getCompanyStatus().name());
+            stmt.setString(4,c.getDescription());
+            stmt.setString(5,c.getCompanyId());
+            stmt.execute();
+            stmt.close();
+            return true;
+        }
+        catch (SQLException se){
+            throw new RuntimeException("Error updating company: " + se.getMessage());
+        }
+    }
 
 
 

@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2B2D42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Company">
    <children>
@@ -21,8 +22,14 @@
          <children>
             <Pane layoutX="15.0" layoutY="14.0" prefHeight="199.0" prefWidth="682.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10px;">
                <children>
-                  <TextField fx:id="txtCompanyName" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="37.0" prefWidth="535.0" promptText="Company Name" style="-fx-background-radius: 0;" />
-                  <TextArea fx:id="txtAreaDescription" editable="false" layoutX="14.0" layoutY="69.0" prefHeight="110.0" prefWidth="535.0" promptText="Description" style="-fx-background-radius: 0;" />
+                  <TextField fx:id="txtCompanyName" alignment="CENTER" editable="false" layoutX="14.0" layoutY="13.0" prefHeight="37.0" prefWidth="535.0" promptText="Company Name" style="-fx-background-radius: 0;">
+                     <font>
+                        <Font name="Roboto" size="30.0" />
+                     </font></TextField>
+                  <TextArea fx:id="txtAreaDescription" editable="false" layoutX="14.0" layoutY="69.0" prefHeight="110.0" prefWidth="535.0" promptText="Description" style="-fx-background-radius: 0; -fx-background-color: #2B2D42; -fx-border-color: #2B2D42; -fx-border-width: 0px; -fx-background-insets: 0px; -fx-border-insets: 0px;">
+                     <font>
+                        <Font size="15.0" />
+                     </font></TextArea>
                   <Button fx:id="btnManageBuses" layoutX="565.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleManageBuses" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-font-weight: bold;" text="Manage Buses" />
                   <Button fx:id="btnAddBus" layoutX="565.0" layoutY="118.0" mnemonicParsing="false" onAction="#handleAddBus" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Add Bus" textFill="WHITE">
                      <effect>
@@ -32,18 +39,23 @@
                            </color>
                         </InnerShadow>
                      </effect></Button>
-                  <Button fx:id="btnSuspend" layoutX="565.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleSuspend" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Suspend" textFill="WHITE">
+                  <Button fx:id="btnSuspend" layoutX="565.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleStatusManager" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Suspend" textFill="WHITE">
                      <effect>
                         <InnerShadow />
                      </effect></Button>
-                  <MenuButton fx:id="mbtnAreaCode" alignment="CENTER" layoutX="565.0" layoutY="51.0" mnemonicParsing="false" onAction="#handleAreaCode" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: white; -fx-background-radius: 0; -fx-font-weight: bold;" text="Area Code" visible="false">
+                  <MenuButton fx:id="mbtnAreaCode" alignment="CENTER" layoutX="565.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: white; -fx-background-radius: 0; -fx-font-weight: bold;" text="Area Code" visible="false">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAreaCode" text="PRISTINA" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAreaCode" text="PEJA" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAreaCode" text="MITROVICA" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAreaCode" text="FERIZAJ" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAreaCode" text="PRIZREN" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAreaCode" text="GJILAN" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAreaCode" text="GJAKOVA" />
                      </items>
                   </MenuButton>
-                  <Label fx:id="labelStatus" alignment="CENTER" layoutX="564.0" layoutY="16.0" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: white;" text="Status" />
-                  <Label fx:id="labelAreaCode" alignment="CENTER" layoutX="564.0" layoutY="51.0" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: white;" text="Area Code" />
+                  <Label fx:id="labelStatus" alignment="CENTER" layoutX="564.0" layoutY="16.0" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: white; -fx-font-weight: bold;" text="Status" />
+                  <Label fx:id="labelAreaCode" alignment="CENTER" layoutX="564.0" layoutY="51.0" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: white; -fx-font-weight: bold;" text="Area Code" />
                </children>
                <effect>
                   <DropShadow />
@@ -73,8 +85,8 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Button layoutX="576.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="25.0" prefWidth="56.0" text="Edit" />
-            <Button layoutX="641.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="25.0" prefWidth="56.0" text="Save" />
+            <Button fx:id="btnEdit" layoutX="576.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="25.0" prefWidth="56.0" text="Edit" />
+            <Button fx:id="btnSave" disable="true" layoutX="641.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="25.0" prefWidth="56.0" text="Save" />
          </children>
          <effect>
             <DropShadow />
