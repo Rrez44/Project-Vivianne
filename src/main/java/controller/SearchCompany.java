@@ -68,7 +68,7 @@ public class SearchCompany extends BGmain implements Initializable {
                 totalHeight += companyPane.getPrefHeight() + paneQueryResult.getSpacing();
 
             } catch (IOException e) {
-                e.printStackTrace();
+                showError("Error displaying companies", e.getMessage());
             }
             paneQueryResult.setPrefHeight(totalHeight);
         }
