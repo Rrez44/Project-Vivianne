@@ -1,11 +1,42 @@
 package service;
 
+import model.CreateUser;
 import model.User;
 import model.dto.LoginUserDto;
+import model.dto.UserDto;
 import repository.UserRepository;
 
 public class UserService {
 
+    public static boolean signUP(UserDto user) {
+
+        String password = user.getPassword();
+        String confirmPassword = user.getConfirmPassword();
+
+        if(!password.equals(confirmPassword)) {
+            System.out.println("Passwords do not match");
+            return false;
+        }
+
+        String salt = PasswordHasher.generateSalt();
+        String hashedPassword= PasswordHasher.generateSaltedHash(user.getPassword(),salt);
+
+
+        CreateUser createUser = new CreateUser(
+                user.getId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getUsername(),
+                user.getEmail(),
+                salt,
+                hashedPassword,
+                user.getRole()
+        );
+
+        return UserRepository.insertUser(createUser);
+
+
+    }
 
     public static void insertSuperAdmin(){
 
@@ -18,24 +49,31 @@ public class UserService {
 
 
 
-
-
-
     public static boolean login(LoginUserDto loginData) {
         User user = UserRepository.getByUsername(loginData.getUsername());
+        System.out.println(user);
         System.out.println(loginData.getUsername());
+        System.out.println(loginData.getPassword());
         if (user == null) {
             return false;
         }
 
         String password = loginData.getPassword();
-//        System.out.println(loginData.getPassword());
-//        System.out.println(password);
+
         String salt = user.getSalt();
+        System.out.println(salt);
         String passwordHash = user.getHashedPassword();
 
         return PasswordHasher.compareSaltedHash(
                 password, salt, passwordHash
         );
+    }
+
+
+    public static String role(LoginUserDto userDto){
+
+        String userRole = UserRepository.getRole(userDto.getUsername());
+        return userRole;
+
     }
 }
