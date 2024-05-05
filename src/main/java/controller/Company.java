@@ -40,6 +40,9 @@ public class Company extends BGmain implements Initializable {
     private Button btnSave;
     @FXML
     private Button btnEdit;
+    @FXML
+    private Label labelCompanyId;
+
 
     private static model.Company company;
 
@@ -54,6 +57,7 @@ public class Company extends BGmain implements Initializable {
         txtCompanyName.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
         txtAreaDescription.setStyle("-fx-control-inner-background:  #2B2D42; -fx-text-fill: white;");
         mbtnAreaCode.setText(company.getAreaCode().name());
+        labelCompanyId.setText("ID: " +company.getCompanyId());
         updateStatusManagerView();
     }
 
@@ -108,12 +112,15 @@ public class Company extends BGmain implements Initializable {
     public void handleSave(ActionEvent actionEvent) {
         if(txtCompanyName.getText().trim().equals(company.getCompanyName()) && txtAreaDescription.getText().trim().equals(company.getDescription()) && labelAreaCode.getText().trim().equals(company.getAreaCode().name())){
             showError("Nothing has changed", "nothing to save here");
+            return;
         }
         if (txtCompanyName.getText().trim().isEmpty()){
             showError("Invalid company name", "The company name cannot be empty");
+            return;
         }
         if (txtAreaDescription.getText().trim().isEmpty()){
             showError("Invalid company description", "The company description cannot be empty");
+            return;
         }
         company.setCompanyName(txtCompanyName.getText().trim());
         company.setDescription(txtAreaDescription.getText().trim());

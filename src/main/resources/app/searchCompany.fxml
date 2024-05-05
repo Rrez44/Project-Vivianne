@@ -6,6 +6,8 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -23,19 +25,24 @@
             </Button>
             <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="39.0" layoutY="137.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="629.0" style="-fx-background-radius: 10px;">
               <content>
-                <VBox fx:id="paneQueryResult" fillWidth="false" minHeight="514" minWidth="629"  spacing="10.0">
-                     <children>
-                     </children>
+                <VBox fx:id="paneQueryResult" fillWidth="false" minHeight="514" minWidth="629" spacing="10.0">
                      <padding>
                         <Insets bottom="15.0" left="15.0" top="5.0" />
                      </padding>
                   </VBox>
               </content>
             </ScrollPane>
-            <Button fx:id="btnAddCompany" layoutX="621.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleAddCompany" prefHeight="28.0" prefWidth="42.0" style="-fx-background-color: white;" text="➕" textFill="#2b2d42">
+            <Button fx:id="btnAddCompany" layoutX="616.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleAddCompany" prefHeight="28.0" prefWidth="42.0" style="-fx-background-color: white;" textFill="#2b2d42">
                <font>
                   <Font size="18.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Label layoutX="508.0" layoutY="19.0" prefHeight="17.0" prefWidth="108.0" text="Add New Company" />
          </children>
