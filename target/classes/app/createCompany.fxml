@@ -9,8 +9,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
@@ -21,7 +19,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2B2D42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateCompany">
    <children>
-      <Pane layoutX="180.0" layoutY="20.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: black;">
+      <Pane fx:id="paneCreateCompany" layoutX="180.0" layoutY="20.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: black;">
          <children>
             <Polyline fill="WHITE" layoutX="148.0" layoutY="155.0" points="51.0, -102.19999694824219, 58.20001220703125, -95.5, 38.20001220703125, -95.5, 58.20001220703125, -95.5" stroke="WHITE" strokeType="OUTSIDE" />
             <Label alignment="CENTER" layoutX="326.0" layoutY="49.0" prefHeight="25.0" prefWidth="62.0" style="-fx-font-weight: bold;" text="Since:" textFill="WHITE">
