@@ -3,10 +3,14 @@ package controller;
 import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.dto.LoginUserDto;
 import repository.UserRepository;
 import service.Session;
@@ -39,7 +43,19 @@ public class LoginController extends BGmain {
             session.setUsername(txtUsername.getText());
             session.setRole(role);
 
-            Navigator.navigate(actionEvent, Navigator.HOME_PAGE);
+            Node node = (Node) actionEvent.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(
+                    Navigator.class.getResource(Navigator.HOME_PAGE)
+            );
+            try{
+                Scene scene = new Scene(loader.load());
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.show();
+            }catch (IOException ioe){
+                ioe.printStackTrace();
+            }
         }else{
             System.out.println("Login Failed");
         }

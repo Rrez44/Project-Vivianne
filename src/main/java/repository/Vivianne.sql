@@ -62,3 +62,10 @@ CREATE TABLE `company_buses` (
 
 ALTER TABLE `companies`
 ADD COLUMN `description` VARCHAR(500);
+
+ALTER TABLE users
+    MODIFY COLUMN salt VARCHAR(128);
+
+
+ALTER TABLE users
+    MODIFY COLUMN hashed_password VARCHAR(256);

@@ -8,6 +8,9 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class Dashboard extends BGmain {
 
     @FXML
@@ -18,11 +21,7 @@ public class Dashboard extends BGmain {
 
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        txtUsername.setText("hello");
 
-    }
 
     @FXML
     public void handleStatusMenuItemClicked(ActionEvent event) {
