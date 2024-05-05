@@ -1,5 +1,7 @@
 package app;
 
+import controller.BGmain;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -7,8 +9,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Stack;
 
 public class Navigator {
+
+    private static Stack<Scene> sceneStack = new Stack<>();
     public final static String LOGIN_PAGE = "login.fxml";
     public final static String HOME_PAGE = "dashboard.fxml";
     public final static String COMPANY_PAGE = "company.fxml";
@@ -23,10 +28,11 @@ public class Navigator {
         FXMLLoader loader = new FXMLLoader(
                 Navigator.class.getResource(page)
         );
-
-
         try{
             Scene scene = new Scene(loader.load());
+            if (stage.getScene() != null){
+            sceneStack.push(stage.getScene());
+            }
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
@@ -42,7 +48,17 @@ public class Navigator {
         navigate(stage, page);
     }
 
+    public static void goBack(ActionEvent ae) {
+        if (!sceneStack.isEmpty()) {
+            Scene previousScene = sceneStack.pop();
+            Node node = (Node) ae.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.setScene(previousScene);
+            stage.show();
+        }
+    }
 
-
-
+    public static Stack<Scene> getSceneStack() {
+        return sceneStack;
+    }
 }

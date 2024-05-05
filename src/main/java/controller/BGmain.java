@@ -2,11 +2,15 @@ package controller;
 
 import app.Navigator;
 import javafx.event.ActionEvent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import repository.CompanyRepository;
 
+import java.util.Stack;
+
 public abstract class BGmain {
+
     public void handleDashboard(ActionEvent event){
 //        System.out.println("Hello");
         Navigator.navigate(event,Navigator.HOME_PAGE);
@@ -41,6 +45,13 @@ public abstract class BGmain {
         alert.setHeaderText(header);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+    public void handleBack(ActionEvent actionEvent) {
+        if (Navigator.getSceneStack().isEmpty()){
+            showError(null, "Nowhere to go back to");
+            return;
+        }
+        Navigator.goBack(actionEvent);
     }
 
 
