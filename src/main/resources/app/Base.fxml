@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.TextField?>
 <Pane layoutY="20.0" prefHeight="662.0" prefWidth="180.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Dashboard">
    <children>
       <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleDashboard" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Dashboard" textFill="WHITE">
@@ -41,7 +42,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnBack" layoutX="133.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="36.0" prefWidth="34.0" style="-fx-background-color: transparent; -fx-background-image: images/arrow.png;">
+      <Button fx:id="btnBack" layoutX="133.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="36.0" prefWidth="34.0" style="-fx-background-color: transparent; -fx-background-image: url('Images/arrow.png')">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -52,6 +53,6 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <TextField fx:id="txtUsername" alignment="CENTER" editable="false" layoutY="78.0"  prefHeight="25.0" prefWidth="180.0" promptText="Emri" />
+      <TextField fx:id="txtUsername" alignment="CENTER" editable="false" layoutY="78.0" prefHeight="25.0" prefWidth="180.0" promptText="Emri" />
    </children>
 </Pane>
