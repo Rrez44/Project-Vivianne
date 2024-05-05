@@ -24,6 +24,9 @@ public class CompanyRepository
         String description = result.getString("description");
         return new Company(companyId,companyName,description,areaCode,activityStatus);
     }
+
+
+
     public static boolean createCompany(String companyName, AreaCode areaCode,String description){
         Company company = new Company(companyName,areaCode,description);
         String query = "INSERT INTO companies(company_id,company_name, area_code, company_status, description) values(?,?,?,?,?)";

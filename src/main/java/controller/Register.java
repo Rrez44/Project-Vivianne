@@ -9,7 +9,11 @@ import javafx.scene.layout.Pane;
 import model.dto.UserDto;
 import service.ClearForm;
 import service.GenerateEmail;
+import service.Session;
 import service.UserService;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class Register extends BGmain implements Identifiable{
 
@@ -62,7 +66,13 @@ public class Register extends BGmain implements Identifiable{
         email =GenerateEmail.email(txtFirstName.getText(),txtLastName.getText());
         String role = menuSelectPriority.getText();
         UserDto userDto = new UserDto(generateId(),txtFirstName.getText(),txtLastName.getText(),email,txtUsername.getText(),pwdPassword.getText(),pwdConfirmPassword.getText(), Role.valueOf(role));
-        UserService.signUP(userDto);
+        if(UserService.signUP(userDto)){
+            showConfirmation("Register","Register Successful");
+            ClearForm.clearFormInputs(paneRegister);
+
+        }else{
+            showError("Register","Error");
+        }
 
     }
 
@@ -72,6 +82,13 @@ public class Register extends BGmain implements Identifiable{
     }
 
     public void handleSuspend(ActionEvent event) {
+        System.out.println(Session.getInstance().getUserName());
+        System.out.println(Session.getInstance());
         ClearForm.clearFormInputs(paneRegister);
     }
+
+//    @Override
+//    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+//    }
 }

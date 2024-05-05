@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.UUID;
 
 public class UserRepository  {
@@ -33,7 +34,6 @@ public class UserRepository  {
             preparedStatement.setString(8,user.getRole().name());
             preparedStatement.execute();
             preparedStatement.close();
-            connection.close();
 
             return true;
 
@@ -58,7 +58,7 @@ public class UserRepository  {
         String salt = PasswordHasher.generateSalt();
         String password = "superAdmin";
         String hashPassword = PasswordHasher.generateSaltedHash(password,salt);
-        String role = "superAdmin";
+        String role = "SUPER_ADMIN";
 //        UUID id = UUID.randomUUID();
         String finalId =UUID.randomUUID().toString().replace("-", "");
 
@@ -76,7 +76,7 @@ public class UserRepository  {
             preparedStatement.setString(7,hashPassword);
             preparedStatement.setString(8,role);
             preparedStatement.execute();
-            preparedStatement.close();
+//            preparedStatement.close();
 
             return true;
         } catch (SQLException e) {
@@ -92,7 +92,7 @@ public class UserRepository  {
 
 
     public static User getByUsername(String username){
-        String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
+        String query = "SELECT * FROM users WHERE username = ?";
         Connection connection = DatabaseUtil.getConnection();
         try{
             PreparedStatement pst = connection.prepareStatement(query);
@@ -101,6 +101,8 @@ public class UserRepository  {
             if(result.next()){
                 return getFromResultSet(result);
             }
+
+
             return null;
         }catch (SQLException e){
             System.out.println(e.getMessage());
@@ -108,21 +110,42 @@ public class UserRepository  {
         }
     }
 
+    public static String getRole(String username){
+        String query = "SELECT role FROM users WHERE username = ?";
+        Connection connection = DatabaseUtil.getConnection();
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, username);
+            ResultSet result = pst.executeQuery();
+            if(result.next()){
+                return result.getString(1);
+            }
+
+
+            return null;
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+
     private static User getFromResultSet(ResultSet result){
         try{
-            int id = result.getInt("id");
-            String firstName = result.getString("firstName");
-            String lastName = result.getString("lastName");
-            String username = result.getString("userName");
+            String user_id = result.getString("user_id");
+            String firstName = result.getString("first_name");
+            String lastName = result.getString("last_name");
+            String username = result.getString("username");
             String email = result.getString("email");
             String salt = result.getString("salt");
-            String passwordHash = result.getString("passwordHash");
+            String passwordHash = result.getString("hashed_password");
             Role role = Role.valueOf(result.getString("role"));
 
             return new User(
-                    id, firstName, lastName,username, email, salt, passwordHash,role
+                    user_id, firstName, lastName,username, email, salt, passwordHash,role
             );
         }catch (Exception e){
+            System.out.println(e.getMessage())  ;
             return null;
         }
     }
