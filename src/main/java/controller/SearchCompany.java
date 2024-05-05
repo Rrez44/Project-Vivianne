@@ -61,7 +61,7 @@ public class SearchCompany extends BGmain implements Initializable {
 
                 paneQueryResult.getChildren().add(companyPane);
             } catch (IOException e) {
-                e.printStackTrace();
+                showError("Error displaying companies", e.getMessage());
             }
         }
     }

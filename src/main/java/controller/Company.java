@@ -1,13 +1,15 @@
 package controller;
 
+import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 
-public class Company extends BGmain{
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Company extends BGmain implements Initializable {
 
     @FXML
     private TextField txtCompanyName;
@@ -20,23 +22,29 @@ public class Company extends BGmain{
 
     @FXML
     private DatePicker dateSearchDate;
-
     @FXML
-    private MenuButton menuStatus;
-
+    private Label labelStatus;
+    
     @FXML
-    private MenuButton menuAreaCode;
+    private Label labelAreaCode;
+    
+    @FXML
+    private MenuButton mbtnAreaCode;
 
+    private static model.Company company;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtCompanyName.setText(company.getCompanyName());
+        txtAreaDescription.setText(company.getDescription());
+        labelStatus.setText(company.getCompanyStatus().name());
+        labelAreaCode.setText(company.getAreaCode().toString());
+    }
 
 
     public void handleManageBuses(ActionEvent event) {
 
     }
-
-
-    public void handleStatus(ActionEvent actionEvent) {
-    }
-
     public void handleAddBus(ActionEvent actionEvent) {
     }
 
@@ -48,4 +56,16 @@ public class Company extends BGmain{
 
     public void handleFilter(ActionEvent actionEvent) {
     }
+
+    public void handleEdit(ActionEvent actionEvent) {
+    }
+
+    public void handleSave(ActionEvent actionEvent) {
+    }
+
+    public static void passCompany(model.Company cmp){
+        // this method servers to pass the company from the search company scene
+        company = cmp;
+    }
+
 }

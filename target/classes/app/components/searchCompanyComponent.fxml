@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane layoutX="14.0" layoutY="14.0" prefHeight="72.0" prefWidth="598.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 5px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ComponentCompanySearch">
+<Pane layoutX="14.0" layoutY="14.0" minHeight="72.0" prefHeight="72.0" prefWidth="598.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 5px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ComponentCompanySearch">
     <children>
         <Label fx:id="txtCompanyName" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="427.0" text="Company Name" textFill="WHITE">
             <font>

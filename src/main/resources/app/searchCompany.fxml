@@ -21,11 +21,10 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <ScrollPane hbarPolicy="NEVER" layoutX="39.0" layoutY="129.0" prefHeight="514.0" prefWidth="629.0" style="-fx-background-radius: 10px;">
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="39.0" layoutY="137.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="629.0" style="-fx-background-radius: 10px;">
               <content>
-                <VBox fx:id="paneQueryResult" fillWidth="false" minHeight="0.0" minWidth="0.0" prefHeight="512.0" prefWidth="627.0" spacing="10.0">
+                <VBox fx:id="paneQueryResult" fillWidth="false" minHeight="514" minWidth="629"  spacing="10.0">
                      <children>
-                        <!--COMPONENTS GO HERE-->
                      </children>
                      <padding>
                         <Insets bottom="15.0" left="15.0" top="5.0" />
