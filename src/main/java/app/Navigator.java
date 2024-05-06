@@ -6,6 +6,7 @@ import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,14 +33,6 @@ public class Navigator {
         try{
             Scene scene = new Scene(loader.load());
 
-
-//            Scene currentScene = stage.getScene();
-//            if (stage.getScene() !/= null) {
-//                if (!sceneStack.isEmpty()) {
-//                System.out.println("Scene:" + scene);
-//                    sceneStack.push(stage.getScene());
-//                }
-//            }
             if(firstNav){
                 System.out.println("First:"+scene);
                 firstNav = false;
@@ -51,6 +44,9 @@ public class Navigator {
                     sceneStack.push(stage.getScene());
                 }
             }
+
+            //qita nese din bone replace me relative path per me morr path bus1.png per icon se spom bon
+            stage.getIcons().add(new Image("C:\\Users\\albin\\OneDrive\\Desktop\\Project-Vivianne\\src\\main\\resources\\Images\\bus1.png"));
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();

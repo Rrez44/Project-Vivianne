@@ -8,10 +8,8 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -19,7 +17,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2B2D42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateCompany">
    <children>
-      <Pane fx:id="paneCreateCompany" layoutX="180.0" layoutY="20.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: black;">
+      <Pane fx:id="paneCreateCompany" layoutX="179.0" layoutY="23.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;">
          <children>
             <Polyline fill="WHITE" layoutX="148.0" layoutY="155.0" points="51.0, -102.19999694824219, 58.20001220703125, -95.5, 38.20001220703125, -95.5, 58.20001220703125, -95.5" stroke="WHITE" strokeType="OUTSIDE" />
             <Label alignment="CENTER" layoutX="326.0" layoutY="49.0" prefHeight="25.0" prefWidth="62.0" style="-fx-font-weight: bold;" text="Since:" textFill="WHITE">
@@ -37,26 +35,14 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2b2d42" height="91.0" layoutX="32.0" layoutY="29.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 10px; -fx-arc-width: 10px;" width="642.0" />
-            <Text fill="#fffefe" layoutX="224.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 35px;" text="Create Company" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2b2d42" height="64.0" layoutX="124.0" layoutY="29.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 10px; -fx-arc-width: 10px;" width="448.0" />
+            <Text fill="#fffefe" layoutX="232.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30px; -fx-font-weight: bold;" text="Create Company" />
             <Label layoutX="32.0" layoutY="187.0" />
-            <Label layoutX="32.0" layoutY="214.0" prefHeight="25.0" prefWidth="180.0" text="Company Name:">
+            <TextField id="txtCompanyName" fx:id="txtCompanyName" layoutX="134.0" layoutY="164.0" prefHeight="47.0" prefWidth="448.0" promptText="Company Name">
                <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <TextField id="txtCompanyName" fx:id="txtCompanyName" layoutX="172.0" layoutY="214.0" />
-            <Label layoutX="32.0" layoutY="278.0" prefHeight="21.0" prefWidth="155.0" text="Description:">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="32.0" layoutY="402.0" prefHeight="21.0" prefWidth="155.0" text="Area Code: ">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <MenuButton id="mbtnAreaCode" fx:id="mbtnAreaCode" layoutX="172.0" layoutY="400.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #2b2d42;" text="PRISTINA" textFill="WHITE">
+                  <Font size="14.0" />
+               </font></TextField>
+            <MenuButton id="mbtnAreaCode" fx:id="mbtnAreaCode" layoutX="134.0" layoutY="388.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="448.0" style="-fx-background-color: #2b2d42; -fx-font-weight: bold;" text="PRISTINA" textFill="WHITE">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handleAreaCodeMenuItemClicked" text="PRISTINA" />
                 <MenuItem mnemonicParsing="false" onAction="#handleAreaCodeMenuItemClicked" text="FERIZAJ" />
@@ -69,31 +55,12 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </MenuButton>
-            <Button id="btnDiscard" layoutX="179.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleDiscard" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #8388a4;" text="Discard">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-               <effect>
-                  <InnerShadow>
-                     <color>
-                        <Color red="0.410526305437088" green="0.40444445610046387" blue="0.40444445610046387" />
-                     </color>
-                  </InnerShadow>
-               </effect>
-            </Button>
-            <Button id="btnCreate" layoutX="422.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleCreate" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #1DB954;" text="Create">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-               <effect>
-                  <InnerShadow>
-                     <color>
-                        <Color red="0.08421052992343903" green="0.378947377204895" blue="0.08912280946969986" />
-                     </color>
-                  </InnerShadow>
-               </effect>
-            </Button>
-            <TextArea id="txtDescription" fx:id="txtDescription" layoutX="172.0" layoutY="274.0" prefHeight="91.0" prefWidth="345.0" />
+            <TextArea id="txtDescription" fx:id="txtDescription" layoutX="134.0" layoutY="249.0" prefHeight="91.0" prefWidth="448.0" promptText="Description">
+               <font>
+                  <Font size="14.0" />
+               </font></TextArea>
+            <Button layoutX="135.0" layoutY="492.0" mnemonicParsing="false" onAction="#handleDiscard" prefHeight="47.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Discard" textFill="WHITE" />
+            <Button layoutX="433.0" layoutY="492.0" mnemonicParsing="false" onAction="#handleCreate" prefHeight="47.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Save" textFill="WHITE" />
          </children>
          <effect>
             <DropShadow />

@@ -7,10 +7,7 @@ import model.CreateUser;
 import model.User;
 import service.PasswordHasher;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -39,11 +36,8 @@ public class UserRepository  {
 
         }catch (SQLException e){
             System.out.println(e.getMessage());
-//            System.out.println("Registering User Failed");
             return false;
         }
-
-//        return false;
     }
 
 
@@ -59,7 +53,7 @@ public class UserRepository  {
         String password = "superAdmin";
         String hashPassword = PasswordHasher.generateSaltedHash(password,salt);
         String role = "SUPER_ADMIN";
-//        UUID id = UUID.randomUUID();
+
         String finalId =UUID.randomUUID().toString().replace("-", "");
 
 
@@ -126,6 +120,27 @@ public class UserRepository  {
         }catch (SQLException e){
             System.out.println(e.getMessage());
             return null;
+        }
+    }
+
+    public static int checkDuplicate(String firstName,String lastName){
+        String query = "SELECT count(user_id) as user_counted FROM users WHERE first_name = ? AND last_name = ?";
+        Connection connection = DatabaseUtil.getConnection();
+        try{
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, firstName);
+            ps.setString(2, lastName);
+            ResultSet result = ps.executeQuery();
+            if(result.next()) {
+                int hasDuplicate = result.getInt("user_counted");
+
+                return  hasDuplicate;
+
+           }
+
+            return 0;
+        }catch (SQLException e){
+            return 0;
         }
     }
 

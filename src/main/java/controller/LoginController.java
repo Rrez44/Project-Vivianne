@@ -46,28 +46,12 @@ public class LoginController extends BGmain {
     public void Login(Event actionEvent) throws IOException {
         LoginUserDto loginUserDto = new LoginUserDto(txtUsername.getText(), txtPassword.getText());
         boolean checkLogin = UserService.login(loginUserDto);
-
         if (checkLogin) {
             Session session = Session.getInstance();
             String role =UserService.role(loginUserDto);
             session.setUsername(txtUsername.getText());
             session.setRole(role);
             Navigator.navigate(actionEvent,Navigator.HOME_PAGE);
-
-//            Node node = (Node) actionEvent.getSource();
-//            Stage stage = (Stage) node.getScene().getWindow();
-//
-//            FXMLLoader loader = new FXMLLoader(
-//                    Navigator.class.getResource(Navigator.HOME_PAGE)
-//            );
-//            try{
-//                Scene scene = new Scene(loader.load());
-//                stage.setScene(scene);
-//                stage.setResizable(false);
-//                stage.show();
-//            }catch (IOException ioe){
-//                ioe.printStackTrace();
-//            }
         }else{
             showError("Login", "Login Failed Wrong Username or Password");
         }

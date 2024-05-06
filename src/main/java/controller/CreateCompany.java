@@ -33,13 +33,15 @@ public class CreateCompany extends BGmain  implements Identifiable {
         mbtnAreaCode.setText(item.getText());
     }
 
-    @FXML
-    private void handleDiscard(ActionEvent event) {
-        txtCompanyName.setText("");
-        txtDescription.setText("");
-        mbtnAreaCode.setText("PRISTINA");
-    }
+//    @FXML
+//    private void handleDiscard(ActionEvent event) {
+//        txtCompanyName.setText("");
+//        txtDescription.setText("");
+//
+//        mbtnAreaCode.setText("PRISTINA");
+//    }
 
+    @FXML
     private void handleDiscard() {
         ClearForm.clearFormInputs(paneCreateCompany);
 //        txtCompanyName.setText("");

@@ -23,21 +23,17 @@
          <children>
             <Pane layoutX="15.0" layoutY="14.0" prefHeight="199.0" prefWidth="682.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10px;">
                <children>
-                  <TextField fx:id="txtCompanyName" editable="false" layoutX="14.0" layoutY="13.0" prefHeight="37.0" prefWidth="535.0" promptText="Company Name" style="-fx-background-radius: 0;">
+                  <TextField fx:id="txtCompanyName" editable="false" layoutX="14.0" layoutY="13.0" prefHeight="37.0" prefWidth="535.0" promptText="Company Name" style="-fx-background-radius: 0; -fx-font-weight: bold;">
                      <font>
-                        <Font name="Calibri Light" size="30.0" />
-                     </font></TextField>
-                  <TextArea fx:id="txtAreaDescription" editable="false" layoutX="14.0" layoutY="69.0" prefHeight="110.0" prefWidth="535.0" promptText="Description" style="-fx-background-radius: 0; -fx-background-color: #2B2D42; -fx-border-color: #2B2D42; -fx-border-width: 0px; -fx-background-insets: 0px; -fx-border-insets: 0px; -fx-background-position: 0px; -fx-border-image-insets: 0px; -fx-padding: 0px;">
-                     <font>
-                        <Font size="15.0" />
+                        <Font name="Arial" size="24.0" />
                      </font>
                      <effect>
-                        <InnerShadow choke="0.57" radius="9.43" width="18.72">
-                           <color>
-                              <Color red="0.16862745583057404" green="0.1764705926179886" blue="0.25882354378700256" />
-                           </color>
-                        </InnerShadow>
-                     </effect></TextArea>
+                        <DropShadow />
+                     </effect></TextField>
+                  <TextArea fx:id="txtAreaDescription" editable="false" layoutX="14.0" layoutY="69.0" prefHeight="110.0" prefWidth="535.0" promptText="Description" style="-fx-background-radius: 0; -fx-background-color: #2B2D42; -fx-border-color: white; -fx-border-width: 0px; -fx-background-insets: 0px; -fx-border-insets: 0px; -fx-background-position: 0px; -fx-border-image-insets: 0px; -fx-padding: 0px;">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font></TextArea>
                   <Button fx:id="btnManageBuses" layoutX="565.0" layoutY="85.0" mnemonicParsing="false" onAction="#handleManageBuses" prefHeight="25.0" prefWidth="103.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-font-weight: bold;" text="Manage Buses">
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -106,11 +102,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btnEdit" layoutX="576.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="25.0" prefWidth="56.0" text="Edit">
+            <Button fx:id="btnEdit" layoutX="576.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8); -fx-font-weight: bold;" text="Edit">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="btnSave" disable="true" layoutX="641.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="25.0" prefWidth="56.0" text="Save">
+            <Button fx:id="btnSave" disable="true" layoutX="641.0" layoutY="222.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="25.0" prefWidth="56.0" style="-fx-font-weight: bold; -fx-background-radius: 0; -fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8);" text="Save">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

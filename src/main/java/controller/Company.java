@@ -8,6 +8,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import repository.CompanyRepository;
 import service.Session;
 
@@ -51,12 +52,15 @@ public class Company extends BGmain implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtCompanyName.setStyle("-fx-font-weight: bold;-fx-background-color: #2b2d42;-fx-text-fill: white; -fx-background-radius: 0px");
+        txtCompanyName.setEffect(new DropShadow());
         txtCompanyName.setText(company.getCompanyName());
+
+        txtAreaDescription.setStyle("-fx-focus-color: transparent; -fx-text-box-border: transparent; -fx-font-weight: bold;-fx-control-inner-background:#2b2d42; -fx-border-insets: 0px;-fx-background-radius: 0px ");
+        txtAreaDescription.setEffect(new DropShadow());
         txtAreaDescription.setText(company.getDescription());
         labelStatus.setText(company.getCompanyStatus().name());
         labelAreaCode.setText(company.getAreaCode().name());
-        txtCompanyName.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
-        txtAreaDescription.setStyle("-fx-control-inner-background:  #2B2D42; -fx-text-fill: white;");
         mbtnAreaCode.setText(company.getAreaCode().name());
         labelCompanyId.setText("ID: " +company.getCompanyId());
         updateStatusManagerView();
@@ -87,23 +91,35 @@ public class Company extends BGmain implements Initializable {
             case 0:
                 txtCompanyName.setEditable(true);
                 txtAreaDescription.setEditable(true);
+
                 txtCompanyName.setStyle("-fx-background-color: white; -fx-text-fill: black;");
+
                 txtAreaDescription.setStyle("-fx-background-color: white; -fx-text-fill: black;");
                 labelAreaCode.setVisible(false);
+
                 mbtnAreaCode.setVisible(true);
                 btnSave.setDisable(false);
+                btnSave.setStyle("-fx-background-color: #1DB954; -fx-text-fill: white; -fx-font-weight: bold;-fx-background-radius: 0");
                 editing = 1;
                 btnEdit.setText("Cancel");
                 break;
             case 1:
                 txtCompanyName.setEditable(false);
                 txtAreaDescription.setEditable(false);
-                txtCompanyName.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
-                txtAreaDescription.setStyle("-fx-control-inner-background:  #2B2D42; -fx-text-fill: white;");
+                txtCompanyName.setFocusTraversable(false);
+
+                txtCompanyName.setStyle("-fx-font-weight: bold;-fx-background-color: #2b2d42;-fx-text-fill: white; -fx-background-radius: 0px");
+
+//                txtCompanyName.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
+                txtAreaDescription.setStyle("-fx-focus-color: transparent; -fx-text-box-border: transparent; -fx-font-weight: bold;-fx-control-inner-background:#2b2d42; -fx-border-insets: 0px;-fx-background-radius: 0px ");
+
+//                txtAreaDescription.setStyle("-fx-control-inner-background:  #2B2D42; -fx-text-fill: white;");
                 labelAreaCode.setVisible(true);
                 mbtnAreaCode.setVisible(false);
                 btnSave.setDisable(true);
                 btnEdit.setText("Edit");
+                btnSave.setStyle("-fx-background-color: white; -fx-text-fill: black;-fx-border-color: rgba(211,211,211,0.8)");
+
                 editing = 0;
         }
     }

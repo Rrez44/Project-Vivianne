@@ -35,6 +35,10 @@ public class UserService {
 
         return UserRepository.insertUser(createUser);
 
+    }
+
+    public static int checkDuplicate(String firstName,String lastName) {
+        return UserRepository.checkDuplicate(firstName, lastName);
 
     }
 
