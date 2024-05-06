@@ -21,8 +21,8 @@ public class Navigator {
     public final static String ADD_BUS_PAGE = "addBus.fxml";
     public final static String ADD_BUS_LINE = "RegisterLine.fxml";
     public final static String REGISTER_PAGE = "register.fxml";
-
     public final static String CREATE_COMPAMY = "createCompany.fxml";
+    public static boolean firstNav = true;
 
     public static void navigate(Stage stage, String page){
         FXMLLoader loader = new FXMLLoader(
@@ -30,14 +30,26 @@ public class Navigator {
         );
         try{
             Scene scene = new Scene(loader.load());
-            if (stage.getScene() != null){
-            sceneStack.push(stage.getScene());
-            }
+//            if (stage.getScene() != null){
+//            if(!sceneStack.isEmpty()){
+//            sceneStack.push(stage.getScene());
+//            }
+
             stage.setScene(scene);
+            if(firstNav){
+                System.out.println("First:"+scene);
+                firstNav = false;
+            }else{
+                System.out.println("Second:"+scene);
+                sceneStack.push(stage.getScene());
+            }
             stage.setResizable(false);
             stage.show();
         }catch (IOException ioe){
             ioe.printStackTrace();
+        }
+        for(int i=0;i<sceneStack.size() ;i++){
+            System.out.println("All Scenes"+sceneStack.get(i));
         }
 
     }
@@ -56,6 +68,8 @@ public class Navigator {
             stage.setScene(previousScene);
             stage.show();
         }
+
+
     }
 
     public static Stack<Scene> getSceneStack() {

@@ -51,9 +51,6 @@ public class UserService {
 
     public static boolean login(LoginUserDto loginData) {
         User user = UserRepository.getByUsername(loginData.getUsername());
-        System.out.println(user);
-        System.out.println(loginData.getUsername());
-        System.out.println(loginData.getPassword());
         if (user == null) {
             return false;
         }
@@ -61,7 +58,6 @@ public class UserService {
         String password = loginData.getPassword();
 
         String salt = user.getSalt();
-        System.out.println(salt);
         String passwordHash = user.getHashedPassword();
 
         return PasswordHasher.compareSaltedHash(

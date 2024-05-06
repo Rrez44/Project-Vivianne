@@ -5,6 +5,8 @@ import INTERFACES.Identifiable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import model.dto.UserDto;
 import service.ClearForm;
@@ -82,13 +84,7 @@ public class Register extends BGmain implements Identifiable{
     }
 
     public void handleSuspend(ActionEvent event) {
-        System.out.println(Session.getInstance().getUserName());
-        System.out.println(Session.getInstance());
-        ClearForm.clearFormInputs(paneRegister);
     }
 
-//    @Override
-//    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//    }
 }

@@ -28,7 +28,6 @@ public class Dashboard extends BGmain {
         MenuItem menuItem = (MenuItem) event.getSource();
         menuStatus.setText(menuItem.getText());
 
-//        txtEmri.setText(Session.getInstance().getUserName());
     }
 
 

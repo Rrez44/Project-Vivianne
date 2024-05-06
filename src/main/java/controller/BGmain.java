@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import repository.CompanyRepository;
+import service.Session;
 
 import java.util.Stack;
 
@@ -29,7 +30,9 @@ public abstract class BGmain {
         Navigator.navigate(event,Navigator.REGISTER_PAGE);
     }
 
-    public void handleLogOut(ActionEvent event){
+    public void handleLogOut(ActionEvent event)
+    {
+        Session.getInstance().logOut();
         Navigator.navigate(event,Navigator.LOGIN_PAGE);
     }
     protected void showError(String header, String message) {
