@@ -32,6 +32,8 @@ public abstract class BGmain {
 
     public void handleLogOut(ActionEvent event)
     {
+        Navigator.firstNav = true;
+        Navigator.loginNav = true;
         Session.getInstance().logOut();
         Navigator.navigate(event,Navigator.LOGIN_PAGE);
     }

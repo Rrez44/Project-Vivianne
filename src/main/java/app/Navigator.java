@@ -23,6 +23,7 @@ public class Navigator {
     public final static String REGISTER_PAGE = "register.fxml";
     public final static String CREATE_COMPAMY = "createCompany.fxml";
     public static boolean firstNav = true;
+    public static boolean loginNav =true;
 
     public static void navigate(Stage stage, String page){
         FXMLLoader loader = new FXMLLoader(
@@ -30,19 +31,27 @@ public class Navigator {
         );
         try{
             Scene scene = new Scene(loader.load());
-//            if (stage.getScene() != null){
-//            if(!sceneStack.isEmpty()){
-//            sceneStack.push(stage.getScene());
-//            }
 
-            stage.setScene(scene);
+
+//            Scene currentScene = stage.getScene();
+//            if (stage.getScene() !/= null) {
+//                if (!sceneStack.isEmpty()) {
+//                System.out.println("Scene:" + scene);
+//                    sceneStack.push(stage.getScene());
+//                }
+//            }
             if(firstNav){
                 System.out.println("First:"+scene);
                 firstNav = false;
             }else{
                 System.out.println("Second:"+scene);
-                sceneStack.push(stage.getScene());
+                if (loginNav) {
+                    loginNav =false;
+                }else {
+                    sceneStack.push(stage.getScene());
+                }
             }
+            stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
         }catch (IOException ioe){

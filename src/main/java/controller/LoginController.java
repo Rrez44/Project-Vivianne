@@ -56,7 +56,7 @@ public class LoginController extends BGmain {
 
 //            Node node = (Node) actionEvent.getSource();
 //            Stage stage = (Stage) node.getScene().getWindow();
-
+//
 //            FXMLLoader loader = new FXMLLoader(
 //                    Navigator.class.getResource(Navigator.HOME_PAGE)
 //            );
