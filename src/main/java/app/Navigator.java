@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Stack;
 
 public class Navigator {
@@ -46,7 +47,7 @@ public class Navigator {
             }
 
             //qita nese din bone replace me relative path per me morr path bus1.png per icon se spom bon
-            stage.getIcons().add(new Image("C:\\Users\\albin\\OneDrive\\Desktop\\Project-Vivianne\\src\\main\\resources\\Images\\bus1.png"));
+            stage.getIcons().add(new Image(Objects.requireNonNull(Navigator.class.getResourceAsStream("/Images/icon.png"))));
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
