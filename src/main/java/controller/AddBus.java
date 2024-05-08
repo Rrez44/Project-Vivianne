@@ -3,6 +3,7 @@ package controller;
 import ENUMS.ActivityStatus;
 import ENUMS.BusType;
 import ENUMS.ComfortRating;
+import INTERFACES.StarManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -15,7 +16,7 @@ import model.Company;
 import org.w3c.dom.events.MouseEvent;
 import repository.BusRepository;
 
-public class AddBus extends BGmain {
+public class AddBus extends BGmain  implements StarManager {
 
     @FXML
     private SVGPath svgStar1;

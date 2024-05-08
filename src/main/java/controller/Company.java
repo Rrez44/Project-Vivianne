@@ -4,13 +4,11 @@ import ENUMS.ActivityStatus;
 import ENUMS.AreaCode;
 import app.Navigator;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import repository.CompanyRepository;
-import service.Session;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -68,6 +66,8 @@ public class Company extends BGmain implements Initializable {
 
 
     public void handleManageBuses(ActionEvent event) {
+        SearchBus.passCompany(company);
+        Navigator.navigate(event, Navigator.SEARCH_BUS);
 
     }
     public void handleAddBus(ActionEvent actionEvent) {
