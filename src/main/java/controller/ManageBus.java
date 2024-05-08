@@ -4,6 +4,7 @@ import ENUMS.ActivityStatus;
 import ENUMS.ComfortRating;
 import INTERFACES.StarManager;
 import app.Navigator;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -57,6 +58,7 @@ public class ManageBus extends BGmain implements StarManager, Initializable {
 
             if(i<num){
                 svgStars[i].setFill(Color.GOLD);
+                System.out.println(i);
                 cRating = num;
             }else{
                 svgStars[i].setFill(Color.WHITE);
@@ -74,16 +76,13 @@ public class ManageBus extends BGmain implements StarManager, Initializable {
     public void handleFillStar3(ActionEvent event) {
         changeColors(3);
     }
-
     public void handleFillStar4(ActionEvent event) {
         changeColors(4);
     }
-
-
-
     public void handleFillStar5(ActionEvent event) {
         changeColors(5);
     }
+
     public void handleUpdate(ActionEvent actionEvent) {
         if (passedBus.getComfortRating().getRating() == cRating && passedBus.getActivityStatus().name().equals(txtCurrentStatus.getText())){
             showError("Nothing has changed", "not wasting an update if youre not gonna change anything!");
@@ -120,10 +119,14 @@ public class ManageBus extends BGmain implements StarManager, Initializable {
         txtModel.setText(passedBus.getBusModel());
         mbtnBusType.setText(passedBus.getBusType().name());
         System.out.println(svgStar1 == null);
-        changeColors(passedBus.getComfortRating().getRating());
         txtCurrentStatus.setText(passedBus.getActivityStatus().name());
         txtPassengerCapacity.setText(String.valueOf(passedBus.getPassangerCapacity()));
         updateActivity();
+
+        Platform.runLater(() -> {
+            changeColors(passedBus.getComfortRating().getRating());
+        });
+
     }
     private void updateActivity(){
         if(txtCurrentStatus.getText().equals("ACTIVE")){
