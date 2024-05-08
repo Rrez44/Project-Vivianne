@@ -4,6 +4,7 @@ import ENUMS.ActivityStatus;
 import ENUMS.BusType;
 import ENUMS.ComfortRating;
 import INTERFACES.StarManager;
+import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -126,11 +127,7 @@ public class AddBus extends BGmain  implements StarManager {
         return vin.length() == 17 && vin.matches("^[A-HJ-NPR-Z0-9]+$");
     }
     public void handleDiscard(ActionEvent actionEvent) {
-        txtVin.setText("");
-        txtModel.setText("");
-        txtPassengerCapacity.setText("");
-        changeColors(0);
-        mbtnBusType.setText("Bus Type");
+        Navigator.goBack(actionEvent);
     }
 
     public void handleBusType(ActionEvent actionEvent) {
