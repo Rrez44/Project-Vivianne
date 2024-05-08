@@ -26,6 +26,16 @@ public class Bus implements Identifiable {
         this.comfortRating = comfortRating;
     }
 
+    public Bus(String busId, String busModel, String vin, int passangerCapacity, BusType busType, ActivityStatus activityStatus, ComfortRating comfortRating) {
+        this.busId = busId;
+        this.busModel = busModel;
+        this.vin = vin;
+        this.passangerCapacity = passangerCapacity;
+        this.busType = busType;
+        this.activityStatus = activityStatus;
+        this.comfortRating = comfortRating;
+    }
+
     public String getBusId() {
         return busId;
     }

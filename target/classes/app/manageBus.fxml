@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2b2d42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageBus">
+   <children>
+      <Pane fx:id="paneAddBus" layoutX="180" layoutY="20" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+         <children>
+            <Button layoutX="287.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleFillStar5" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: white;" />
+            <Button layoutX="125.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar2" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" />
+            <TextField fx:id="txtVin" disable="true" editable="false" layoutX="71.0" layoutY="107.0" prefHeight="56.0" prefWidth="564.0" promptText="VIN Number">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="txtModel" disable="true" editable="false" layoutX="71.0" layoutY="191.0" prefHeight="56.0" prefWidth="564.0" promptText="Model Number">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="txtPassengerCapacity" disable="true" editable="false" layoutX="71.0" layoutY="275.0" prefHeight="56.0" prefWidth="300.0" promptText="Passenger Capacity">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <MenuButton fx:id="mbtnBusType" disable="true" layoutX="441.0" layoutY="275.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="194.0" style="-fx-background-color: white; -fx-border-color: rgba(211,211,211);" text="Bus Type">
+              <items>
+              </items>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </MenuButton>
+            <SVGPath fx:id="svgStar2" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="127.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
+            <Button layoutX="179.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar3" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" />
+            <SVGPath fx:id="svgStar3" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="181.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
+            <Button layoutX="233.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar4" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" />
+            <SVGPath fx:id="svgStar4" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="235.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
+            <SVGPath fx:id="svgStar5" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="289.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
+            <Button fx:id="btnButtonStar1" layoutX="71.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar1" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" text="Hi" />
+            <SVGPath fx:id="svgStar1" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="73.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
+            <Button id="btnDiscard" layoutX="179.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleDiscard" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #8388a4;" text="Discard">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.410526305437088" green="0.40444445610046387" blue="0.40444445610046387" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>
+            <Button id="btnCreate" layoutX="422.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #1DB954;" text="Update">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.08421052992343903" green="0.378947377204895" blue="0.08912280946969986" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>            <Pane layoutX="68.0" layoutY="14.0" prefHeight="63.0" prefWidth="564.0" style="-fx-background-color: #2b2d42;">
+               <children>
+                  <Label alignment="CENTER" layoutX="153.0" layoutY="5.0" prefHeight="54.0" prefWidth="258.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="MANAGE BUS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button fx:id="btnManageActivity" layoutX="554.0" layoutY="373.0" mnemonicParsing="false" onAction="#manageActivity" prefHeight="33.0" prefWidth="81.0" text="Activity" />
+            <Label fx:id="txtCurrentStatus" layoutX="441.0" layoutY="381.0" prefHeight="15.0" prefWidth="106.0" text="Current status" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Pane>
+      <fx:include source="Base.fxml" />
+
+   </children>
+</AnchorPane>

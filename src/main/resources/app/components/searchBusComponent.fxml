@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane layoutX="14.0" layoutY="14.0" minHeight="72.0" prefHeight="85.0" prefWidth="613.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 5px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ComponentBusSearch">
+    <children>
+        <Label fx:id="txtBusModel" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="427.0" style="-fx-font-weight: bold;" text="Bus Model" textFill="WHITE">
+            <font>
+                <Font size="23.0" />
+            </font>
+        </Label>
+        <Label fx:id="txtVin" layoutX="14.0" layoutY="50.0" prefHeight="17.0" prefWidth="207.0" text="VIN" textFill="WHITE" />
+        <Label fx:id="txtComfortRating" layoutX="254.0" layoutY="50.0" prefHeight="17.0" prefWidth="102.0" text="Comfort Rating" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font></Label>
+        <Button layoutX="482.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleManage" prefHeight="51.0" prefWidth="102.0" style="-fx-text-fill: white; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Manage">
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Label fx:id="txtActivity" layoutX="402.0" layoutY="49.0" style="-fx-font-weight: bold;" text="Activity" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+    </children>
+</Pane>
