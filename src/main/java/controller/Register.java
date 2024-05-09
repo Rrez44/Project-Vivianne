@@ -92,6 +92,7 @@ public class Register extends BGmain implements Identifiable{
     }
 
     public void handleSuspend(ActionEvent event) {
+        ClearForm.clearFormInputs(paneRegister);
     }
 
 
