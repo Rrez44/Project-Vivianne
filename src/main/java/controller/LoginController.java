@@ -22,6 +22,7 @@ import service.UserService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController extends BGmain {
@@ -44,16 +45,21 @@ public class LoginController extends BGmain {
 
 
     public void Login(Event actionEvent) throws IOException {
-        LoginUserDto loginUserDto = new LoginUserDto(txtUsername.getText(), txtPassword.getText());
-        boolean checkLogin = UserService.login(loginUserDto);
-        if (checkLogin) {
-            Session session = Session.getInstance();
-            String role =UserService.role(loginUserDto);
-            session.setUsername(txtUsername.getText());
-            session.setRole(role);
-            Navigator.navigate(actionEvent,Navigator.HOME_PAGE);
-        }else{
-            showError("Login", "Login Failed Wrong Username or Password");
+        try {
+            LoginUserDto loginUserDto = new LoginUserDto(txtUsername.getText(), txtPassword.getText());
+            boolean checkLogin = UserService.login(loginUserDto);
+            if (checkLogin) {
+                Session session = Session.getInstance();
+                String role =UserService.role(loginUserDto);
+                session.setUsername(txtUsername.getText());
+                session.setRole(role);
+                Navigator.navigate(actionEvent,Navigator.HOME_PAGE);
+            }else{
+                showError("Login", "Login Failed Wrong Username or Password");
+            }
+        }
+        catch (RuntimeException re){
+            showError(null, re.getMessage());
         }
 
     }
