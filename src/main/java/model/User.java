@@ -15,7 +15,7 @@ public class User implements Identifiable {
     private Role role;
 
 
-    public User(String id, String firstName, String lastName, String username, String email, String salt, String hashedPassword, Role role) {
+    public User(String firstName, String lastName, String username, String email, String salt, String hashedPassword, Role role) {
         this.id = generateId();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -26,6 +26,16 @@ public class User implements Identifiable {
         this.role = role;
     }
 
+        public User(String id, String firstName, String lastName, String username, String email, String salt, String hashedPassword, Role role) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.email = email;
+        this.salt = salt;
+        this.hashedPassword = hashedPassword;
+        this.role = role;
+    }
 
     public String getId() {
         return id;
