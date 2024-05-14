@@ -25,6 +25,7 @@ public class Navigator {
     public final static String CREATE_COMPAMY = "createCompany.fxml";
     public final static String SEARCH_BUS = "searchBus.fxml";
     public final static String MANAGE_BUS = "manageBus.fxml";
+    public final static String STATISTICS = "statistics.fxml";
     public static boolean firstNav = true;
     public static boolean loginNav =true;
 
