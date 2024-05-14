@@ -14,6 +14,9 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </Button>
       <ImageView fitHeight="36.0" fitWidth="42.0" layoutX="17.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="64.0" fitWidth="69.0" layoutX="56.0" layoutY="10.0">
@@ -25,21 +28,35 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </Button>
       <Button fx:id="btnReport" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="274.0" mnemonicParsing="false" onAction="#handleReport" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold; -fx-text-alignment: left;" text="Report" textFill="WHITE">
+      <Button fx:id="btnReport" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="274.0" mnemonicParsing="false" onAction="#handleReport" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold; -fx-text-alignment: left;" text="Companies" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </Button>
       <Button fx:id="btnRegister" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="338.0" mnemonicParsing="false" onAction="#handleRegister" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Register" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </Button>
       <Button fx:id="btnLogOut" alignment="BASELINE_LEFT" layoutX="38.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Log Out" textFill="WHITE">
+      <Button fx:id="btnLogOut" alignment="BASELINE_LEFT" layoutX="38.0" layoutY="466.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Log Out" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
       </Button>
       <Button fx:id="btnBack" layoutX="133.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="36.0" prefWidth="34.0" style="-fx-background-color: transparent; -fx-background-image: url('Images/arrow.png')">
          <cursor>
@@ -53,9 +70,18 @@
             </ImageView>
          </graphic></Button>
       <Label fx:id="txtUsername" alignment="CENTER" layoutX="55.0" layoutY="78.0" prefHeight="17.0" prefWidth="69.0" text="Emri" textFill="WHITE">
+      <Label fx:id="txtName" alignment="CENTER" layoutX="55.0" layoutY="78.0" prefHeight="17.0" prefWidth="69.0" text="Emri" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
+      <Button fx:id="btnStatistics" alignment="BASELINE_LEFT" layoutX="38.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleStatistics" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Statistics" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Button>
    </children>
 </Pane>
