@@ -38,6 +38,20 @@ public class BusLine implements Identifiable {
         this.passengerCapacity = this.busModel.getPassangerCapacity();
     }
 
+        public BusLine(String lineId, Status status, LocalDateTime startTime, LocalDateTime endTime, User creator, LocalDateTime creationTime, String startLocation, String endLocation, Company companyAssignedId, Bus bus) {
+        this.lineId = lineId;
+        this.status = status;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.creator = creator;
+        this.creationTime = creationTime;
+        this.companyAssigned = companyAssignedId;
+        this.busModel = bus;
+        this.stops = new HashMap<>();
+        this.startLocation = startLocation;
+        this.endLocation = endLocation;
+    }
+
 
     public String getLineId() {
         return lineId;
