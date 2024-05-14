@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2B2D42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Statistics">
+   <children>
+      <Pane layoutX="180.0" layoutY="20.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: black;">
+         <children>
+            <Polyline fill="WHITE" layoutX="148.0" layoutY="155.0" points="51.0, -102.19999694824219, 58.20001220703125, -95.5, 38.20001220703125, -95.5, 58.20001220703125, -95.5" stroke="WHITE" strokeType="OUTSIDE" />
+            <Label alignment="CENTER" layoutX="326.0" layoutY="49.0" prefHeight="25.0" prefWidth="62.0" style="-fx-font-weight: bold;" text="Since:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="494.0" layoutY="49.0" prefHeight="25.0" prefWidth="62.0" style="-fx-font-weight: bold;" text="To:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="189.0" layoutY="97.0" prefHeight="25.0" prefWidth="106.0" style="-fx-font-weight: bold;" text="Company:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCompanyName" focusTraversable="false" layoutX="34.0" layoutY="26.0" prefHeight="25.0" prefWidth="175.0" promptText="Company Name">
+               <contextMenu>
+                  <ContextMenu fx:id="suggestionMenu">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu></TextField>
+            <MenuButton fx:id="mbtnReportType" layoutX="277.0" layoutY="26.0" mnemonicParsing="false" text="Report Type">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleReportType" text="Line-Report" />
+              </items>
+            </MenuButton>
+            <AnchorPane fx:id="paneReportDisplay" layoutX="34.0" layoutY="97.0" prefHeight="535.0" prefWidth="640.0">
+               <children>
+                  <BarChart fx:id="barChart" layoutX="70.0" layoutY="68.0" visible="false">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children></AnchorPane>
+            <Button layoutX="388.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleCreateReport" text="Create Report" />
+         </children>
+         <effect>
+            <DropShadow />
+         </effect></Pane>
+      <fx:include source="Base.fxml" />
+   </children>
+</AnchorPane>
