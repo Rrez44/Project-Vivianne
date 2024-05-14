@@ -103,7 +103,22 @@ public class UserRepository  {
             return null;
         }
     }
-
+    public static User getById(String Id){
+    String query = "SELECT * FROM users WHERE user_id = ?";
+    Connection connection = DatabaseUtil.getConnection();
+    try{
+        PreparedStatement pst = connection.prepareStatement(query);
+        pst.setString(1, Id);
+        ResultSet result = pst.executeQuery();
+        if(result.next()){
+            return getFromResultSet(result);
+        }
+        return null;
+    }catch (SQLException e){
+        System.out.println(e.getMessage());
+        return null;
+        }
+    }
     public static String getRole(String username){
         String query = "SELECT role FROM users WHERE username = ?";
         Connection connection = DatabaseUtil.getConnection();
