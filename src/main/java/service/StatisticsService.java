@@ -1,5 +1,6 @@
 package service;
 
+import ENUMS.Status;
 import model.BusLine;
 import repository.BusLineRepository;
 
@@ -12,12 +13,12 @@ import java.util.stream.Collectors;
 
 public class StatisticsService {
 
-    public static Map<LocalDate, Long> getLinesCompletedLastMonth(String companyName) {
+    public static Map<LocalDate, Long> getLinesCompletedLastMonth(String companyName, int weeks) {
         List<BusLine> busLines = BusLineRepository.getLineData(companyName);
-        LocalDateTime oneMonthAgo = LocalDateTime.now().minusMonths(1);
+        LocalDateTime queryDistance = LocalDateTime.now().minusWeeks(weeks);
 
         List<BusLine> filteredLines = busLines.stream()
-                .filter(line -> line.getEndTime().isAfter(oneMonthAgo) && "COMPLETED".equals(line.getStatus().name()))
+                .filter(line -> line.getEndTime().isAfter(queryDistance) && "COMPLETED".equals(line.getStatus().name()))
                 .toList();
 
         Map<LocalDate, Long> linesCompletedByDay = new HashMap<>();
@@ -27,5 +28,17 @@ public class StatisticsService {
         });
 
         return linesCompletedByDay;
+    }
+    public static Map<Status, Integer> getSuccesPie(String companyName,int weeks){
+        List<BusLine> busLines = BusLineRepository.getLineData(companyName);
+        LocalDateTime queryDistance = LocalDateTime.now().minusMonths(weeks);
+        List<BusLine> filteredLines = busLines.stream()
+                .filter(busLine -> busLine.getEndTime().isAfter(queryDistance))
+                .toList();
+        Map<Status, Integer> lineRatio = new HashMap<>();
+        filteredLines.forEach(busLine ->{
+            lineRatio.merge(busLine.getStatus(), 1, Integer::sum);
+        });
+        return lineRatio;
     }
 }
