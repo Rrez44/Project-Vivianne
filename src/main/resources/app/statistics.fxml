@@ -3,6 +3,7 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
@@ -10,8 +11,10 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.text.Font?>
 
@@ -43,14 +46,14 @@
                     </items>
                   </ContextMenu>
                </contextMenu></TextField>
-            <MenuButton fx:id="mbtnReportType" layoutX="277.0" layoutY="26.0" mnemonicParsing="false" text="Report Type">
+            <MenuButton fx:id="mbtnReportType" layoutX="242.0" layoutY="26.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" scaleShape="false" text="Report Type">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handleReportType" text="Line-Report" />
               </items>
             </MenuButton>
-            <AnchorPane fx:id="paneReportDisplay" layoutX="34.0" layoutY="97.0" prefHeight="535.0" prefWidth="640.0">
+            <AnchorPane fx:id="paneLineReportDisplay" layoutX="34.0" layoutY="97.0" prefHeight="535.0" prefWidth="640.0" visible="false">
                <children>
-                  <BarChart fx:id="barChart" layoutX="70.0" layoutY="68.0" visible="false">
+                  <BarChart fx:id="barChart" layoutY="-1.0" prefHeight="290.0" prefWidth="409.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -58,8 +61,88 @@
                       <NumberAxis side="LEFT" />
                     </yAxis>
                   </BarChart>
+                  <PieChart fx:id="pieLineReport" layoutX="281.0" layoutY="253.0" prefHeight="282.0" prefWidth="356.0" />
+                  <VBox layoutX="24.0" layoutY="318.0" prefHeight="175.0" prefWidth="248.0" style="-fx-background-color: #2B2D42; -fx-background-radius: 10px; -fx-padding: 10px;">
+                     <children>
+                        <Label fx:id="txtLineReportTotalLines" prefHeight="39.0" prefWidth="258.0" text="Total Lines" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <Glow level="0.26" />
+                           </effect>
+                        </Label>
+                        <Label fx:id="txtLineReportCompletedLines" layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="248.0" text="Completed Lines" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <Glow level="0.26" />
+                           </effect>
+                        </Label>
+                        <Label fx:id="txtLineReportActiveLines" layoutX="10.0" layoutY="49.0" prefHeight="39.0" prefWidth="248.0" text="Active Lines" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <Glow level="0.26" />
+                           </effect>
+                        </Label>
+                        <Label fx:id="txtLineReportFailedLines" layoutX="10.0" layoutY="88.0" prefHeight="39.0" prefWidth="248.0" text="Failed Lines" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <effect>
+                              <Glow level="0.26" />
+                           </effect>
+                        </Label>
+                     </children>
+                     <effect>
+                        <DropShadow radius="17.0175" width="49.07" />
+                     </effect>
+                  </VBox>
+                  <VBox layoutX="423.0" layoutY="14.0" prefHeight="216.0" prefWidth="202.0" style="-fx-background-color: #2B2D42; -fx-background-radius: 10px; -fx-padding: 10px;">
+                     <children>
+                        <Label fx:id="txtLineReportPeak" prefHeight="65.0" prefWidth="170.0" text="Peak" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <effect>
+                              <Glow level="0.26" />
+                           </effect>
+                        </Label>
+                        <Label fx:id="txtLineReportMin" layoutX="10.0" layoutY="10.0" prefHeight="64.0" prefWidth="170.0" text="Min" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <effect>
+                              <Glow level="0.26" />
+                           </effect>
+                        </Label>
+                        <Label fx:id="txtLineReportAverage" layoutX="10.0" layoutY="49.0" prefHeight="66.0" prefWidth="170.0" text="Average" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <effect>
+                              <Glow level="0.26" />
+                           </effect>
+                        </Label>
+                     </children>
+                     <effect>
+                        <DropShadow radius="17.0175" width="49.07" />
+                     </effect>
+                  </VBox>
                </children></AnchorPane>
-            <Button layoutX="388.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleCreateReport" text="Create Report" />
+            <Button layoutX="480.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleCreateReport" scaleShape="false" text="Create Report" />
+            <MenuButton fx:id="mbtnTimeDistance" layoutX="357.0" layoutY="26.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" scaleShape="false" text="Time Distance">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleTimeDistance" text="Weekly" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTimeDistance" text="Bi-Weekly" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTimeDistance" text="Monthly" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTimeDistance" text="Yearly" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTimeDistance" text="All-Time" />
+               </items>
+            </MenuButton>
          </children>
          <effect>
             <DropShadow />
