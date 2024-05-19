@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane  style="-fx-background-color: #2B2D42;"  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateLine">
+    <fx:include source="Base.fxml" />
+
+    <children>
+      <ScrollPane fx:id="anchorPaneRegisterLine" layoutX="179.0" layoutY="23.0" prefHeight="662.0" prefWidth="706.0">
+        <content>
+          <AnchorPane fx:id="paneGetAllAvailableBus" minHeight="0.0" minWidth="0.0" prefHeight="662.0" prefWidth="706.0" />
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
