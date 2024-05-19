@@ -44,6 +44,7 @@ public abstract class BGmain {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
     protected void showConfirmation(String header, String message) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Confirmation");
