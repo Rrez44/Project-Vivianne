@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -14,7 +16,7 @@
 <AnchorPane fx:id="paneMain" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2B2D42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterLine">
    <children>
       <fx:include source="Base.fxml" />
-      <Pane layoutX="180.0" layoutY="20.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+      <Pane layoutX="179.0" layoutY="23.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
          <effect>
             <DropShadow />
          </effect>
@@ -28,28 +30,12 @@
                   </Label>
                </children>
             </StackPane>
-            <TextField layoutX="148.0" layoutY="89.0" prefHeight="40.0" prefWidth="149.0" promptText="From" style="-fx-background-radius: 0;">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextField>
-            <TextField layoutX="409.0" layoutY="89.0" prefHeight="40.0" prefWidth="149.0" promptText="To" style="-fx-background-radius: 0;" />
             <Label alignment="CENTER" layoutX="312.0" layoutY="86.0" prefHeight="56.0" prefWidth="83.0" text="➡">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <DatePicker layoutX="148.0" layoutY="157.0" prefHeight="40.0" prefWidth="410.0" promptText="Date" style="-fx-background-radius: 0;" />
-            <TextField layoutX="148.0" layoutY="221.0" prefHeight="40.0" prefWidth="149.0" promptText="From" style="-fx-background-radius: 0;">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextField>
-            <TextField layoutX="409.0" layoutY="221.0" prefHeight="40.0" prefWidth="149.0" promptText="From" style="-fx-background-radius: 0;">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </TextField>
+            <DatePicker fx:id="dateDate" layoutX="149.0" layoutY="155.0" prefHeight="40.0" prefWidth="410.0" promptText="Date" style="-fx-background-radius: 0;" />
             <ScrollPane layoutX="149.0" layoutY="289.0" prefHeight="232.0" prefWidth="410.0">
                <content>
                   <AnchorPane fx:id="paneAddStop" minHeight="0.0" minWidth="0.0" prefHeight="99.0" prefWidth="176.0">
@@ -65,8 +51,36 @@
                   </AnchorPane>
                </content>
             </ScrollPane>
-            <Button fx:id="btnSuspend" layoutX="149.0" layoutY="533.0" mnemonicParsing="false" onAction="#handleSuspend" prefHeight="49.0" prefWidth="164.0" style="-fx-background-radius: 0; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Suspend" textFill="WHITE" />
-            <Button fx:id="btnAddBus" layoutX="405.0" layoutY="533.0" mnemonicParsing="false" onAction="#handleAddBus" prefHeight="49.0" prefWidth="158.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Add Bus" textFill="WHITE" />
+            <Button fx:id="btnClear" layoutX="149.0" layoutY="533.0" mnemonicParsing="false" onAction="#handleClear" prefHeight="49.0" prefWidth="164.0" style="-fx-background-radius: 0; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Suspend" textFill="WHITE" />
+            <Button fx:id="btnAddLine" layoutX="405.0" layoutY="533.0" mnemonicParsing="false" onAction="#handleAddLine" prefHeight="49.0" prefWidth="158.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Add Line" textFill="WHITE" />
+            <MenuButton fx:id="menuCityFrom" layoutX="148.0" layoutY="89.0" mnemonicParsing="false" onAction="#handleSeelctCityFrom" prefHeight="40.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8);" text="From">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="PRISTINA" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="GJILAN" />
+                 <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="PEJA" />
+                 <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="PRIZREN" />
+                 <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="GJAKOVA" />
+                 <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="MITROVICA" />
+              </items>
+            </MenuButton>
+            <MenuButton fx:id="menuCityTo" layoutX="409.0" layoutY="89.0" mnemonicParsing="false" onAction="#handleSelectCityTo" prefHeight="40.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8);" text="To">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="PRISTINA" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="GJILAN" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="PEJA" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="PRIZREN" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="GJAKOVA" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="MITROVICA" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="menuSelectHoursFrom" alignment="CENTER" contentDisplay="BOTTOM" layoutX="149.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleSelectHourFrom" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8); -fx-font-weight: bold;" text="Hours">
+              <items>
+                
+              </items>
+            </MenuButton>
+            <MenuButton fx:id="menuSelectMinutesFrom" alignment="CENTER" layoutX="222.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleSelectMinutesFrom" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8); -fx-font-weight: bold;" text="Minutes" />
+            <MenuButton fx:id="menuSelectMinutesTo" alignment="CENTER" contentDisplay="BOTTOM" disable="true" layoutX="478.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleSelectMinutesTo" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8); -fx-font-weight: bold;" text="Minutes" />
+            <MenuButton fx:id="menuSelectHoursTo" alignment="CENTER" contentDisplay="BOTTOM" disable="true" layoutX="395.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleSelectHoursTo" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8); -fx-font-weight: bold;" text="Hours" />
          </children>
       </Pane>
    </children>

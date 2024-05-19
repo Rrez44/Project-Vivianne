@@ -16,7 +16,7 @@ public class User implements Identifiable {
 
 
     public User(String firstName, String lastName, String username, String email, String salt, String hashedPassword, Role role) {
-        this.id = generateId();
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

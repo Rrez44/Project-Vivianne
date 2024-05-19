@@ -51,6 +51,11 @@ public class UserService {
         }
     }
 
+    public static User getUser(String username){
+        return UserRepository.getByUsername(username);
+
+    }
+
 
 
     public static boolean login(LoginUserDto loginData) {

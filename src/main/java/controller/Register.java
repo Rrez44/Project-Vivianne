@@ -2,20 +2,15 @@ package controller;
 
 import ENUMS.Role;
 import INTERFACES.Identifiable;
+import app.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import model.dto.UserDto;
 import service.ClearForm;
 import service.GenerateEmail;
-import service.Session;
 import service.UserService;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class Register extends BGmain implements Identifiable{
 
@@ -61,7 +56,7 @@ public class Register extends BGmain implements Identifiable{
         txtFirstName.textProperty().addListener((observable, oldValue, newValue) -> createEmail());
         txtLastName.textProperty().addListener((observable, oldValue, newValue) -> createEmail());
 
-        if(Session.getInstance().getRole().equals("SUPER_ADMIN")){
+        if(Session.getUser().getRole().equals("SUPER_ADMIN")){
         }else{
             menuSelectPriority.getItems().remove(0);
             menuSelectPriority.getItems().remove(0);
@@ -74,7 +69,7 @@ public class Register extends BGmain implements Identifiable{
     public void handleSignUp(ActionEvent event) {
         email = GenerateEmail.email(txtFirstName.getText(), txtLastName.getText(), UserService.checkDuplicate(txtFirstName.getText(),txtLastName.getText()));
         String role = menuSelectPriority.getText();
-        System.out.println(Session.getInstance().getRole());
+//        System.out.println(Session.getInstance().getRole());
         UserDto userDto = new UserDto(generateId(),txtFirstName.getText(),txtLastName.getText(),email,txtUsername.getText(),pwdPassword.getText(),pwdConfirmPassword.getText(), Role.valueOf(role));
         if(UserService.signUP(userDto)){
             showConfirmation("Register","Register Successful");
