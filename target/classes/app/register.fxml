@@ -21,6 +21,11 @@
             <DropShadow />
          </effect>
          <children>
+<!--            <ImageView fitHeight="662.0" fitWidth="706.0" layoutX="2.0" layoutY="-2.0" style="-fx-opacity: 0.1;">-->
+<!--               <image>-->
+<!--                  <Image url="@../Images/DALLE_2024-05-08_20.02.52_-_A_top-down_view_of_a_black_and_white_background_featuring_a_network_of_winding_roads_with_tiny_little_buses_traveling_along_them._The_scene_is_entirel-ezgif.com-webp-to-png-converter.png" />-->
+<!--               </image>-->
+<!--            </ImageView>-->
             <TextField fx:id="txtUsername" layoutX="155.0" layoutY="129.0" prefHeight="42.0" prefWidth="396.0" promptText="Username" style="-fx-background-radius: 0;">
                <font>
                   <Font size="14.0" />
