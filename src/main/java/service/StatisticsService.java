@@ -1,11 +1,14 @@
 package service;
 
+import ENUMS.AreaCode;
 import ENUMS.Status;
+import model.AreaCodeStatistic;
 import model.BusLine;
 import repository.BusLineRepository;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +34,7 @@ public class StatisticsService {
     }
     public static Map<Status, Integer> getSuccesPie(String companyName,int weeks){
         List<BusLine> busLines = BusLineRepository.getLineData(companyName);
-        LocalDateTime queryDistance = LocalDateTime.now().minusMonths(weeks);
+        LocalDateTime queryDistance = LocalDateTime.now().minusWeeks(weeks);
         List<BusLine> filteredLines = busLines.stream()
                 .filter(busLine -> busLine.getEndTime().isAfter(queryDistance))
                 .toList();
@@ -41,4 +44,13 @@ public class StatisticsService {
         });
         return lineRatio;
     }
+
+    public static List<AreaCodeStatistic> getAreaCodeStatisticList(int weeks){
+        List<AreaCodeStatistic> acsl = new ArrayList<>();
+        for (int i = 1; i < 8;i++){
+            acsl.add(BusLineRepository.getAreaCodeStatistics(AreaCode.fromCode(i), weeks));
+        }
+        return acsl;
+    }
 }
+
