@@ -59,7 +59,7 @@ public class CompanyRepository
             while (results.next()){
                 companies.add(getCompanyFromResult(results));
             }
-            stmt.close();
+//            stmt.close();
             return companies;
         }
         catch (SQLException se ){
@@ -82,7 +82,7 @@ public class CompanyRepository
             if (companies.isEmpty()){
                 throw new RuntimeException("No companies found with this name");
             }
-            stmt.close();
+//            stmt.close();
             return companies;
 
         }
@@ -128,6 +128,26 @@ public class CompanyRepository
             throw new RuntimeException(se.getMessage());
         }
     }
+    public static Company getCompanyFromname(String name){
+        Connection conn = DatabaseUtil.getConnection();
+        String query = "Select * from companies where company_name = ?";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, name.trim());
+            stmt.execute();
+            ResultSet result = stmt.getResultSet();
+
+            if (!result.next()) {
+                throw new RuntimeException("No company found with name: " + name);
+            }
+            return getCompanyFromResult(result);
+
+        }
+        catch (SQLException se){
+            throw new RuntimeException(se.getMessage());
+        }
+    }
+
     public static boolean updateCompany(Company c) throws RuntimeException{
         Connection conn = DatabaseUtil.getConnection();
         String query = "UPDATE companies SET company_name = ?, area_code = ?, company_status = ?, description = ? WHERE company_id = ?";
@@ -139,13 +159,14 @@ public class CompanyRepository
             stmt.setString(4,c.getDescription());
             stmt.setString(5,c.getCompanyId());
             stmt.execute();
-            stmt.close();
+//            stmt.close();
             return true;
         }
         catch (SQLException se){
             throw new RuntimeException("Error updating company: " + se.getMessage());
         }
     }
+
 
 
 

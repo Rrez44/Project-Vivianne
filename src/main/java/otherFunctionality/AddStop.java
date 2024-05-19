@@ -12,9 +12,10 @@ public class AddStop {
     private static double inputLayoutY =60;
     private final double spacing =30;
     private static double lableLayoutX=70;
+    private TextField textField;
 
     public void addStop(String inputName, String labelName, AnchorPane addComponentsPane){
-        TextField textField = createNewTextField(inputName);
+        textField = createNewTextField(inputName);
         Label label = createNewLabel(labelName);
 
         if(!inputName.equals("")){
@@ -57,12 +58,17 @@ public class AddStop {
         labelCounter++;
     }
 
+    public static void restartForm(){
+        labelCounter=1;
+        inputLayoutY =60;
+    }
 
 
 
+    public String getTextField(){
+        return textField.getText();
 
-
-
+    }
 
 
 

@@ -17,6 +17,8 @@ import model.Company;
 import org.w3c.dom.events.MouseEvent;
 import repository.BusRepository;
 
+import java.util.UUID;
+
 public class AddBus extends BGmain  implements StarManager {
 
     @FXML
@@ -112,7 +114,7 @@ public class AddBus extends BGmain  implements StarManager {
         }
 
         try {
-            BusRepository.createBus(txtModel.getText().trim(), txtVin.getText(), Integer.parseInt(txtPassengerCapacity.getText().trim()), BusType.valueOf(mbtnBusType.getText()), ActivityStatus.ACTIVE, ComfortRating.fromInt(cRating), passedCompany);
+            BusRepository.createBus(String.valueOf(UUID.randomUUID()),txtModel.getText().trim(), txtVin.getText(), Integer.parseInt(txtPassengerCapacity.getText().trim()), BusType.valueOf(mbtnBusType.getText()), ActivityStatus.ACTIVE, ComfortRating.fromInt(cRating), passedCompany);
         }
         catch (RuntimeException re){
             showError("Error creating new bus", re.getMessage());

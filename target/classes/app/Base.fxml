@@ -52,7 +52,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Label fx:id="txtUsername" alignment="CENTER" layoutX="55.0" layoutY="78.0" prefHeight="17.0" prefWidth="69.0" text="Emri" textFill="WHITE">
+      <Label fx:id="txtName" alignment="CENTER" layoutX="55.0" layoutY="78.0" prefHeight="17.0" prefWidth="69.0" text="Emri" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

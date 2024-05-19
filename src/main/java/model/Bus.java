@@ -16,17 +16,7 @@ public class Bus implements Identifiable {
     private ActivityStatus activityStatus;
     private ComfortRating comfortRating;
 
-    public Bus(String busModel, String vin, int passangerCapacity, BusType busType, ActivityStatus activityStatus, ComfortRating comfortRating) {
-        this.busId = generateId();
-        this.busModel = busModel;
-        this.vin = vin;
-        this.passangerCapacity = passangerCapacity;
-        this.busType = busType;
-        this.activityStatus = activityStatus;
-        this.comfortRating = comfortRating;
-    }
-
-    public Bus(String busId, String busModel, String vin, int passangerCapacity, BusType busType, ActivityStatus activityStatus, ComfortRating comfortRating) {
+    public Bus(String busId,String busModel, String vin, int passangerCapacity, BusType busType, ActivityStatus activityStatus, ComfortRating comfortRating) {
         this.busId = busId;
         this.busModel = busModel;
         this.vin = vin;
@@ -35,6 +25,8 @@ public class Bus implements Identifiable {
         this.activityStatus = activityStatus;
         this.comfortRating = comfortRating;
     }
+
+
 
     public String getBusId() {
         return busId;

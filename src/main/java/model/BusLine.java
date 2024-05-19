@@ -2,11 +2,17 @@ package model;
 
 import ENUMS.Status;
 import INTERFACES.Identifiable;
+import app.Session;
+import javafx.application.Platform;
+import repository.BusRepository;
+import repository.CompanyRepository;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
+
+import static controller.RegisterLine.getBusLine;
 
 public class BusLine implements Identifiable {
     private String lineId;
@@ -22,17 +28,29 @@ public class BusLine implements Identifiable {
     private String startLocation;
     private String endLocation;
 
-
-    public BusLine(LocalDateTime startTime, LocalDateTime endTime, User creator, String startLocation, String endLocation, Company company, Bus bus) {
-        this.lineId = generateId();
-        this.status = Status.ACTIVE;
+    public BusLine(String lineId,Status status,LocalDateTime startTime, LocalDateTime endTime, User creator,LocalDateTime creationTime,HashMap<String,LocalDateTime> stops ,String startLocation, String endLocation, Company company, Bus bus) {
+        this.lineId = lineId;
+        this.status = status;
         this.startTime = startTime;
         this.endTime = endTime;
         this.creator = creator;
-        this.creationTime = LocalDateTime.now();
-        this.stops = new HashMap<>();
+        this.creationTime = creationTime;
+        this.stops =stops;
         this.startLocation = startLocation;
         this.endLocation = endLocation;
+        this.companyAssigned = company;
+        this.busModel = bus;
+        this.passengerCapacity =(this.busModel ==null)? 0: this.busModel.getPassangerCapacity();
+    }
+
+
+
+
+
+
+    public BusLine(Bus bus,Company company) {
+        this.lineId = generateId();
+        this.status = Status.ACTIVE;
         this.companyAssigned = company;
         this.busModel = bus;
         this.passengerCapacity = this.busModel.getPassangerCapacity();
@@ -51,6 +69,7 @@ public class BusLine implements Identifiable {
         this.startLocation = startLocation;
         this.endLocation = endLocation;
     }
+
 
 
     public String getLineId() {
@@ -104,5 +123,21 @@ public class BusLine implements Identifiable {
         stops.put(coordinates,stopTime);
     }
 
-
+    @Override
+    public String toString() {
+        return "BusLine{" +
+                "lineId='" + lineId + '\'' +
+                ", status=" + status +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", creator='" + creator + '\'' +
+                ", creationTime=" + creationTime +
+                ", stops=" + stops +
+                ", companyAssigned=" + companyAssigned +
+                ", busModel=" + busModel +
+                ", passengerCapacity=" + passengerCapacity +
+                ", startLocation='" + startLocation + '\'' +
+                ", endLocation='" + endLocation + '\'' +
+                '}';
+    }
 }

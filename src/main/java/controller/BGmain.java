@@ -1,14 +1,10 @@
 package controller;
 
 import app.Navigator;
+import app.Session;
 import javafx.event.ActionEvent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import repository.CompanyRepository;
-import service.Session;
-
-import java.util.Stack;
 
 public abstract class BGmain {
 
@@ -38,7 +34,7 @@ public abstract class BGmain {
     {
         Navigator.firstNav = true;
         Navigator.loginNav = true;
-        Session.getInstance().logOut();
+        Session.setUser(null);
         Navigator.navigate(event,Navigator.LOGIN_PAGE);
     }
     protected void showError(String header, String message) {
