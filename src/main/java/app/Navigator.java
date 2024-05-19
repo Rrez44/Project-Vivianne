@@ -26,6 +26,8 @@ public class Navigator {
     public final static String SEARCH_BUS = "searchBus.fxml";
     public final static String MANAGE_BUS = "manageBus.fxml";
     public final static String STATISTICS = "statistics.fxml";
+    public final static String CREATE_LINE = "CreateLine.fxml";
+
     public static boolean firstNav = true;
     public static boolean loginNav =true;
 
@@ -37,10 +39,8 @@ public class Navigator {
             Scene scene = new Scene(loader.load());
 
             if(firstNav){
-                System.out.println("First:"+scene);
                 firstNav = false;
             }else{
-                System.out.println("Second:"+scene);
                 if (loginNav) {
                     loginNav =false;
                 }else {
@@ -57,7 +57,6 @@ public class Navigator {
             ioe.printStackTrace();
         }
         for(int i=0;i<sceneStack.size() ;i++){
-            System.out.println("All Scenes"+sceneStack.get(i));
         }
 
     }
