@@ -4,16 +4,10 @@ import ENUMS.ActivityStatus;
 import ENUMS.AreaCode;
 import ENUMS.Status;
 import databaseConnection.DatabaseUtil;
-import model.Bus;
-import model.BusLine;
-import model.Company;
-import model.User;
+import model.*;
 import service.DateFormatter;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -100,5 +94,32 @@ public class BusLineRepository {
         Company company_assigned_id = CompanyRepository.getCompanyFromId(result.getString("company_assigned_id"));
         Bus bus = BusRepository.getBusById("bus_model_id");
         return new BusLine(line_id,status,start_time,end_time,creator,creation_time,start_location,end_location,company_assigned_id,bus);
+    }
+
+    public static AreaCodeStatistic getAreaCodeStatistics(AreaCode startLocation, int weeks) {
+        AreaCodeStatistic statistic = null;
+        String query = "{CALL GetStatisticsByLocationAndTime(?, ?)}";
+        Connection conn = DatabaseUtil.getConnection();
+        try (
+
+                PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, startLocation.name());
+            stmt.setInt(2, weeks);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                String totalLines = rs.getString("totalLines");
+                String successRate = rs.getString("successRate");
+                String hoursTraveled = rs.getString("hoursTraveled");
+
+                statistic = new AreaCodeStatistic(startLocation, totalLines, successRate, hoursTraveled);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+
+        return statistic;
     }
 }
