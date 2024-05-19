@@ -49,6 +49,7 @@
             <MenuButton fx:id="mbtnReportType" layoutX="242.0" layoutY="26.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" scaleShape="false" text="Report Type">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handleReportType" text="Line-Report" />
+                <MenuItem mnemonicParsing="false" onAction="#handleReportType" text="Area-Report" />
               </items>
             </MenuButton>
             <AnchorPane fx:id="paneLineReportDisplay" layoutX="34.0" layoutY="97.0" prefHeight="535.0" prefWidth="640.0" visible="false">
@@ -143,6 +144,26 @@
                   <MenuItem mnemonicParsing="false" onAction="#handleTimeDistance" text="All-Time" />
                </items>
             </MenuButton>
+            <AnchorPane fx:id="paneAreaReportDisplay" layoutX="33.0" layoutY="97.0" prefHeight="535.0" prefWidth="640.0" visible="false">
+               <children>
+                  <VBox fx:id="vboxAreaReportContainer" layoutX="15.0" layoutY="34.0" prefHeight="488.0" prefWidth="612.0" spacing="5.0" />
+                  <Label layoutX="158.0" layoutY="5.0" text="Total Lines">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="302.0" layoutY="5.0" text="Success Rate">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="445.0" layoutY="3.0" text="Total Hours Traveled">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
          <effect>
             <DropShadow />
