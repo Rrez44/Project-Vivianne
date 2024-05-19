@@ -5,17 +5,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Window;
+import model.AreaCodeStatistic;
 import service.CompanyService;
 import service.StatisticsService;
 
+import java.io.IOException;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -48,7 +53,12 @@ public class Statistics extends BGmain {
     @FXML
     private AnchorPane paneLineReportDisplay;
     @FXML
+    private AnchorPane paneAreaReportDisplay;
+    @FXML
     private MenuButton mbtnTimeDistance;
+    @FXML
+    private VBox vboxAreaReportContainer;
+
 
     private List<model.Company> companies = CompanyService.loadAllCompanies();
     private ObservableList<String> suggestions = FXCollections.observableArrayList();
@@ -88,7 +98,14 @@ public class Statistics extends BGmain {
             showError("Please select a company" , null);
             return;
         }
-        showLineReport();
+        if (previousPane != null)
+            previousPane.setVisible(false);
+        switch (mbtnReportType.getText()){
+            case "Line-Report": showLineReport(); previousPane = paneLineReportDisplay; return;
+            case "Area-Report": showAreaReport(getTimeDistance()); previousPane = paneAreaReportDisplay; return;
+            default: showError("Please select a valid report", null);
+        }
+
     }
 
     private void updateSuggestions() {
@@ -128,7 +145,7 @@ public class Statistics extends BGmain {
         String companyName = txtCompanyName.getText().trim();
         Map<LocalDate, Long> data = StatisticsService.getLinesCompletedLastMonth(companyName,getTimeDistance());
 
-        if (data == null || data.isEmpty()) {
+        if (data.isEmpty()) {
             showError("No data found for this company" , "Check if name is valid and data exists");
             return;
         }
@@ -157,17 +174,21 @@ public class Statistics extends BGmain {
                 .stream()
                 .mapToDouble(a -> a)
                 .average();
-        txtLineReportAverage.setText("Average lines: \n" + String.valueOf(average.getAsDouble()).substring(0,4));
+        txtLineReportAverage.setText("Average lines: \n" + String.valueOf(average.getAsDouble()).substring(0,3));
 
 
         barChart.setVisible(true);
     }
     private void generatePieChart() {
 
+
         pieLineReport.getData().clear();
         String companyName = txtCompanyName.getText().trim();
         Map<Status, Integer> pieData = StatisticsService.getSuccesPie(companyName, getTimeDistance());
-
+        if (pieData.isEmpty()) {
+            showError("No data found for this company" , "Check if name is valid and data exists");
+            return;
+        }
         for (Map.Entry<Status, Integer> entry : pieData.entrySet()) {
             Status status = entry.getKey();
             Integer value = entry.getValue();
@@ -185,6 +206,36 @@ public class Statistics extends BGmain {
         paneLineReportDisplay.setVisible(true);
         generateBarChart();
         generatePieChart();
+    }
+
+    public void showAreaReport(int weeks) {
+        paneAreaReportDisplay.setVisible(true);
+        try {
+            List<AreaCodeStatistic> statistics = StatisticsService.getAreaCodeStatisticList(weeks);
+            double totalHeight = 0;
+            vboxAreaReportContainer.getChildren().clear();
+
+
+            for (AreaCodeStatistic statistic : statistics) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/components/statisticsAreaReportComponent.fxml"));
+                    Pane statisticPane = loader.load();
+                    ComponentAreaReport controller = loader.getController();
+                    controller.setData(statistic);
+                    vboxAreaReportContainer.getChildren().add(statisticPane);
+
+                    totalHeight += statisticPane.getPrefHeight() + vboxAreaReportContainer.getSpacing();
+
+                } catch (IOException e) {
+                    showError("Error displaying statistics", e.getMessage());
+                }
+
+                vboxAreaReportContainer.setPrefHeight(totalHeight);
+            }
+        }
+            catch(RuntimeException re){
+                showError("Error showing area report", re.getMessage());
+            }
     }
 
     public void handleTimeDistance(ActionEvent actionEvent) {
