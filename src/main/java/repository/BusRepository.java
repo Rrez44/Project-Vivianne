@@ -103,6 +103,22 @@ public class BusRepository {
             throw new RuntimeException("Error loading bus "+ se.getMessage());
         }
     }
+        public static Bus getBusById(String Id){
+        Connection conn = DatabaseUtil.getConnection();
+        String query = "SELECT * FROM buses where bus_id = ?";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, Id.trim());
+            stmt.execute();
+            ResultSet result = stmt.getResultSet();
+            if (result.next()){
+                return getBusFromResult(result);
+            }
+            return null;
+        }catch (SQLException se){
+            throw new RuntimeException("Error loading bus "+ se.getMessage());
+        }
+    }
 
 
 }

@@ -24,4 +24,12 @@ public enum AreaCode {
     public String toString() {
         return location;
     }
+        public static AreaCode fromCode(int code) {
+        for (AreaCode areaCode : AreaCode.values()) {
+            if (areaCode.getCode() == code) {
+                return areaCode;
+            }
+        }
+        throw new IllegalArgumentException("Invalid code: " + code);
+    }
 }

@@ -17,6 +17,10 @@ public abstract class BGmain {
         Navigator.navigate(event,Navigator.HOME_PAGE);
     }
 
+    public void handleStatistics(ActionEvent event){
+        Navigator.navigate(event, Navigator.STATISTICS);
+    }
+
     public void handleCreateLine(ActionEvent event){
         Navigator.navigate(event,Navigator.ADD_BUS_LINE);
     }

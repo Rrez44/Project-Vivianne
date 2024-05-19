@@ -1,16 +1,16 @@
 package repository;
 
+import ENUMS.ActivityStatus;
+import ENUMS.AreaCode;
+import ENUMS.Status;
 import databaseConnection.DatabaseUtil;
-import model.Bus;
-import model.BusLine;
-import model.Company;
-import model.User;
+import model.*;
 import service.DateFormatter;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class BusLineRepository {
@@ -38,5 +38,88 @@ public class BusLineRepository {
         catch (SQLException e){
             throw new RuntimeException("Error creating bus line: " + e.getMessage());
         }
+    }
+    
+    public static BusLine getBusLineFromId(String id){
+        Connection conn = DatabaseUtil.getConnection();
+        String query = "Select * from company_lines where line_id = ?";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, id.trim());
+            stmt.execute();
+            ResultSet result = stmt.getResultSet();
+
+            if (!result.next()) {
+                throw new RuntimeException("No company found with ID: " + id);
+            }
+            return getBusLineFromResult(result);
+
+        }
+        catch (SQLException se){
+            throw new RuntimeException(se.getMessage());
+        }
+    }
+
+    public static List<BusLine> getLineData(String cName) throws RuntimeException{
+        List<BusLine> busLines = new ArrayList<>();
+        Company companyAssigned = CompanyRepository.searchCompany(cName);
+        Connection conn = DatabaseUtil.getConnection();
+        String query = "SELECT * FROM company_lines where company_assigned_id = ?";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1,companyAssigned.getCompanyId());
+            System.out.println(companyAssigned.getCompanyId());
+            stmt.execute();
+            ResultSet results = stmt.getResultSet();
+            while (results.next()){
+                busLines.add(BusLineRepository.getBusLineFromResult(results));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("i came");
+        System.out.println(busLines.size());
+        return busLines;
+    }
+    public static BusLine getBusLineFromResult(ResultSet result) throws SQLException {
+        String line_id = result.getString("line_id");
+        Status status = Status.valueOf(result.getString("status"));
+        LocalDateTime start_time = result.getTimestamp("start_time").toLocalDateTime();
+        LocalDateTime end_time = result.getTimestamp("end_time").toLocalDateTime();
+        User creator = UserRepository.getById(result.getString("creator_user_id"));
+        LocalDateTime creation_time = result.getTimestamp("creation_time").toLocalDateTime();
+        String start_location = result.getString("start_location");
+        String end_location = result.getString("end_location");
+        Company company_assigned_id = CompanyRepository.getCompanyFromId(result.getString("company_assigned_id"));
+        Bus bus = BusRepository.getBusById("bus_model_id");
+        return new BusLine(line_id,status,start_time,end_time,creator,creation_time,start_location,end_location,company_assigned_id,bus);
+    }
+
+    public static AreaCodeStatistic getAreaCodeStatistics(AreaCode startLocation, int weeks) {
+        AreaCodeStatistic statistic = null;
+        String query = "{CALL GetStatisticsByLocationAndTime(?, ?)}";
+        Connection conn = DatabaseUtil.getConnection();
+        try (
+
+                PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, startLocation.name());
+            stmt.setInt(2, weeks);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                String totalLines = rs.getString("totalLines");
+                String successRate = rs.getString("successRate");
+                String hoursTraveled = rs.getString("hoursTraveled");
+
+                statistic = new AreaCodeStatistic(startLocation, totalLines, successRate, hoursTraveled);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+
+        return statistic;
     }
 }

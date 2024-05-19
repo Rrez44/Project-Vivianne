@@ -5,7 +5,7 @@ import ENUMS.AreaCode;
 import databaseConnection.DatabaseUtil;
 import model.Company;
 import service.DateFormatter;
-
+import model.BusLine;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -90,7 +90,25 @@ public class CompanyRepository
             throw new RuntimeException("Failed to find companies: " + se.getMessage());
         }
     }
+    public static Company searchCompany(String cName){
+    Connection conn = DatabaseUtil.getConnection();
 
+    String query = "SELECT * FROM COMPANIES WHERE company_name like ?";
+    try{
+        PreparedStatement stmt = conn.prepareStatement(query);
+        stmt.setString(1, "%" + cName + "%");
+        ResultSet results = stmt.executeQuery();
+        if (results.next()){
+            return getCompanyFromResult(results);
+        }
+        stmt.close();
+        throw new RuntimeException("No companies found with this name");
+    }
+    catch (SQLException se){
+        throw new RuntimeException("Failed to find companies: " + se.getMessage());
+        }
+    }
+    
     public static Company getCompanyFromId(String id){
         Connection conn = DatabaseUtil.getConnection();
         String query = "Select * from companies where company_id = ?";

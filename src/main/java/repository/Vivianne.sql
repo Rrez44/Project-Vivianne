@@ -37,7 +37,7 @@ CREATE TABLE `buses` (
 
 CREATE TABLE `company_lines` (
     `line_id` CHAR(36) NOT NULL,
-    `status` ENUM('ACTIVE', 'COMPLETED', ' FAILED') NOT NULL,
+    `status` ENUM('ACTIVE', 'COMPLETED', 'FAILED') NOT NULL,
     `start_time` DATETIME NOT NULL,
     `end_time` DATETIME NOT NULL,
     `creator_user_id` CHAR(36),
@@ -69,3 +69,35 @@ ALTER TABLE users
 
 ALTER TABLE users
     MODIFY COLUMN hashed_password VARCHAR(256);
+
+alter table company_lines
+    modify start_location enum ('PRISTINA', 'MITROVICA', 'PEJA', 'PRIZREN', 'FERIZAJ', 'GJILAN', 'GJAKOVA') not null;
+
+
+alter table company_lines
+    modify end_location enum ('PRISTINA', 'MITROVICA', 'PEJA', 'PRIZREN', 'FERIZAJ', 'GJILAN', 'GJAKOVA') not null;
+
+
+DELIMITER //
+
+CREATE PROCEDURE GetStatisticsByLocationAndTime(
+    IN p_start_location VARCHAR(255),
+    IN p_weeks INT
+)
+BEGIN
+    DECLARE v_start_time DATETIME;
+
+    SET v_start_time = NOW() - INTERVAL p_weeks WEEK;
+
+    SELECT
+        COUNT(*) AS totalLines,
+        CONCAT(ROUND(SUM(CASE WHEN status = 'COMPLETED' THEN 1 ELSE 0 END) / COUNT(*) * 100, 2), '%') AS successRate,
+        CONCAT(ROUND(SUM(TIMESTAMPDIFF(HOUR, start_time, end_time)), 2), ' hours') AS hoursTraveled
+    FROM
+        vivianne.company_lines
+    WHERE
+            start_location = p_start_location
+      AND start_time >= v_start_time;
+END //
+
+DELIMITER ;

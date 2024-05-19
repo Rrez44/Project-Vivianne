@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane layoutX="14.0" layoutY="14.0" minHeight="63.0" prefHeight="63.0" prefWidth="609.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 5px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ComponentAreaReport">
+   <children>
+      <Label fx:id="lblAreaCode" layoutX="14.0" layoutY="15.0" prefHeight="43.0" prefWidth="126.0" text="Pristin" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Line endX="-83.20002746582031" endY="36.00000762939453" layoutX="227.0" layoutY="27.0" startX="-83.19999694824219" startY="-27.999988555908203" stroke="WHITE" strokeWidth="3.0" />
+      <Label fx:id="lblTotalLines" layoutX="163.0" layoutY="21.0" text="Total Lines" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblHoursTraveled" layoutX="450.0" layoutY="21.0" prefHeight="21.0" prefWidth="126.0" text="Hours Traveled" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSuccessRate" layoutX="293.0" layoutY="21.0" text="Success Rate" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
