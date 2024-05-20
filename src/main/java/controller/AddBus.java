@@ -7,19 +7,24 @@ import INTERFACES.StarManager;
 import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 import model.Company;
 import org.w3c.dom.events.MouseEvent;
 import repository.BusRepository;
+import service.Translate;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.UUID;
 
-public class AddBus extends BGmain  implements StarManager {
+public class AddBus extends BGmain  implements StarManager, Initializable {
 
     @FXML
     private SVGPath svgStar1;
@@ -43,9 +48,23 @@ public class AddBus extends BGmain  implements StarManager {
 
     private static Company passedCompany;
 
+    @FXML
+    private Pane paneAddBusLabel;
+
+    @FXML
+    private Pane paneAddBus;
+
 
     private int num = 0;
     private int cRating = 0;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Translate.translateForAllPanes(paneAddBus);
+        Translate.translateForAllPanes(paneAddBusLabel);
+
+    }
+
 
     public void handleFillStar1(ActionEvent event) {
         changeColors(1);

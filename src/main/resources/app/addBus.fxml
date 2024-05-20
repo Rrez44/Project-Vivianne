@@ -18,7 +18,7 @@
    <children>
       <Pane fx:id="paneAddBus" layoutX="180" layoutY="20" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;">
          <children>
-            <Button layoutX="287.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleFillStar5" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: white;" />
+            <Button fx:id="btnStar5" layoutX="287.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleFillStar5" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: white;" />
             <Button layoutX="125.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar2" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" />
             <TextField fx:id="txtVin" layoutX="71.0" layoutY="107.0" prefHeight="56.0" prefWidth="564.0" promptText="VIN Number">
                <font>
@@ -44,14 +44,14 @@
                </font>
             </MenuButton>
             <SVGPath fx:id="svgStar2" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="127.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
-            <Button layoutX="179.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar3" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" />
+            <Button fx:id="btnStar3" layoutX="179.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar3" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" />
             <SVGPath fx:id="svgStar3" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="181.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
-            <Button layoutX="233.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar4" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" />
+            <Button fx:id="btnStar4" layoutX="233.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar4" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" />
             <SVGPath fx:id="svgStar4" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="235.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
             <SVGPath fx:id="svgStar5" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="289.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
             <Button fx:id="btnButtonStar1" layoutX="71.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar1" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" text="Hi" />
             <SVGPath fx:id="svgStar1" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="73.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
-            <Button id="btnDiscard" layoutX="179.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleDiscard" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #8388a4;" text="Discard">
+            <Button id="btnDiscard" fx:id="btnDiscard" layoutX="179.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleDiscard" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #8388a4;" text="Discard">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
@@ -63,7 +63,7 @@
                   </InnerShadow>
                </effect>
             </Button>
-            <Button id="btnCreate" layoutX="422.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleCreate" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #1DB954;" text="Create">
+            <Button id="btnCreate" fx:id="btnCreate" layoutX="422.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleCreate" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #1DB954;" text="Create">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
@@ -74,9 +74,9 @@
                      </color>
                   </InnerShadow>
                </effect>
-            </Button>            <Pane layoutX="68.0" layoutY="14.0" prefHeight="63.0" prefWidth="564.0" style="-fx-background-color: #2b2d42;">
+            </Button>            <Pane fx:id="paneAddBusLabel" layoutX="68.0" layoutY="14.0" prefHeight="63.0" prefWidth="564.0" style="-fx-background-color: #2b2d42;">
                <children>
-                  <Label alignment="CENTER" layoutX="153.0" layoutY="5.0" prefHeight="54.0" prefWidth="258.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="ADD BUS">
+                  <Label fx:id="labelAddBus" alignment="CENTER" layoutX="153.0" layoutY="5.0" prefHeight="54.0" prefWidth="258.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="ADD BUS">
                      <font>
                         <Font size="24.0" />
                      </font>
