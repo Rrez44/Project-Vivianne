@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.Bus;
 import model.BusLine;
@@ -19,6 +20,7 @@ import otherFunctionality.AddStop;
 import otherFunctionality.AddTime;
 import service.BusLineService;
 import service.DateFormatter;
+import service.Translate;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -67,12 +69,22 @@ public class RegisterLine extends BGmain implements Initializable {
     @FXML
     private StackPane paneStackAddStops;
 
+    @FXML
+    private Pane paneRegisterLine;
+
+    @FXML
+    private StackPane stackPaneRegisterLine;
+
+    @FXML
+    private StackPane stackPaneAddStops;
+
     private static BusLine busLine;
 
     private HashMap<String, LocalDateTime> getStops = new HashMap<>();
 
     private LocalDateTime localDateTimeTo;
     private LocalDateTime localDateTimeFrom;
+
 
 
     public void addStops(){
@@ -101,6 +113,12 @@ public class RegisterLine extends BGmain implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        super.initialize(url,resourceBundle);
+        Translate.translateForAllPanes(paneRegisterLine);
+        Translate.translateForAllPanes(stackPaneRegisterLine);
+        Translate.translateForAllPanes(stackPaneAddStops);
+
+
         menuSelectHoursFrom.textProperty().addListener((observable, oldValue, newValue) -> changeTime());
         menuSelectMinutesFrom.textProperty().addListener((observable, oldValue, newValue) -> changeTime());
 

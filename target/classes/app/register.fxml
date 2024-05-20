@@ -33,7 +33,7 @@
             </TextField>
             <StackPane layoutX="155.0" layoutY="46.0" prefHeight="58.0" prefWidth="396.0" style="-fx-background-color: #2b2d42;">
                <children>
-                  <Label style="-fx-text-fill: white; -fx-font-weight: bold;" text="Register">
+                  <Label fx:id="txtLabelPane" style="-fx-text-fill: white; -fx-font-weight: bold;" text="Register">
                      <font>
                         <Font size="18.0" />
                      </font>

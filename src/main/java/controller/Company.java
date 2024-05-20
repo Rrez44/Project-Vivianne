@@ -8,7 +8,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.Pane;
 import repository.CompanyRepository;
+import service.Translate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,7 +44,11 @@ public class Company extends BGmain implements Initializable {
     private Button btnEdit;
     @FXML
     private Label labelCompanyId;
+    @FXML
+    private Pane paneCompanyReport;
 
+    @FXML
+    private Pane paneEntireCompany;
 
     private static model.Company company;
 
@@ -50,6 +56,9 @@ public class Company extends BGmain implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        super.initialize(url, resourceBundle);
+        Translate.translateForAllPanes(paneCompanyReport);
+        Translate.translateForAllPanes(paneEntireCompany);
         txtCompanyName.setStyle("-fx-font-weight: bold;-fx-background-color: #2b2d42;-fx-text-fill: white; -fx-background-radius: 0px");
         txtCompanyName.setEffect(new DropShadow());
         txtCompanyName.setText(company.getCompanyName());

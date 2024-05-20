@@ -16,14 +16,14 @@
 <AnchorPane fx:id="paneMain" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2B2D42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterLine">
    <children>
       <fx:include source="Base.fxml" />
-      <Pane layoutX="179.0" layoutY="23.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+      <Pane fx:id="paneRegisterLine" layoutX="179.0" layoutY="23.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
          <effect>
             <DropShadow />
          </effect>
          <children>
-            <StackPane layoutX="148.0" layoutY="14.0" prefHeight="56.0" prefWidth="410.0" style="-fx-background-color: #2b2d42;">
+            <StackPane fx:id="stackPaneRegisterLine" layoutX="148.0" layoutY="14.0" prefHeight="56.0" prefWidth="410.0" style="-fx-background-color: #2b2d42;">
                <children>
-                  <Label style="-fx-text-fill: white; -fx-font-weight: bold;" text="Register Line" textFill="#2b2d42">
+                  <Label fx:id="txtRegisterLine" style="-fx-text-fill: white; -fx-font-weight: bold;" text="Register Line" textFill="#2b2d42">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -40,9 +40,9 @@
                <content>
                   <AnchorPane fx:id="paneAddStop" minHeight="0.0" minWidth="0.0" prefHeight="99.0" prefWidth="176.0">
                      <children>
-                        <StackPane layoutX="104.0" layoutY="14.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-color: #2b2d42;">
+                        <StackPane fx:id="stackPaneAddStops" layoutX="104.0" layoutY="14.0" prefHeight="27.0" prefWidth="200.0" style="-fx-background-color: #2b2d42;">
                            <children>
-                              <Label prefHeight="18.0" prefWidth="58.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="Add Stops" />
+                              <Label fx:id="txtAddStops" prefHeight="18.0" prefWidth="58.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="Add Stops" />
                            </children>
                         </StackPane>
                         <TextField fx:id="txtAddStop" layoutX="154.0" layoutY="61.0" onKeyPressed="#addStopOnEnter" style="-fx-background-radius: 0;" />

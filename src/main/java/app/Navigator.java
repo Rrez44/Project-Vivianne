@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -48,15 +49,12 @@ public class Navigator {
                 }
             }
 
-            //qita nese din bone replace me relative path per me morr path bus1.png per icon se spom bon
             stage.getIcons().add(new Image(Objects.requireNonNull(Navigator.class.getResourceAsStream("/Images/icon.png"))));
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
         }catch (IOException ioe){
             ioe.printStackTrace();
-        }
-        for(int i=0;i<sceneStack.size() ;i++){
         }
 
     }
@@ -78,6 +76,8 @@ public class Navigator {
 
 
     }
+
+
 
     public static Stack<Scene> getSceneStack() {
         return sceneStack;

@@ -8,15 +8,14 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 import model.Bus;
 import model.Company;
 import repository.BusRepository;
+import service.Translate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,8 +44,12 @@ public class ManageBus extends BGmain implements StarManager, Initializable {
     private TextField txtModel;
     @FXML
     private TextField txtPassengerCapacity;
-    private static Bus passedBus;
+    @FXML
+    private Pane paneAddBus;
+    @FXML
+    private Pane paneAddBusLabel;
 
+    private static Bus passedBus;
 
 
 
@@ -115,6 +118,8 @@ public class ManageBus extends BGmain implements StarManager, Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Translate.translateForAllPanes(paneAddBus);
+        Translate.translateForAllPanes(paneAddBusLabel);
         txtVin.setText(passedBus.getVin());
         txtModel.setText(passedBus.getBusModel());
         mbtnBusType.setText(passedBus.getBusType().name());

@@ -1,19 +1,25 @@
 package controller;
 
 import app.Session;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import model.Bus;
 import model.BusLine;
 import service.BusLineService;
+import service.Translate;
+import service.TranslateRecords;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 public class Dashboard extends BGmain implements Initializable {
 
@@ -29,6 +35,9 @@ public class Dashboard extends BGmain implements Initializable {
     @FXML
     private TextField txtFrom;
 
+    @FXML
+    protected Pane paneSearchLines;
+
 
 
 
@@ -38,6 +47,8 @@ public class Dashboard extends BGmain implements Initializable {
     public void handleStatusMenuItemClicked(ActionEvent event) {
         MenuItem menuItem = (MenuItem) event.getSource();
         menuStatus.setText(menuItem.getText());
+
+//        TranslateRecords.translateFormInputs(Translate.getInstance().getCurrentLanguage(),paneButtons);
 
     }
 
@@ -53,9 +64,15 @@ public class Dashboard extends BGmain implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         try {
-            txtName.setText(Session.getUser().getUsername());
-        }catch (NullPointerException e){
+            super.initialize(url, resourceBundle);
+            Translate.translateForAllPanes(paneSearchLines);
+             txtName.setText(Session.getUser().getUsername());
+
+
+         }catch (NullPointerException e){
+
 
         }
     }
@@ -73,32 +90,26 @@ public class Dashboard extends BGmain implements Initializable {
                 AnchorPane busPane = loader.load();
                 ComponentBusLine addLineController = loader.getController();
 
-                System.out.println(bus.getStartLocation());
                 addLineController.setData(bus.getStartLocation(), bus.getEndLocation(), bus.getStatus().toString(), bus.getStartTime());
 
-                // Set layoutY for the current busPane
                 busPane.setLayoutY(totalHeight);
 
-                // Add the busPane to paneAddCompanyLine
                 paneAddCompanyLine.getChildren().add(busPane);
 
-                // Update totalHeight by adding the height of the current busPane plus a gap of 50 units
                 totalHeight += busPane.getPrefHeight() + 5;
             }
 
-            // After all panes are added, adjust the preferred height of paneAddCompanyLine
 
-            // Encapsulate paneAddCompanyLine within a ScrollPane
             ScrollPane scrollPane = new ScrollPane(paneAddCompanyLine);
             scrollPane.setFitToWidth(true); // Allow the ScrollPane to adjust its width
 
-            // Set the content of your parent container to the ScrollPane
-            // Assuming your parent container is a VBox named parentContainer
-//            parentContainer.getChildren().setAll(scrollPane);
         } catch (Exception e) {
-            e.printStackTrace(); // Print the exception for debugging
+            e.printStackTrace();
         }
         paneAddCompanyLine.setPrefHeight(totalHeight);
 
     }
+
+
+
 }

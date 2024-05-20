@@ -3,16 +3,18 @@ package controller;
 import ENUMS.AreaCode;
 import INTERFACES.Identifiable;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.Pane;
 import repository.CompanyRepository;
 import service.ClearForm;
+import service.Translate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreateCompany extends BGmain  implements Identifiable {
+public class CreateCompany extends BGmain  implements Identifiable, Initializable {
 
     @FXML
     private TextField txtCompanyName;
@@ -26,6 +28,8 @@ public class CreateCompany extends BGmain  implements Identifiable {
     @FXML
     private Pane paneCreateCompany;
 
+    @FXML
+    private Pane paneCreateCompanyLabel;
 
     @FXML
     private void handleAreaCodeMenuItemClicked(ActionEvent ae){
@@ -47,6 +51,14 @@ public class CreateCompany extends BGmain  implements Identifiable {
 //        txtCompanyName.setText("");
 //        txtDescription.setText("");
         mbtnAreaCode.setText("PRISTINA");
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Translate.translateForAllPanes(paneCreateCompany);
+        Translate.translateForAllPanes(paneCreateCompanyLabel);
+
     }
 
     @FXML

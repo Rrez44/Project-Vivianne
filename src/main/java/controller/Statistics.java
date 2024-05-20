@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
@@ -19,15 +20,17 @@ import javafx.stage.Window;
 import model.AreaCodeStatistic;
 import service.CompanyService;
 import service.StatisticsService;
+import service.Translate;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Statistics extends BGmain {
+public class Statistics extends BGmain implements Initializable {
     @FXML
     private TextField txtCompanyName;
     @FXML
@@ -59,6 +62,11 @@ public class Statistics extends BGmain {
     @FXML
     private VBox vboxAreaReportContainer;
 
+    @FXML
+    private Pane paneStatistics;
+
+
+
 
     private List<model.Company> companies = CompanyService.loadAllCompanies();
     private ObservableList<String> suggestions = FXCollections.observableArrayList();
@@ -77,8 +85,11 @@ public class Statistics extends BGmain {
         }
     }
 
-    @FXML
-    public void initialize() {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        Translate.translateForAllPanes(paneStatistics);
+
         txtCompanyName.addEventHandler(KeyEvent.KEY_RELEASED, event -> updateSuggestions());
 
         suggestionPopup.getContent().add(suggestionListView);

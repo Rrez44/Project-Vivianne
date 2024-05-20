@@ -223,7 +223,7 @@ public static List<BusLine> getLineData(String cName) throws RuntimeException{
             String start_location = result.getString("start_location");
             String end_location = result.getString("end_location");
             Company company_assigned_id = CompanyRepository.getCompanyFromId(result.getString("company_assigned_id"));
-            Bus bus = BusRepository.getBusById(result.getString("bus_id"));
+            Bus bus = BusRepository.getBusById(result.getString("bus_model_id"));
             return new BusLine(line_id, status, start_time, end_time, creator, creation_time, null,start_location, end_location, company_assigned_id, bus);
         }catch (Exception e){
             System.out.println(e);

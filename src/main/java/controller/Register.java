@@ -5,14 +5,20 @@ import INTERFACES.Identifiable;
 import app.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import model.dto.UserDto;
 import service.ClearForm;
 import service.GenerateEmail;
+import service.Translate;
 import service.UserService;
 
-public class Register extends BGmain implements Identifiable{
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Register extends BGmain implements Identifiable, Initializable {
 
     @FXML
     private Pane paneRegister;
@@ -43,6 +49,11 @@ public class Register extends BGmain implements Identifiable{
     @FXML
     private String  email;
 
+    @FXML
+    private Label txtLabelPane;
+
+
+
 
 
     public void handleSelectPriority(ActionEvent event) {
@@ -52,7 +63,9 @@ public class Register extends BGmain implements Identifiable{
 
     }
     @FXML
-    public void initialize() {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        super.initialize(url, resourceBundle);
+        Translate.translateForAllPanes(paneRegister);
         txtFirstName.textProperty().addListener((observable, oldValue, newValue) -> createEmail());
         txtLastName.textProperty().addListener((observable, oldValue, newValue) -> createEmail());
 
