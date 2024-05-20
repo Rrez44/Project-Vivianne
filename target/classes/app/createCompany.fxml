@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2B2D42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateCompany">
    <children>
@@ -58,9 +57,9 @@
                </font></TextArea>
             <Button fx:id="btnDiscard" layoutX="135.0" layoutY="492.0" mnemonicParsing="false" onAction="#handleDiscard" prefHeight="47.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Discard" textFill="WHITE" />
             <Button fx:id="btnSave" layoutX="433.0" layoutY="492.0" mnemonicParsing="false" onAction="#handleCreate" prefHeight="47.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Save" textFill="WHITE" />
-            <Pane fx:id="paneCreateCompanyLabel" layoutX="134.0" layoutY="64.0" prefHeight="58.0" prefWidth="448.0" style="-fx-background-color: #2b2d42;">
+            <Pane fx:id="paneCreateCompanyLabel" layoutX="134.0" layoutY="64.0" prefHeight="58.0" prefWidth="448.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 0px;">
                <children>
-                  <Text fx:id="txtCreateCompany" fill="#fffefe" layoutX="108.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30px; -fx-font-weight: bold;" text="Create Company" />
+                  <Label fx:id="txtCreateCompany" layoutX="108.0" layoutY="7.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 30px;" text="Create Company" />
                </children>
             </Pane>
          </children>

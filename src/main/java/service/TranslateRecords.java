@@ -47,7 +47,6 @@ public class TranslateRecords {
                     }
                 }
             }catch (NullPointerException e) {
-
             }
 
         }

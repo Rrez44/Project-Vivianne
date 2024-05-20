@@ -7,15 +7,15 @@ import javafx.scene.layout.Pane;
 public class ClearForm {
 
     public static void clearFormInputs(Pane pane){
-        clearInputsRecursive(pane);
+        clearInput(pane);
     }
 
 
 
-    private static void clearInputsRecursive(Pane pane) {
+    private static void clearInput(Pane pane) {
         for (Node node : pane.getChildren()) {
             if (node instanceof Pane) {
-                clearInputsRecursive((Pane) node);
+                clearInput((Pane) node);
             } else if (node instanceof TextInputControl) {
                 ((TextInputControl) node).clear();
             } else if (node instanceof ChoiceBox) {

@@ -31,7 +31,7 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <StackPane layoutX="155.0" layoutY="46.0" prefHeight="58.0" prefWidth="396.0" style="-fx-background-color: #2b2d42;">
+            <StackPane fx:id="stackPaneRegisterLine" layoutX="155.0" layoutY="46.0" prefHeight="58.0" prefWidth="396.0" style="-fx-background-color: #2b2d42;">
                <children>
                   <Label fx:id="txtLabelPane" style="-fx-text-fill: white; -fx-font-weight: bold;" text="Register">
                      <font>

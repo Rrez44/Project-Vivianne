@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -82,11 +83,14 @@
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </Button>
-      <MenuButton fx:id="menuTranslate" layoutX="40.0" layoutY="600.0" mnemonicParsing="false" onAction="#menuTranslate" text="MenuButton">
+      <MenuButton fx:id="menuTranslate" layoutX="35.0" layoutY="602.0" mnemonicParsing="false" onAction="#menuTranslate" style="-fx-background-radius: 0px; -fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8);" text="MenuButton">
         <items>
           <MenuItem mnemonicParsing="false" onAction="#menuTranslate" text="Albanian" />
           <MenuItem mnemonicParsing="false" onAction="#menuTranslate" text="English" />
         </items>
+         <effect>
+            <DropShadow />
+         </effect>
       </MenuButton>
    </children>
 </Pane>

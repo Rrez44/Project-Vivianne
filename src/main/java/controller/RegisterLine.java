@@ -19,6 +19,7 @@ import model.BusLine;
 import otherFunctionality.AddStop;
 import otherFunctionality.AddTime;
 import service.BusLineService;
+import service.ClearForm;
 import service.DateFormatter;
 import service.Translate;
 
@@ -100,11 +101,6 @@ public class RegisterLine extends BGmain implements Initializable {
 
 
 
-
-
-
-
-
     public void addStopOnEnter(KeyEvent keyEvent) {
         if(keyEvent.getCode() == KeyCode.ENTER ){
             addStops();
@@ -115,7 +111,6 @@ public class RegisterLine extends BGmain implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         super.initialize(url,resourceBundle);
         Translate.translateForAllPanes(paneRegisterLine);
-        Translate.translateForAllPanes(stackPaneRegisterLine);
         Translate.translateForAllPanes(stackPaneAddStops);
 
 
@@ -129,6 +124,7 @@ public class RegisterLine extends BGmain implements Initializable {
     }
 
     public void handleClear(ActionEvent event) {
+        ClearForm.clearFormInputs(paneRegisterLine);
     }
 
 

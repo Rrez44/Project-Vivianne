@@ -52,6 +52,9 @@ public class Register extends BGmain implements Identifiable, Initializable {
     @FXML
     private Label txtLabelPane;
 
+    @FXML
+    private StackPane stackPaneRegisterLine;
+
 
 
 
@@ -82,7 +85,6 @@ public class Register extends BGmain implements Identifiable, Initializable {
     public void handleSignUp(ActionEvent event) {
         email = GenerateEmail.email(txtFirstName.getText(), txtLastName.getText(), UserService.checkDuplicate(txtFirstName.getText(),txtLastName.getText()));
         String role = menuSelectPriority.getText();
-//        System.out.println(Session.getInstance().getRole());
         UserDto userDto = new UserDto(generateId(),txtFirstName.getText(),txtLastName.getText(),email,txtUsername.getText(),pwdPassword.getText(),pwdConfirmPassword.getText(), Role.valueOf(role));
         if(UserService.signUP(userDto)){
             showConfirmation("Register","Register Successful");

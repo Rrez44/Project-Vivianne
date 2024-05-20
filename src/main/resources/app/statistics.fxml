@@ -22,6 +22,7 @@
    <children>
       <Pane fx:id="paneStatistics" layoutX="180.0" layoutY="20.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: black;">
          <children>
+            <Pane layoutX="15.0" layoutY="5.0" prefHeight="47.0" prefWidth="673.0" style="-fx-background-color: #2b2d42;" />
             <Polyline fill="WHITE" layoutX="148.0" layoutY="155.0" points="51.0, -102.19999694824219, 58.20001220703125, -95.5, 38.20001220703125, -95.5, 58.20001220703125, -95.5" stroke="WHITE" strokeType="OUTSIDE" />
             <Label alignment="CENTER" layoutX="326.0" layoutY="49.0" prefHeight="25.0" prefWidth="62.0" style="-fx-font-weight: bold;" text="Since:" textFill="WHITE">
                <font>
@@ -38,7 +39,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCompanyName" focusTraversable="false" layoutX="34.0" layoutY="26.0" prefHeight="25.0" prefWidth="175.0" promptText="Company Name">
+            <TextField fx:id="txtCompanyName" focusTraversable="false" layoutX="54.0" layoutY="18.0" prefHeight="25.0" prefWidth="175.0" promptText="Company Name" style="-fx-background-radius: 0;">
                <contextMenu>
                   <ContextMenu fx:id="suggestionMenu">
                     <items>
@@ -46,11 +47,14 @@
                     </items>
                   </ContextMenu>
                </contextMenu></TextField>
-            <MenuButton fx:id="mbtnReportType" layoutX="242.0" layoutY="26.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" scaleShape="false" text="Report Type">
+            <MenuButton fx:id="mbtnReportType" layoutX="274.0" layoutY="18.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" scaleShape="false" style="-fx-background-radius: 0; -fx-background-color: white; -fx-font-weight: bold;" text="Report Type">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handleReportType" text="Line-Report" />
                 <MenuItem mnemonicParsing="false" onAction="#handleReportType" text="Area-Report" />
               </items>
+               <effect>
+                  <DropShadow />
+               </effect>
             </MenuButton>
             <AnchorPane fx:id="paneLineReportDisplay" layoutX="34.0" layoutY="97.0" prefHeight="535.0" prefWidth="640.0" visible="false">
                <children>
@@ -134,8 +138,11 @@
                      </effect>
                   </VBox>
                </children></AnchorPane>
-            <Button fx:id="mbtCreateReport" layoutX="480.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleCreateReport" scaleShape="false" text="Create Report" />
-            <MenuButton fx:id="mbtnTimeDistance" layoutX="357.0" layoutY="26.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" scaleShape="false" text="Time Distance">
+            <Button fx:id="mbtCreateReport" layoutX="549.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleCreateReport" scaleShape="false" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-text-fill: white; -fx-font-weight: bold;" text="Create Report">
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+            <MenuButton fx:id="mbtnTimeDistance" layoutX="386.0" layoutY="19.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" scaleShape="false" style="-fx-background-radius: 0; -fx-background-color: white; -fx-font-weight: bold;" text="Time Distance">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleTimeDistance" text="Weekly" />
                   <MenuItem mnemonicParsing="false" onAction="#handleTimeDistance" text="Bi-Weekly" />
@@ -143,6 +150,9 @@
                   <MenuItem mnemonicParsing="false" onAction="#handleTimeDistance" text="Yearly" />
                   <MenuItem mnemonicParsing="false" onAction="#handleTimeDistance" text="All-Time" />
                </items>
+               <effect>
+                  <DropShadow />
+               </effect>
             </MenuButton>
             <AnchorPane fx:id="paneAreaReportDisplay" layoutX="33.0" layoutY="97.0" prefHeight="535.0" prefWidth="640.0" visible="false">
                <children>

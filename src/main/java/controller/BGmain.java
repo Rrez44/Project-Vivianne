@@ -98,18 +98,18 @@ public abstract   class BGmain  implements Initializable {
         Translate.setLanguage("English");
         menuTranslate.setText(menuItem.getText());
         Translate.setLanguage(menuTranslate.getText());
-        translate(Translate.getLanguage(),paneButtons);
-        ;
-    }
-
-
-
-
-    public  void translate(String setLanguage,Pane pane){
-
-        Translate.setLanguage(setLanguage);
-        TranslateRecords.translateFormInputs(Translate.getLanguage(),pane);
+        Translate.translateForAllPanes(paneButtons);
 
     }
+
+
+
+
+//    public  void translate(String setLanguage,Pane pane){
+//
+//        Translate.setLanguage(setLanguage);
+//        TranslateRecords.translateFormInputs(Translate.getLanguage(),pane);
+//
+//    }
 
 }

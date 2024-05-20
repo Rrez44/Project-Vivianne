@@ -32,24 +32,17 @@ public class CreateCompany extends BGmain  implements Identifiable, Initializabl
     private Pane paneCreateCompanyLabel;
 
     @FXML
+    private Label txtCreateCompany;
+
+    @FXML
     private void handleAreaCodeMenuItemClicked(ActionEvent ae){
         MenuItem item = (MenuItem) ae.getSource();
         mbtnAreaCode.setText(item.getText());
     }
 
-//    @FXML
-//    private void handleDiscard(ActionEvent event) {
-//        txtCompanyName.setText("");
-//        txtDescription.setText("");
-//
-//        mbtnAreaCode.setText("PRISTINA");
-//    }
-
     @FXML
     private void handleDiscard() {
         ClearForm.clearFormInputs(paneCreateCompany);
-//        txtCompanyName.setText("");
-//        txtDescription.setText("");
         mbtnAreaCode.setText("PRISTINA");
     }
 
