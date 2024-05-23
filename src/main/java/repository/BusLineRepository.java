@@ -62,22 +62,49 @@ public class BusLineRepository {
 
 
 
-    public static List<BusLine> getSpecificCompanyBusses(String from) {
-        String query = "SELECT * FROM company_buses " +
-                "INNER JOIN companies ON companies.company_id = company_buses.company_id " +
-                "INNER JOIN buses ON buses.bus_id = company_buses.bus_id" +
-                " WHERE companies.area_code = ?" +
-                " AND  buses.bus_id NOT IN(SELECT bus_model_id FROM company_lines);";
+    public static List<BusLine> getSpecificCompanyBusses(String from, String to, LocalDateTime timeStart, LocalDateTime timeEnd) {
+        String query = "SELECT cb.company_id, cb.bus_id " +
+                "FROM company_buses AS cb " +
+                "INNER JOIN companies AS c ON c.company_id = cb.company_id " +
+                "WHERE cb.bus_id NOT IN (" +
+                "    SELECT cl.bus_model_id " +
+                "    FROM company_lines AS cl " +
+                "    INNER JOIN companies AS c2 ON c2.company_id = cl.company_assigned_id " +
+                "    WHERE (c2.area_code = ? OR c2.area_code = ?) " +
+                "    AND cl.start_time = ? " +
+                "    AND cl.end_time = ?" +
+                ") " +
+                "AND c.company_status = 'ACTIVE'" +
+                "AND (c.area_code = ? or c.area_code = ?)" +
+                "GROUP BY c.area_code " +
+                "ORDER BY " +
+                "    CASE " +
+                "        WHEN c.area_code IN (" +
+                "            SELECT cl.end_location " +
+                "            FROM company_lines AS cl " +
+                "            INNER JOIN companies AS c3 ON c3.company_id = cl.company_assigned_id" +
+                "        ) THEN 0 " +
+                "        ELSE 1 " +
+                "    END, " +
+                "    c.area_code;";
 
         List<BusLine> busLines = new ArrayList<>();
         Connection conn = DatabaseUtil.getConnection();
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1, from.trim());
+            preparedStatement.setString(2, to.trim());
+            preparedStatement.setTimestamp(3, Timestamp.valueOf(timeStart));
+            preparedStatement.setTimestamp(4, Timestamp.valueOf(timeEnd));
+            preparedStatement.setString(5, from.trim());
+            preparedStatement.setString(6, to.trim());
+
             ResultSet results = preparedStatement.executeQuery();
             while (results.next()) {
-                Bus bus = BusRepository.getBusFromResult(results);
-                Company company = CompanyRepository.getCompanyFromResult(results);
+                String busId = results.getString("bus_id");
+                String companyId = results.getString("company_id");
+                Bus bus = BusRepository.getBusById(busId);
+                Company company = CompanyRepository.getCompanyFromId(companyId);
                 BusLine busLine = new BusLine(bus, company);
                 busLines.add(busLine);
             }
@@ -86,7 +113,6 @@ public class BusLineRepository {
             throw new RuntimeException(e);
         }
         return busLines;
-
     }
 
 
