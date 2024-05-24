@@ -23,6 +23,7 @@ import model.filter.BusLineFilter;
 import service.*;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -77,7 +78,6 @@ public class Dashboard extends BGmain implements Initializable {
         MenuItem menuItem = (MenuItem) event.getSource();
         menuStatus.setText(menuItem.getText());
         checkActivity = menuItem.getText();
-//        TranslateRecords.translateFormInputs(Translate.getInstance().getCurrentLanguage(),paneButtons);
 
     }
 
@@ -87,6 +87,8 @@ public class Dashboard extends BGmain implements Initializable {
         try {
             super.initialize(url, resourceBundle);
             Translate.translateForAllPanes(paneSearchLines);
+            dateTo.setValue(LocalDate.from(LocalDateTime.now()));
+            handleSearch(new ActionEvent());
              txtName.setText(Session.getUser().getUsername());
 
          }catch (NullPointerException e){
@@ -96,30 +98,6 @@ public class Dashboard extends BGmain implements Initializable {
 
     }
 
-//    public void formatTime(){
-//
-//
-//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-//        if(dateFrom.getValue() != null && dateTo.getValue() !=null) {
-//            StringBuilder from = new StringBuilder().append(dateFrom.getValue() + " " + "05:00:00");
-//            localDateTimeFrom = LocalDateTime.parse(from.toString(), dateTimeFormatter);
-//
-//            StringBuilder to = new StringBuilder().append(dateTo.getValue() + " " + "20:00:00");
-//            localDateTimeTo = LocalDateTime.parse(to.toString(), dateTimeFormatter);
-//        }
-//        else if(dateFrom.getValue() !=null  ) {
-//            StringBuilder from = new StringBuilder().append(dateFrom.getValue() + " " + "05:00:00");
-//            localDateTimeFrom = LocalDateTime.parse(from.toString(), dateTimeFormatter);
-//        }else if(dateTo.getValue()!=null){
-//            StringBuilder to = new StringBuilder().append(dateTo.getValue() + " " + "20:00:00");
-//            localDateTimeTo = LocalDateTime.parse(to.toString(), dateTimeFormatter);
-//
-//        }else{
-//            localDateTimeFrom =null;
-//            localDateTimeTo =null;
-//        }
-//
-//    }
 
 
 

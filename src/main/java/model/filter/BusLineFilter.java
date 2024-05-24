@@ -65,7 +65,7 @@ public class BusLineFilter extends Filter{
         }
 
         if(this.dateTo != null){
-            query += " AND end_time <= '" + this.dateTo +"'";
+            query += " AND end_time <= '" + this.dateTo +"' order by end_time DESC ";
         }
 
 
@@ -73,7 +73,6 @@ public class BusLineFilter extends Filter{
             if(this.lineId != null){
                 query += " AND line_id like '" + this.lineId +"%'";
             }
-//
             if(this.date != null){
                 query += " AND start_time >= '" + this.date +"'";
             }
