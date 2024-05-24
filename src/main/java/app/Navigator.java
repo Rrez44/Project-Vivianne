@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.SimpleTimeZone;
 import java.util.Stack;
 
 public class Navigator {
@@ -28,6 +29,8 @@ public class Navigator {
     public final static String MANAGE_BUS = "manageBus.fxml";
     public final static String STATISTICS = "statistics.fxml";
     public final static String CREATE_LINE = "CreateLine.fxml";
+    public final static String GET_USERS ="getUsers.fxml";
+    public final static String PROFILE_PAGE = "profile.fxml";
 
     public static boolean firstNav = true;
     public static boolean loginNav =true;

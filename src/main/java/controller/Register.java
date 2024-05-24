@@ -72,7 +72,7 @@ public class Register extends BGmain implements Identifiable, Initializable {
         txtFirstName.textProperty().addListener((observable, oldValue, newValue) -> createEmail());
         txtLastName.textProperty().addListener((observable, oldValue, newValue) -> createEmail());
 
-        if(Session.getUser().getRole().equals("SUPER_ADMIN")){
+        if(Session.getUser().getRole() == Role.SUPER_ADMIN){
         }else{
             menuSelectPriority.getItems().remove(0);
             menuSelectPriority.getItems().remove(0);

@@ -3,6 +3,7 @@ package controller;
 import ENUMS.ActivityStatus;
 import ENUMS.BusType;
 import ENUMS.ComfortRating;
+import INTERFACES.Identifiable;
 import INTERFACES.StarManager;
 import app.Navigator;
 import javafx.event.ActionEvent;
@@ -24,7 +25,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.UUID;
 
-public class AddBus extends BGmain  implements StarManager, Initializable {
+public class AddBus extends BGmain  implements StarManager, Initializable, Identifiable {
 
     @FXML
     private SVGPath svgStar1;
@@ -133,7 +134,7 @@ public class AddBus extends BGmain  implements StarManager, Initializable {
         }
 
         try {
-            BusRepository.createBus(String.valueOf(UUID.randomUUID()),txtModel.getText().trim(), txtVin.getText(), Integer.parseInt(txtPassengerCapacity.getText().trim()), BusType.valueOf(mbtnBusType.getText()), ActivityStatus.ACTIVE, ComfortRating.fromInt(cRating), passedCompany);
+            BusRepository.createBus(generateId(),txtModel.getText().trim(), txtVin.getText(), Integer.parseInt(txtPassengerCapacity.getText().trim()), BusType.valueOf(mbtnBusType.getText()), ActivityStatus.ACTIVE, ComfortRating.fromInt(cRating), passedCompany);
         }
         catch (RuntimeException re){
             showError("Error creating new bus", re.getMessage());

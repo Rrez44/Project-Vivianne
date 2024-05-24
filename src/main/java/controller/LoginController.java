@@ -40,10 +40,7 @@ public class LoginController extends BGmain {
             LoginUserDto loginUserDto = new LoginUserDto(txtUsername.getText(), txtPassword.getText());
             boolean checkLogin = UserService.login(loginUserDto);
             if (checkLogin) {
-                System.out.println("DBUSER:"+UserService.getUser(txtUsername.getText()).getId());
                 Session.setUser(UserService.getUser(txtUsername.getText()));
-                Session.setUser(UserService.getUser(txtUsername.getText()));
-                System.out.println(Session.getUser().getId());
                 Navigator.navigate(actionEvent,Navigator.HOME_PAGE);
             }else{
                 showError("Login", "Login Failed Wrong Username or Password");
