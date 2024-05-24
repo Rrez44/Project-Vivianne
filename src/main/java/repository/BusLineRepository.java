@@ -4,6 +4,8 @@ import ENUMS.AreaCode;
 import ENUMS.Status;
 import databaseConnection.DatabaseUtil;
 import model.*;
+import model.filter.BusLineFilter;
+//import model.filter.Filter;
 import service.DateFormatter;
 
 import java.sql.*;
@@ -76,7 +78,7 @@ public class BusLineRepository {
                 ") " +
                 "AND c.company_status = 'ACTIVE'" +
                 "AND (c.area_code = ? or c.area_code = ?)" +
-                "GROUP BY c.area_code " +
+                "GROUP BY cb.company_id, cb.bus_id, c.area_code " +
                 "ORDER BY " +
                 "    CASE " +
                 "        WHEN c.area_code IN (" +
@@ -234,6 +236,32 @@ public static List<BusLine> getLineData(String cName) throws RuntimeException{
     System.out.println(busLines.size());
     return busLines;
 }
+
+
+    public static List<BusLine> getByFilter(BusLineFilter filter){
+        List<BusLine> busLines = new ArrayList<>();
+        String query = "SELECT * FROM" +
+                " company_lines " +
+                "INNER JOIN companies ON company_lines.company_assigned_id = companies.company_id " + // Added space before WHERE
+                "WHERE 1 = 1 "; // Added space after 1 = 1
+        String filterQuery = filter.buildQuery();
+        query += filterQuery;
+        Connection conn = DatabaseUtil.getConnection();
+        try (
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+
+                busLines.add(getBusLineFromResult(rs));
+            }
+            return busLines;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
 
