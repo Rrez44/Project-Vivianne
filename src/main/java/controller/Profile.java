@@ -1,10 +1,12 @@
 package controller;
 
+import ENUMS.Role;
 import app.Navigator;
 import app.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -46,8 +48,15 @@ public class Profile extends BGmain implements Initializable {
     @FXML
     private Pane paneProfile;
 
+    @FXML
+    private Button txtManageAdminsProfiel;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        if(Session.getUser().getRole() != Role.SUPER_ADMIN){
+            paneProfile.getChildren().remove(txtManageAdminsProfiel);
+        }
 
         Translate.translateForAllPanes(paneProfile);
         txtFirstNameLastNameProfile.setText(Session.getUser().getFirstName() + " " + Session.getUser().getLastName());

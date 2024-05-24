@@ -1,5 +1,6 @@
 package controller;
 
+import ENUMS.Role;
 import app.Navigator;
 import app.Session;
 import javafx.application.Platform;
@@ -86,10 +87,15 @@ public class Dashboard extends BGmain implements Initializable {
 
         try {
             super.initialize(url, resourceBundle);
+            txtName.setText(Session.getUser().getUsername());
+
+
+
+
+
             Translate.translateForAllPanes(paneSearchLines);
             dateTo.setValue(LocalDate.from(LocalDateTime.now()));
             handleSearch(new ActionEvent());
-             txtName.setText(Session.getUser().getUsername());
 
          }catch (NullPointerException e){
 

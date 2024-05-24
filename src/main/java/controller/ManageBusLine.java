@@ -1,9 +1,12 @@
 package controller;
 
 import ENUMS.ComfortRating;
+import ENUMS.Role;
+import app.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -56,6 +59,9 @@ public class ManageBusLine extends BGmain implements Initializable {
     @FXML
     private Pane paneSearchLines;
 
+    @FXML
+    private Button btnMarkFailed;
+
     private static BusLine passedBusLine;
     private static model.Company companyAssigned;
     private static model.Bus bus;
@@ -64,6 +70,9 @@ public class ManageBusLine extends BGmain implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(Session.getUser().getRole() == Role.USER ){
+            paneGetLineInfor.getChildren().remove(btnMarkFailed);
+        }
         Translate.translateForAllPanes(paneSearchLines);
         companyAssigned = passedBusLine.getCompanyAssigned();
         bus = passedBusLine.getBusModel();

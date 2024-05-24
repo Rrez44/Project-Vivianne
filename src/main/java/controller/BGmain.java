@@ -1,5 +1,6 @@
 package controller;
 
+import ENUMS.Role;
 import app.Navigator;
 import app.Session;
 import javafx.animation.PauseTransition;
@@ -33,14 +34,41 @@ public abstract class BGmain implements Initializable {
     @FXML
     protected Pane paneButtons;
 
+    @FXML
+    protected Button btnRegister;
+    @FXML
+    protected Button btnCreateLine;
+
+    @FXML
+    protected Button btnReport;
+
+    @FXML
+    protected  Button btnStatistics;
+
+    @FXML
+    protected Button btnLogOut;
+
+
     private static String lastClickedButtonId = null; // Static variable to persist across navigations
     private Button lastClickedButton = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
+
+
         if (paneButtons != null) {
             Translate.translateForAllPanes(paneButtons);
+
+            if(Session.getUser().getRole() == Role.USER){
+                paneButtons.getChildren().remove(btnRegister);
+                paneButtons.getChildren().remove(btnCreateLine);
+                paneButtons.getChildren().remove(btnReport);
+                btnStatistics.setLayoutY(210);
+                btnLogOut.setLayoutY(274);
+            }
+
 
             if (lastClickedButtonId != null) {
                 for (Node node : paneButtons.getChildren()) {

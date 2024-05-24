@@ -79,7 +79,7 @@
                      </font>
                   </Label>
                   <Line endX="235.5999755859375" layoutX="235.0" layoutY="353.0" startX="-166.00003051757812" stroke="WHITE" />
-                  <Pane fx:id="paneChangePassword" layoutX="104.0" layoutY="69.0" prefHeight="412.0" prefWidth="332.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+                  <Pane fx:id="paneChangePassword" layoutX="104.0" layoutY="69.0" prefHeight="412.0" prefWidth="332.0" style="-fx-background-color: white; -fx-background-radius: 10px;" visible="false">
                      <children>
                         <Pane layoutX="21.0" layoutY="18.0" prefHeight="376.0" prefWidth="293.0" style="-fx-background-color: #2b2d42;">
                            <children>
