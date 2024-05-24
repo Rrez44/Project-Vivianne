@@ -3,24 +3,33 @@ package controller;
 import app.Navigator;
 import app.Session;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Popup;
+import javafx.stage.Window;
 import model.Bus;
 import model.BusLine;
-import service.BusLineService;
-import service.Translate;
-import service.TranslateRecords;
+import model.filter.BusLineFilter;
+import model.filter.BusLineFilter;
+import service.*;
 
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 public class Dashboard extends BGmain implements Initializable {
 
@@ -37,12 +46,28 @@ public class Dashboard extends BGmain implements Initializable {
     private TextField txtFrom;
 
     @FXML
+    private TextField txtTo;
+
+    @FXML
     protected Pane paneSearchLines;
 
     @FXML
     protected Button btnGoToProfile;
 
+    @FXML
+    private TextField txtCompany;
 
+
+    @FXML
+    private DatePicker dateFrom;
+
+    @FXML
+    private DatePicker dateTo;
+
+    private String checkActivity= null;
+
+    private LocalDateTime localDateTimeFrom;
+    private LocalDateTime localDateTimeTo;
 
 
 
@@ -51,18 +76,8 @@ public class Dashboard extends BGmain implements Initializable {
     public void handleStatusMenuItemClicked(ActionEvent event) {
         MenuItem menuItem = (MenuItem) event.getSource();
         menuStatus.setText(menuItem.getText());
-
+        checkActivity = menuItem.getText();
 //        TranslateRecords.translateFormInputs(Translate.getInstance().getCurrentLanguage(),paneButtons);
-
-    }
-
-
-
-
-    public void handleAddBus(ActionEvent event) {
-    }
-
-    public void handleSuspend(ActionEvent event) {
 
     }
 
@@ -74,18 +89,43 @@ public class Dashboard extends BGmain implements Initializable {
             Translate.translateForAllPanes(paneSearchLines);
              txtName.setText(Session.getUser().getUsername());
 
-
          }catch (NullPointerException e){
 
 
         }
+
     }
+
+//    public void formatTime(){
+//
+//
+//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//        if(dateFrom.getValue() != null && dateTo.getValue() !=null) {
+//            StringBuilder from = new StringBuilder().append(dateFrom.getValue() + " " + "05:00:00");
+//            localDateTimeFrom = LocalDateTime.parse(from.toString(), dateTimeFormatter);
+//
+//            StringBuilder to = new StringBuilder().append(dateTo.getValue() + " " + "20:00:00");
+//            localDateTimeTo = LocalDateTime.parse(to.toString(), dateTimeFormatter);
+//        }
+//        else if(dateFrom.getValue() !=null  ) {
+//            StringBuilder from = new StringBuilder().append(dateFrom.getValue() + " " + "05:00:00");
+//            localDateTimeFrom = LocalDateTime.parse(from.toString(), dateTimeFormatter);
+//        }else if(dateTo.getValue()!=null){
+//            StringBuilder to = new StringBuilder().append(dateTo.getValue() + " " + "20:00:00");
+//            localDateTimeTo = LocalDateTime.parse(to.toString(), dateTimeFormatter);
+//
+//        }else{
+//            localDateTimeFrom =null;
+//            localDateTimeTo =null;
+//        }
+//
+//    }
+
+
+
     public void handleSearch(ActionEvent event) {
         double totalHeight = 0;
-        System.out.println("hi");
-        System.out.println(txtFrom.getText());
-        List<BusLine> busLine = BusLineService.getBusLine(txtFrom.getText());
-
+        List<BusLine> busLine = BusLineService.getAllBusLines(new BusLineFilter(txtFrom.getText(),txtTo.getText(),checkActivity,txtCompany.getText(),DateConversion.localDate(dateFrom.getValue(),"05:00:00"),DateConversion.localDate(dateTo.getValue(),"08:00:00")));
         System.out.println(busLine.size());
         paneAddCompanyLine.getChildren().clear();
         try {
@@ -105,7 +145,7 @@ public class Dashboard extends BGmain implements Initializable {
 
 
             ScrollPane scrollPane = new ScrollPane(paneAddCompanyLine);
-            scrollPane.setFitToWidth(true); // Allow the ScrollPane to adjust its width
+            scrollPane.setFitToWidth(true);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,6 +153,9 @@ public class Dashboard extends BGmain implements Initializable {
         paneAddCompanyLine.setPrefHeight(totalHeight);
 
     }
+
+
+
 
 
     public void handleGotToProfile(ActionEvent event) {

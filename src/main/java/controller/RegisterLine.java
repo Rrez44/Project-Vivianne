@@ -2,6 +2,7 @@ package controller;
 
 import ENUMS.Status;
 import ENUMS.TravelTime;
+import INTERFACES.Identifiable;
 import app.Navigator;
 import app.Session;
 import javafx.event.ActionEvent;
@@ -18,10 +19,7 @@ import model.BusLine;
 //import otherFunctionality.AddHours;
 import otherFunctionality.AddStop;
 import otherFunctionality.AddTime;
-import service.BusLineService;
-import service.ClearForm;
-import service.DateFormatter;
-import service.Translate;
+import service.*;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -29,7 +27,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-public class RegisterLine extends BGmain implements Initializable {
+public class RegisterLine extends BGmain implements Initializable, Identifiable {
 
     @FXML
     private MenuButton menuCityFrom;
@@ -85,6 +83,8 @@ public class RegisterLine extends BGmain implements Initializable {
 
     private LocalDateTime localDateTimeTo;
     private LocalDateTime localDateTimeFrom;
+    public  String travelTime ;
+
 
 
 
@@ -128,31 +128,15 @@ public class RegisterLine extends BGmain implements Initializable {
     }
 
 
-    public void formatDateTime(){
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String travelTime = menuCityFrom.getText() +"_" +menuCityTo.getText();
-
-        TravelTime travelTime1= TravelTime.valueOf(travelTime);
-        String duration = travelTime1.getTime();
-
-        StringBuilder from = new StringBuilder().append(dateDate.getValue() + " " +menuSelectHoursFrom.getText() +":"+menuSelectMinutesFrom.getText() +":"+"00");
-
-        localDateTimeFrom = LocalDateTime.parse(from.toString(),dateTimeFormatter);
-        String[] durationSplit = duration.split(":");
-        String hours = durationSplit[0];
-        String minutes = durationSplit[1];
-        localDateTimeTo = localDateTimeFrom.plusHours(Integer.parseInt(hours)).plusMinutes(Integer.parseInt(minutes));
-
-    }
-
 
 
 
     public void handleAddLine(ActionEvent event) {
-        formatDateTime();
-//        menuSelectHoursTo.setText(String.valueOf(localDateTimeTo.getHour()));
+        travelTime = menuCityFrom.getText() +"_" +menuCityTo.getText();
+        localDateTimeFrom =DateConversion.fromDateTimeComponents(dateDate.getValue(),menuSelectHoursFrom.getText(),menuSelectMinutesFrom.getText());
+        localDateTimeTo =DateConversion.calculateEndDateTime(localDateTimeFrom,TravelTime.valueOf(travelTime).getTime());
         AddStop.restartForm();
-        busLine = new BusLine(UUID.randomUUID().toString(), Status.ACTIVE,localDateTimeFrom,localDateTimeTo, Session.getUser(),LocalDateTime.now(),getStops ,menuCityFrom.getText(),menuCityTo.getText(),null,null);
+        busLine = new BusLine(generateId(), Status.ACTIVE,localDateTimeFrom,localDateTimeTo, Session.getUser(),LocalDateTime.now(),getStops ,menuCityFrom.getText(),menuCityTo.getText(),null,null);
         Navigator.navigate(event, Navigator.CREATE_LINE);
     }
 
@@ -198,7 +182,9 @@ public class RegisterLine extends BGmain implements Initializable {
     }
 
     public void changeTime(){
-        formatDateTime();
+        travelTime = menuCityFrom.getText() + "_" + menuCityTo.getText();
+        localDateTimeFrom =DateConversion.fromDateTimeComponents(dateDate.getValue(),menuSelectHoursFrom.getText(),menuSelectMinutesFrom.getText());
+        localDateTimeTo =DateConversion.calculateEndDateTime(localDateTimeFrom,TravelTime.valueOf(travelTime).getTime());
         menuSelectHoursTo.setText(String.valueOf(localDateTimeTo.getHour()));
         menuSelectMinutesTo.setText(String.valueOf(localDateTimeTo.getMinute()));
     }
