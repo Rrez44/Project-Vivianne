@@ -39,16 +39,16 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <MenuButton fx:id="menuStatus" layoutX="71.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: white;" text="Status">
+            <MenuButton fx:id="menuStatus" layoutX="71.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: white;" text="Status" >
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Active" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Active"  />
                   <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Completed" />
                   <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Failed" />
                   <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Delayed" />
                </items>
             </MenuButton>
 
-            <TextField fx:id="txtCompany" alignment="CENTER" layoutX="282.0" layoutY="97.0" prefHeight="25.0" prefWidth="106.0" />
+            <TextField fx:id="txtCompany" alignment="CENTER" layoutX="282.0" layoutY="97.0" prefHeight="25.0" prefWidth="106.0" promptText="Company Name" />
             <Label fx:id="txtCompanyLabel" alignment="CENTER" layoutX="189.0" layoutY="97.0" prefHeight="25.0" prefWidth="106.0" style="-fx-font-weight: bold;" text="Company:" textFill="WHITE">
                <font>
                   <Font size="14.0" />

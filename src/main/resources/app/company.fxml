@@ -79,6 +79,9 @@
                <effect>
                   <DropShadow />
                </effect>
+               <content>
+                  <Pane fx:id="paneGetSpecifficLines" prefHeight="392.0" prefWidth="679.0" />
+               </content>
             </ScrollPane>
             <TextField fx:id="txtLineID" layoutX="15.0" layoutY="222.0" prefHeight="25.0" prefWidth="98.0" promptText="LineID" style="-fx-background-radius: 0;">
                <effect>
