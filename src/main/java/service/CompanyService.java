@@ -12,4 +12,8 @@ public class CompanyService {
     }
 
 
+    public static model.Company getCompanyFromId(String id){
+        return CompanyRepository.getCompanyFromId(id);
+    }
+
 }

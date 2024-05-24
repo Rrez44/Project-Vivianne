@@ -22,30 +22,11 @@ public class ComponentBusSearch {
         Navigator.navigate(actionEvent, Navigator.MANAGE_BUS);
     }
 
-    private String getTxtComfortRating(ComfortRating cr){
-        switch (cr.getRating()) {
-            case 1 -> {
-                return "⭐";
-            }
-            case 2 -> {
-                return "⭐⭐";
-            }
-            case 3 -> {
-                return "⭐⭐⭐";
-            }
-            case 4 -> {
-                return "⭐⭐⭐⭐";
-            }
-            case 5 -> {
-                return "⭐⭐⭐⭐⭐";
-            }
-        }
-        return null;
-    }
+
     public void setData(Bus bus) {
         txtBusModel.setText(bus.getBusModel());
         txtVin.setText(bus.getVin());
-        txtComfortRating.setText(getTxtComfortRating(bus.getComfortRating()));
+        txtComfortRating.setText(ComfortRating.getTxtComfortRating(bus.getComfortRating()));
         txtActivity.setText(bus.getActivityStatus().name());
         if(txtActivity.getText().equals("ACTIVE")){
             txtActivity.setStyle("-fx-text-fill:  #1DB954;");

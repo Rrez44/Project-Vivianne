@@ -28,6 +28,7 @@ public class Navigator {
     public final static String MANAGE_BUS = "manageBus.fxml";
     public final static String STATISTICS = "statistics.fxml";
     public final static String CREATE_LINE = "CreateLine.fxml";
+    public final static String MANAGE_LINE = "manageBusLine.fxml";
 
     public static boolean firstNav = true;
     public static boolean loginNav =true;

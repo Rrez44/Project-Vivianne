@@ -90,8 +90,8 @@ public class Dashboard extends BGmain implements Initializable {
                 AnchorPane busPane = loader.load();
                 ComponentBusLine addLineController = loader.getController();
 
-                addLineController.setData(bus.getStartLocation(), bus.getEndLocation(), bus.getStatus().toString(), bus.getStartTime());
-
+                addLineController.setData(bus.getStartLocation(), bus.getEndLocation(), bus.getStatus().toString(), bus.getStartTime(), bus.getEndTime());
+                addLineController.passBusLine(bus);
                 busPane.setLayoutY(totalHeight);
 
                 paneAddCompanyLine.getChildren().add(busPane);
