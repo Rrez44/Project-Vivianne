@@ -118,7 +118,7 @@ public class ManageBus extends BGmain implements StarManager, Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Translate.translateForAllPanes(paneAddBus);
+        Translate.translateForAllPanes (paneAddBus);
         Translate.translateForAllPanes(paneAddBusLabel);
         txtVin.setText(passedBus.getVin());
         txtModel.setText(passedBus.getBusModel());

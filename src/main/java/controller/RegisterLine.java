@@ -150,7 +150,7 @@ public class RegisterLine extends BGmain implements Initializable {
 
     public void handleAddLine(ActionEvent event) {
         formatDateTime();
-        menuSelectHoursTo.setText(String.valueOf(localDateTimeTo.getHour()));
+//        menuSelectHoursTo.setText(String.valueOf(localDateTimeTo.getHour()));
         AddStop.restartForm();
         busLine = new BusLine(UUID.randomUUID().toString(), Status.ACTIVE,localDateTimeFrom,localDateTimeTo, Session.getUser(),LocalDateTime.now(),getStops ,menuCityFrom.getText(),menuCityTo.getText(),null,null);
         Navigator.navigate(event, Navigator.CREATE_LINE);

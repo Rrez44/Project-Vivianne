@@ -1,0 +1,55 @@
+.table-view {
+    -fx-font-family: "Verdana";
+    -fx-font-size: 13px;
+    -fx-background-color: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .column-header-background {
+
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-color: #2b2d42;
+
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white; /* Text color for header */
+    -fx-font-weight: bold; /* Bold font for header text */
+}
+
+.table-view .column-header {
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+
+    -fx-border-color: transparent transparent transparent transparent; /* Bottom border color */
+    -fx-background-color: #2b2d42;
+    -fx-border-width: 0 0 2px 0; /* Bottom border width */
+}
+
+.table-view .table-cell .button{
+    -fx-background-color: white;
+    -fx-font-size: 13px;
+    -fx-text-fill: red;
+}
+
+
+.table-view .table-cell {
+
+    -fx-background-color: white; /* Background color of each row */
+    -fx-text-fill: black;
+    -fx-alignment: center;
+
+    -fx-border-insets: 10px; /* Creates space around the border */
+    -fx-background-insets: 10px; /* Creates space around the background */
+    -fx-background-radius: 5px; /* Rounded corners for rows */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.5, 0, 0); /* Shadow effect for separation */
+}
+
+.table-row-cell:selected {
+    -fx-background-radius: 10px;
+    -fx-background-color:transparent; /* Background color for odd rows */
+    -fx-text-fill: black;
+}
+
+

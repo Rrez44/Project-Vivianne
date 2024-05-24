@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2b2d42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageAdmins">
+   <children>
+       <fx:include source="Base.fxml" />
+
+       <Pane layoutX="232.0" layoutY="61.0" prefHeight="578.0" prefWidth="653.0" style="-fx-background-color: white;">
+         <children>
+            <TableView fx:id="tblGetUser" layoutX="6.0" layoutY="12.0" prefHeight="554.0" prefWidth="647.0" stylesheets="@../css/tableView.css">
+               <columns>
+                  <TableColumn fx:id="tblUsername" editable="false" prefWidth="142.39996337890625" sortable="false" text="Username" />
+                  <TableColumn fx:id="tblEmail" editable="false" minWidth="0.0" prefWidth="199.20010375976562" sortable="false" text="Email" />
+                  <TableColumn fx:id="tblStatus" editable="false" prefWidth="143.19989013671875" sortable="false" text="Status" />
+                  <TableColumn fx:id="tblRemove" prefWidth="161.59991455078125" sortable="false" text="Remove" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

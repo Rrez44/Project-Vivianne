@@ -1,5 +1,6 @@
 package controller;
 
+import app.Navigator;
 import app.Session;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -37,6 +38,9 @@ public class Dashboard extends BGmain implements Initializable {
 
     @FXML
     protected Pane paneSearchLines;
+
+    @FXML
+    protected Button btnGoToProfile;
 
 
 
@@ -111,5 +115,7 @@ public class Dashboard extends BGmain implements Initializable {
     }
 
 
-
+    public void handleGotToProfile(ActionEvent event) {
+        Navigator.navigate(event,Navigator.PROFILE_PAGE);
+    }
 }

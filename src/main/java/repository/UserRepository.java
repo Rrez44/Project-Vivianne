@@ -5,9 +5,13 @@ import INTERFACES.Identifiable;
 import databaseConnection.DatabaseUtil;
 import model.CreateUser;
 import model.User;
+import model.dto.ChangePassword;
+import model.dto.UpdateUser;
 import service.PasswordHasher;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -159,6 +163,25 @@ public class UserRepository  {
         }
     }
 
+    public static void deleteAdmin(String username){
+
+        String query = "DELETE FROM users WHERE username = ?";
+
+        Connection connection = DatabaseUtil.getConnection();
+
+        try{
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, username);
+            ps.execute();
+            System.out.println("Deleted admin");
+        }catch (SQLException e){
+            System.out.println(e);
+        }
+
+    }
+
+
+
 
     private static User getFromResultSet(ResultSet result){
         try{
@@ -180,6 +203,50 @@ public class UserRepository  {
         }
     }
 
+    public static List<User> getAllAdminUsers(String loggedUser){
+        List<User> users = new ArrayList<>();
+        String query = "SELECT * FROM users where  username !=?";
+        Connection connection = DatabaseUtil.getConnection();
+
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, loggedUser);
+            ResultSet result = pst.executeQuery();
+
+            while(result.next()){
+                users.add(getFromResultSet(result));
+            }
+            return users;
+        }catch (SQLException e){
+            System.out.println(e);
+        }
+
+        return null;
+
+    }
+
+
+    public static void updatePassword(UpdateUser updateUser){
+
+        String query = "UPDATE users SET hashed_password = ?,salt=? WHERE user_id = ?";
+        Connection connection = DatabaseUtil.getConnection();
+        try{
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1, updateUser.getPasswordHash());
+            pst.setString(2,updateUser.getSalt());
+            pst.setString(3,updateUser.getId());
+            pst.execute();
+            System.out.println("Password updated");
+
+        }catch (SQLException e){
+            System.out.println(e);
+        }
+
+
+
+
+
+    }
 
 
 
