@@ -4,7 +4,7 @@ import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import repository.CompanyRepository;
+import service.CompanyService;
 
 public class ComponentCompanySearch {
     @FXML
@@ -34,7 +34,7 @@ public class ComponentCompanySearch {
 
     public void handleManage(ActionEvent actionEvent) {
 
-        Company.passCompany(CompanyRepository.getCompanyFromId(txtCompanyId.getText()));
+        Company.passCompany(CompanyService.getCompanyFromId(txtCompanyId.getText()));
         Navigator.navigate(actionEvent, Navigator.COMPANY_PAGE);
     }
 }

@@ -9,7 +9,6 @@ import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
@@ -17,13 +16,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 import model.Company;
-import org.w3c.dom.events.MouseEvent;
-import repository.BusRepository;
+import service.BusService;
 import service.Translate;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.UUID;
 
 public class AddBus extends BGmain  implements StarManager, Initializable, Identifiable {
 
@@ -134,7 +131,7 @@ public class AddBus extends BGmain  implements StarManager, Initializable, Ident
         }
 
         try {
-            BusRepository.createBus(generateId(),txtModel.getText().trim(), txtVin.getText(), Integer.parseInt(txtPassengerCapacity.getText().trim()), BusType.valueOf(mbtnBusType.getText()), ActivityStatus.ACTIVE, ComfortRating.fromInt(cRating), passedCompany);
+            BusService.createBus(generateId(),txtModel.getText().trim(), txtVin.getText(), Integer.parseInt(txtPassengerCapacity.getText().trim()), BusType.valueOf(mbtnBusType.getText()), ActivityStatus.ACTIVE, ComfortRating.fromInt(cRating), passedCompany);
         }
         catch (RuntimeException re){
             showError("Error creating new bus", re.getMessage());

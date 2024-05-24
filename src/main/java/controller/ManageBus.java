@@ -8,13 +8,15 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 import model.Bus;
-import model.Company;
-import repository.BusRepository;
+import service.BusService;
 import service.Translate;
 
 import java.net.URL;
@@ -94,7 +96,7 @@ public class ManageBus extends BGmain implements StarManager, Initializable {
         passedBus.setActivityStatus(ActivityStatus.valueOf(txtCurrentStatus.getText()));
         passedBus.setComfortRating(ComfortRating.fromInt(cRating));
         try {
-            BusRepository.updateBus(passedBus);
+            BusService.updateBus(passedBus);
             showConfirmation("Updated bus", "Successful operation");
             Navigator.navigate(actionEvent, Navigator.COMPANY_PAGE);
         }catch (RuntimeException re){

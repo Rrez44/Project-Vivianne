@@ -8,7 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.Bus;
-import repository.BusRepository;
+import service.BusService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,7 +37,7 @@ public class SearchBus extends BGmain implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        displayBuses(BusRepository.loadInitial(company));
+        displayBuses(BusService.loadInitial(company));
     }
 
     private void displayBuses(List<Bus> busList){
