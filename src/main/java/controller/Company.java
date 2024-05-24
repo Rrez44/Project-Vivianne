@@ -9,7 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.Pane;
-import repository.CompanyRepository;
+import service.CompanyService;
 import service.Translate;
 
 import java.net.URL;
@@ -152,7 +152,7 @@ public class Company extends BGmain implements Initializable {
         company.setDescription(txtAreaDescription.getText().trim());
         company.setAreaCode(AreaCode.valueOf(mbtnAreaCode.getText()));
         try {
-            if(CompanyRepository.updateCompany(company)){
+            if(CompanyService.updateCompany(company)){
                 showConfirmation("Company changes saved", "The process was a success");
                 handleEdit(new ActionEvent());
             }
@@ -172,7 +172,7 @@ public class Company extends BGmain implements Initializable {
                             company.setCompanyStatus(ActivityStatus.SUSPENDED);
                             labelStatus.setText("Suspended");
                             updateStatusManagerView();
-                            CompanyRepository.updateCompany(company);
+                            CompanyService.updateCompany(company);
                             showConfirmation("Coompany Suspended", "The activities of this company have been suspended");
 
                             break;
@@ -180,7 +180,7 @@ public class Company extends BGmain implements Initializable {
                             company.setCompanyStatus(ActivityStatus.ACTIVE);
                             labelStatus.setText("Active");
                             updateStatusManagerView();
-                            CompanyRepository.updateCompany(company);
+                            CompanyService.updateCompany(company);
                             showConfirmation("Company Activated", "The activities of this company have been activated");
                             break;
         }

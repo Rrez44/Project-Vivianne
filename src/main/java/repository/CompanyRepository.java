@@ -4,8 +4,7 @@ import ENUMS.ActivityStatus;
 import ENUMS.AreaCode;
 import databaseConnection.DatabaseUtil;
 import model.Company;
-import service.DateFormatter;
-import model.BusLine;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -128,7 +127,7 @@ public class CompanyRepository
             throw new RuntimeException(se.getMessage());
         }
     }
-    public static Company getCompanyFromname(String name){
+    public static Company getCompanyFromName(String name){
         Connection conn = DatabaseUtil.getConnection();
         String query = "Select * from companies where company_name = ?";
         try {

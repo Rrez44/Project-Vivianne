@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.Company;
-import repository.CompanyRepository;
+import service.CompanyService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,7 +40,7 @@ public class SearchCompany extends BGmain implements Initializable {
                 showError("Search Error", "Company name is required.");
 
             }
-            List<Company> companies = CompanyRepository.searchCompanies(companyName);
+            List<Company> companies = CompanyService.searchCompanies(companyName);
             displayCompanies(companies);
         }
         catch (RuntimeException re){
@@ -78,6 +78,6 @@ public class SearchCompany extends BGmain implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        displayCompanies(CompanyRepository.initialLoad());
+        displayCompanies(CompanyService.loadAllCompanies());
     }
 }

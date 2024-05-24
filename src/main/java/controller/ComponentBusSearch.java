@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import model.Bus;
-import repository.BusRepository;
+import service.BusService;
 
 public class ComponentBusSearch {
     @FXML
@@ -18,7 +18,7 @@ public class ComponentBusSearch {
     @FXML
     private Label txtActivity;
     public void handleManage(ActionEvent actionEvent) {
-        ManageBus.passBus(BusRepository.getBusByVin(txtVin.getText()));
+        ManageBus.passBus(BusService.getBusByVin(txtVin.getText()));
         Navigator.navigate(actionEvent, Navigator.MANAGE_BUS);
     }
 
