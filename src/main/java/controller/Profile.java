@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import model.dto.ChangePassword;
 import service.ClearForm;
+import service.Translate;
 import service.UserService;
 
 import java.net.URL;
@@ -42,9 +43,13 @@ public class Profile extends BGmain implements Initializable {
     @FXML
     private PasswordField pwdConfirmNewPassword;
 
+    @FXML
+    private Pane paneProfile;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        Translate.translateForAllPanes(paneProfile);
         txtFirstNameLastNameProfile.setText(Session.getUser().getFirstName() + " " + Session.getUser().getLastName());
         txtUsernameProfile.setText(Session.getUser().getUsername());
         txtEmailProfile.setText(Session.getUser().getEmail());

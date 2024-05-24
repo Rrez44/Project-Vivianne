@@ -18,24 +18,24 @@
 
         <Pane layoutX="179.0" layoutY="14.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
          <children>
-            <Pane layoutX="103.0" layoutY="22.0" prefHeight="613.0" prefWidth="543.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10px;">
+            <Pane fx:id="paneProfile" layoutX="103.0" layoutY="22.0" prefHeight="613.0" prefWidth="543.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10px;">
                <children>
-                  <Label fx:id="txtEmailProfile1111" alignment="CENTER" layoutX="69.0" layoutY="315.0" prefHeight="40.0" prefWidth="59.0" style="-fx-text-fill: white;" text="Role:">
+                  <Label fx:id="txtRoleProfileLabel" layoutX="69.0" layoutY="315.0" prefHeight="40.0" prefWidth="59.0" style="-fx-text-fill: white;" text="Role:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtEmailProfile1" alignment="CENTER" layoutX="69.0" layoutY="180.0" prefHeight="40.0" prefWidth="59.0" style="-fx-text-fill: white;" text="Name:">
+                  <Label fx:id="txtNameProfileLabel" layoutX="69.0" layoutY="180.0" prefHeight="40.0" prefWidth="59.0" style="-fx-text-fill: white;" text="Name:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtEmailProfile11" alignment="CENTER" layoutX="69.0" layoutY="221.0" prefHeight="40.0" prefWidth="90.0" style="-fx-text-fill: white;" text="Username:">
+                  <Label fx:id="txtUsernameProfileLabel" layoutX="69.0" layoutY="221.0" prefHeight="40.0" prefWidth="183.0" style="-fx-text-fill: white;" text="Username:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtEmailProfile111" alignment="CENTER" layoutX="69.0" layoutY="265.0" prefHeight="40.0" prefWidth="59.0" style="-fx-text-fill: white;" text="Email:">
+                  <Label fx:id="txtEmailProfileLabel" layoutX="69.0" layoutY="265.0" prefHeight="40.0" prefWidth="59.0" style="-fx-text-fill: white;" text="Email:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -63,12 +63,12 @@
                   <Line endX="235.5999755859375" layoutX="236.0" layoutY="220.0" startX="-166.00003051757812" stroke="WHITE" />
                   <Line endX="235.5999755859375" layoutX="237.0" layoutY="264.0" startX="-166.00003051757812" stroke="WHITE" />
                   <Line endX="235.5999755859375" layoutX="237.0" layoutY="310.0" startX="-166.00003051757812" stroke="WHITE" />
-                  <Button layoutX="72.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleChangePassword" prefHeight="31.0" prefWidth="403.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-font-weight: bold;" text="Change Password">
+                  <Button fx:id="btnChangePasswordProfile" layoutX="72.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleChangePassword" prefHeight="31.0" prefWidth="403.0" style="-fx-text-fill: black; -fx-background-color: white; -fx-font-weight: bold;" text="Change Password">
                      <effect>
                         <DropShadow />
                      </effect>
                   </Button>
-                  <Button layoutX="72.0" layoutY="494.0" mnemonicParsing="false" onAction="#handleManageAdmins" prefHeight="31.0" prefWidth="403.0" style="-fx-text-fill: white; -fx-background-color: #8d99ae; -fx-font-weight: bold;" text="Manage Admins">
+                  <Button fx:id="txtManageAdminsProfiel" layoutX="72.0" layoutY="494.0" mnemonicParsing="false" onAction="#handleManageAdmins" prefHeight="31.0" prefWidth="403.0" style="-fx-text-fill: white; -fx-background-color: #8d99ae; -fx-font-weight: bold;" text="Manage Admins">
                      <effect>
                         <DropShadow />
                      </effect>
@@ -79,7 +79,7 @@
                      </font>
                   </Label>
                   <Line endX="235.5999755859375" layoutX="235.0" layoutY="353.0" startX="-166.00003051757812" stroke="WHITE" />
-                  <Pane fx:id="paneChangePassword" layoutX="104.0" layoutY="69.0" prefHeight="412.0" prefWidth="332.0" style="-fx-background-color: white; -fx-background-radius: 10px;" visible="false">
+                  <Pane fx:id="paneChangePassword" layoutX="104.0" layoutY="69.0" prefHeight="412.0" prefWidth="332.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
                      <children>
                         <Pane layoutX="21.0" layoutY="18.0" prefHeight="376.0" prefWidth="293.0" style="-fx-background-color: #2b2d42;">
                            <children>
@@ -87,12 +87,12 @@
                               <PasswordField fx:id="pwdNewPassword" alignment="CENTER" layoutX="47.0" layoutY="109.0" prefHeight="40.0" prefWidth="199.0" promptText="New Password" />
                               <PasswordField fx:id="pwdConfirmNewPassword" alignment="CENTER" layoutX="47.0" layoutY="160.0" prefHeight="40.0" prefWidth="199.0" promptText="Confirm New Password" />
                            </children></Pane>
-                        <Button layoutX="67.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleCancelChangePassword" prefHeight="31.0" prefWidth="199.0" style="-fx-text-fill: white; -fx-background-color: #ef233c; -fx-font-weight: bold; -fx-background-radius: 0px; -fx-border-radius: 0px;" text="Cancel">
+                        <Button fx:id="btnCancel" layoutX="67.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleCancelChangePassword" prefHeight="31.0" prefWidth="199.0" style="-fx-text-fill: white; -fx-background-color: #ef233c; -fx-font-weight: bold; -fx-background-radius: 0px; -fx-border-radius: 0px;" text="Cancel">
                            <effect>
                               <DropShadow />
                            </effect>
                         </Button>
-                        <Button layoutX="67.0" layoutY="231.0" mnemonicParsing="false" onAction="#handlechangePassword" prefHeight="31.0" prefWidth="199.0" style="-fx-text-fill: white; -fx-background-color: #1DB954; -fx-font-weight: bold; -fx-background-radius: 0px; -fx-border-radius: 0px;" text="Save">
+                        <Button fx:id="btnSave" layoutX="67.0" layoutY="231.0" mnemonicParsing="false" onAction="#handlechangePassword" prefHeight="31.0" prefWidth="199.0" style="-fx-text-fill: white; -fx-background-color: #1DB954; -fx-font-weight: bold; -fx-background-radius: 0px; -fx-border-radius: 0px;" text="Save">
                            <effect>
                               <DropShadow />
                            </effect>

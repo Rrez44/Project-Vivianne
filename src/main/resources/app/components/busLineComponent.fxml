@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ComponentBusLine">
    <children>
-      <Pane layoutX="13.0" layoutY="12.0" prefHeight="83.0" prefWidth="652.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10PX;">
+      <Pane fx:id="paneBusLineComponent" layoutX="13.0" layoutY="12.0" prefHeight="83.0" prefWidth="652.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10PX;">
          <children>
             <Label fx:id="txtGetStartLocation" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="105.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" text="From" />
             <Label fx:id="txtGetEndLocation" layoutX="178.0" layoutY="14.0" prefHeight="30.0" prefWidth="195.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" text="To" />
@@ -20,7 +20,7 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Button layoutX="555.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleManage" prefHeight="53.0" prefWidth="83.0" style="-fx-background-color: #edf2f4; -fx-font-weight: bold; -fx-background-radius: 0; -fx-background-radius: 10;" text="Manage">
+            <Button fx:id="btnManageSearchBus" layoutX="555.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleManage" prefHeight="53.0" prefWidth="83.0" style="-fx-background-color: #edf2f4; -fx-font-weight: bold; -fx-background-radius: 0; -fx-background-radius: 10;" text="Manage">
                <effect>
                   <DropShadow />
                </effect>

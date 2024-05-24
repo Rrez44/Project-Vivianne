@@ -8,16 +8,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="708.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ComponentAddLine">
    <children>
-      <Pane layoutX="14.0" layoutY="12.0" prefHeight="71.0" prefWidth="683.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10px;">
+      <Pane fx:id="paneAddLine" layoutX="14.0" layoutY="12.0" prefHeight="71.0" prefWidth="683.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10px;">
          <children>
-            <Label fx:id="txtCompanyName" layoutX="14.0" layoutY="8.0" prefHeight="30.0" prefWidth="179.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" text="Company" />
+            <Label fx:id="txtCompanyNameAddLine" layoutX="14.0" layoutY="8.0" prefHeight="30.0" prefWidth="179.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" text="Company" />
             <Label fx:id="txtPassangerSize" layoutX="14.0" layoutY="47.0" prefHeight="21.0" prefWidth="110.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15px;" text="Passanger Size" />
-            <Button layoutX="586.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleCreateLine" prefHeight="53.0" prefWidth="83.0" style="-fx-background-color: #1DB954; -fx-font-weight: bold; -fx-background-radius: 0; -fx-text-fill: white;" text="Create Line">
+            <Button fx:id="btnCreateLineAddLine" layoutX="586.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleCreateLine" prefHeight="53.0" prefWidth="83.0" style="-fx-background-color: #1DB954; -fx-font-weight: bold; -fx-background-radius: 0; -fx-text-fill: white;" text="Create Line">
                <effect>
                   <DropShadow />
                </effect>
             </Button>
-            <Label fx:id="txtBusModel" layoutX="233.0" layoutY="8.0" prefHeight="30.0" prefWidth="200.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" text="Bus Model" />
+            <Label fx:id="txtBusModelAddLine" layoutX="233.0" layoutY="8.0" prefHeight="30.0" prefWidth="200.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" text="Bus Model" />
          </children>
       </Pane>
    </children>

@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane layoutX="14.0" layoutY="14.0" minHeight="72.0" prefHeight="85.0" prefWidth="613.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 5px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ComponentCompanySearch">
+<Pane fx:id="paneSearchCompanyComponent" layoutX="14.0" layoutY="14.0" minHeight="72.0" prefHeight="85.0" prefWidth="613.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 5px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ComponentCompanySearch">
     <children>
-        <Label fx:id="txtCompanyName" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="427.0" style="-fx-font-weight: bold;" text="Company Name" textFill="WHITE">
+        <Label fx:id="txtCompanyNameSearchCompany" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="427.0" style="-fx-font-weight: bold;" text="Company Name" textFill="WHITE">
             <font>
                 <Font size="23.0" />
             </font>
         </Label>
         <Label fx:id="txtCompanyId" layoutX="14.0" layoutY="50.0" prefHeight="17.0" prefWidth="207.0" text="Id" textFill="WHITE" />
         <Label fx:id="txtAreaCode" layoutX="254.0" layoutY="50.0" prefHeight="17.0" prefWidth="69.0" text="Area" textFill="WHITE" />
-        <Button layoutX="482.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleManage" prefHeight="51.0" prefWidth="102.0" style="-fx-text-fill: white; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Manage">
+        <Button fx:id="btnManageSearchBus" layoutX="482.0" layoutY="11.0" mnemonicParsing="false" onAction="#handleManage" prefHeight="51.0" prefWidth="102.0" style="-fx-text-fill: white; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Manage">
          <effect>
             <DropShadow />
          </effect></Button>

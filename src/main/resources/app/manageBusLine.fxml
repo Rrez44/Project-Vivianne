@@ -3,14 +3,11 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.shape.Rectangle?>
@@ -67,7 +64,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="14.0" layoutY="231.0" prefHeight="414.0" prefWidth="675.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10;">
+            <Pane fx:id="paneGetLineInfor" layoutX="14.0" layoutY="231.0" prefHeight="414.0" prefWidth="675.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10;">
                <children>
                   <Label fx:id="txtBusLineId" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="326.0" text="busLineId" textFill="WHITE">
                      <font>
@@ -93,7 +90,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="14.0" layoutY="57.0" text="From/Till" textFill="#ace2ff">
+                  <Label fx:id="txtFromTillLabel" layoutX="14.0" layoutY="57.0" style="-fx-font-weight: bold;" text="From/Till" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -103,7 +100,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="621.0" layoutY="66.0" text="Date" textFill="#ace2ff">
+                  <Label fx:id="txtDateLabel" layoutX="614.0" layoutY="66.0" style="-fx-font-weight: bold;" text="Date" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -113,12 +110,12 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="14.0" layoutY="143.0" text="Company assigned" textFill="#ace2ff">
+                  <Label fx:id="txtCompanyAssignedLabel" layoutX="14.0" layoutY="143.0" text="Company assigned" textFill="#ace2ff">
                      <font>
-                        <Font size="19.0" />
+                        <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
-                  <Label layoutX="577.0" layoutY="143.0" text="Bus Model" textFill="#ace2ff">
+                  <Label fx:id="txtBusModelLabel" layoutX="564.0" layoutY="143.0" style="-fx-font-weight: bold;" text="Bus Model" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -128,17 +125,17 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="16.0" layoutY="228.0" text="Comfort Rating" textFill="#ace2ff">
+                  <Label fx:id="txtComfortRatingLabel" layoutX="16.0" layoutY="228.0" style="-fx-font-weight: bold;" text="Comfort Rating" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label layoutX="257.0" layoutY="228.0" text="Passanger Capacity" textFill="#ace2ff">
+                  <Label fx:id="txtPassangerCapacityLabel" layoutX="257.0" layoutY="228.0" style="-fx-font-weight: bold;" text="Passanger Capacity" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label layoutX="574.0" layoutY="228.0" text="Total Stops" textFill="#ace2ff">
+                  <Label fx:id="txtTotalStopsLabel" layoutX="563.0" layoutY="228.0" style="-fx-font-weight: bold;" text="Total Stops" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -158,21 +155,13 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Button layoutX="18.0" layoutY="337.0" mnemonicParsing="false" onAction="#handleFailLine" prefHeight="50.0" prefWidth="98.0" style="-fx-background-color: #cb0e40;" text="Mark Failed">
-                     <effect>
-                        <Bloom threshold="0.41">
-                           <input>
-                              <InnerShadow choke="0.07" radius="9.415" width="18.66">
-                                 <color>
-                                    <Color red="0.15789473056793213" green="0.0362573117017746" blue="0.0362573117017746" />
-                                 </color>
-                              </InnerShadow>
-                           </input>
-                        </Bloom>
-                     </effect>
+                  <Button fx:id="btnMarkFailed" layoutX="18.0" layoutY="337.0" mnemonicParsing="false" onAction="#handleFailLine" prefHeight="50.0" prefWidth="98.0" style="-fx-background-color: #cb0e40; -fx-font-weight: bold; -fx-text-fill: white;" text="Mark Failed">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </Button>
                </children>
             </Pane>

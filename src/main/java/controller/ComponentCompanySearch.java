@@ -4,11 +4,13 @@ import app.Navigator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import service.CompanyService;
+import service.Translate;
 
 public class ComponentCompanySearch {
     @FXML
-    private Label txtCompanyName;
+    private Label txtCompanyNameSearchCompany;
     @FXML
     private Label txtCompanyId;
     @FXML
@@ -16,9 +18,13 @@ public class ComponentCompanySearch {
     @FXML
     private Label txtActivity;
 
+    @FXML
+    private Pane paneSearchCompanyComponent;
+
     public void setData(model.Company company) {
-        txtCompanyName.setStyle("-fx-font-weight: bold");
-        txtCompanyName.setText(company.getCompanyName());
+        Translate.translateForAllPanes(paneSearchCompanyComponent);
+        txtCompanyNameSearchCompany.setStyle("-fx-font-weight: bold");
+        txtCompanyNameSearchCompany.setText(company.getCompanyName());
         txtCompanyId.setStyle("-fx-font-weight: bold");
         txtCompanyId.setText(company.getCompanyId());
         txtAreaCode.setStyle("-fx-font-weight: bold");

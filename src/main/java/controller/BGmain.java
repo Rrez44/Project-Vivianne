@@ -38,6 +38,7 @@ public abstract class BGmain implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         if (paneButtons != null) {
             Translate.translateForAllPanes(paneButtons);
 
@@ -130,4 +131,6 @@ public abstract class BGmain implements Initializable {
 
         });
     }
+
+
 }

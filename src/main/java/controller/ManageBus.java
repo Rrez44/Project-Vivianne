@@ -50,8 +50,14 @@ public class ManageBus extends BGmain implements StarManager, Initializable {
     private Pane paneAddBus;
     @FXML
     private Pane paneAddBusLabel;
+    @FXML
+    private Label lblManageBus;
+
+    @FXML
+    private Pane paneLableManageBuses;
 
     private static Bus passedBus;
+
 
 
 

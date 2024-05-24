@@ -61,8 +61,8 @@
                   <Font size="14.0" />
                </font>
             </PasswordField>
-            <Button fx:id="btnAddBus" layoutX="406.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="42.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Save" textFill="WHITE" />
-            <Button fx:id="btnSuspend" layoutX="155.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleSuspend" prefHeight="42.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Discard" textFill="WHITE" />
+            <Button fx:id="btnAddUser" layoutX="406.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="42.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: #1DB954; -fx-font-weight: bold;" text="Add User" textFill="WHITE" />
+            <Button fx:id="btnDiscardUser" layoutX="155.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleSuspend" prefHeight="42.0" prefWidth="149.0" style="-fx-background-radius: 0; -fx-background-color: #ef233c; -fx-font-weight: bold;" text="Discard" textFill="WHITE" />
             <MenuButton fx:id="menuSelectPriority" layoutX="155.0" layoutY="472.0" mnemonicParsing="false" onAction="#handleSelectPriority" prefHeight="42.0" prefWidth="396.0" style="-fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8);" text="User Type">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handleSelectPriority" text="SUPER_ADMIN" />

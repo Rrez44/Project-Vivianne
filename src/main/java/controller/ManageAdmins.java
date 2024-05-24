@@ -10,11 +10,13 @@ import javafx.fxml.Initializable;
 //import javafx.scene.control.TableCell;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 import model.User;
 import model.dto.UserDto;
 import repository.UserRepository;
 import service.PasswordHasher;
+import service.Translate;
 import service.UserService;
 
 import java.net.URL;
@@ -43,13 +45,16 @@ public class ManageAdmins extends BGmain implements Initializable {
     @FXML
     private TableColumn<User, String> tblRemove;
 
+    @FXML
+    private Pane paneTableView;
+
     private final ObservableList<User> data = FXCollections.observableArrayList();
 
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        Translate.translateForAllPanes(paneTableView);
         tblUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
         tblEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         tblStatus.setCellValueFactory(new PropertyValueFactory<>("role"));

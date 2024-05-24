@@ -6,8 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import model.BusLine;
+import service.Translate;
 import service.animations.BusAnimation;
 
 import java.net.URL;
@@ -48,6 +50,12 @@ public class ManageBusLine extends BGmain implements Initializable {
     @FXML
     private ImageView busIcon;
 
+    @FXML
+    private Pane paneGetLineInfor;
+
+    @FXML
+    private Pane paneSearchLines;
+
     private static BusLine passedBusLine;
     private static model.Company companyAssigned;
     private static model.Bus bus;
@@ -56,6 +64,7 @@ public class ManageBusLine extends BGmain implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Translate.translateForAllPanes(paneSearchLines);
         companyAssigned = passedBusLine.getCompanyAssigned();
         bus = passedBusLine.getBusModel();
         setData();
