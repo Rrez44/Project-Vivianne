@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "DS-Digital";
+    src: url("digital-7.ttf");
+}
+
+.digital-clock {
+    -fx-font-family: "DS-Digital";
+}

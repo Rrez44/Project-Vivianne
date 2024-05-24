@@ -13,8 +13,8 @@ import java.util.List;
 public class BusLineService {
 
 
-    public static List getCompany(String from) {
-        return BusLineRepository.getSpecificCompanyBusses(from);
+    public static List getCompany(String from, String to, LocalDateTime timeFrom, LocalDateTime timeTo) {
+        return BusLineRepository.getSpecificCompanyBusses(from, to, timeFrom, timeTo);
     }
 
 

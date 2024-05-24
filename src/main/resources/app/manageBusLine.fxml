@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #2B2D42;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageBusLine">
+   <children>
+      <Pane fx:id="paneSearchLines" layoutX="180.0" layoutY="20.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: black;">
+         <children>
+            <Polyline fill="WHITE" layoutX="148.0" layoutY="155.0" points="51.0, -102.19999694824219, 58.20001220703125, -95.5, 38.20001220703125, -95.5, 58.20001220703125, -95.5" stroke="WHITE" strokeType="OUTSIDE" />
+            <Label fx:id="txtSinceLabel" alignment="CENTER" layoutX="326.0" layoutY="49.0" prefHeight="25.0" prefWidth="62.0" style="-fx-font-weight: bold;" text="Since:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtToLabel" alignment="CENTER" layoutX="494.0" layoutY="49.0" prefHeight="25.0" prefWidth="62.0" style="-fx-font-weight: bold;" text="To:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="txtCompanyLabel" alignment="CENTER" layoutX="189.0" layoutY="97.0" prefHeight="25.0" prefWidth="106.0" style="-fx-font-weight: bold;" text="Company:" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Pane layoutX="14.0" layoutY="22.0" prefHeight="188.0" prefWidth="675.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10;">
+               <children>
+                  <Label fx:id="txtPlaceFrom" layoutX="18.0" layoutY="15.0" prefHeight="25.0" prefWidth="159.0" text="placeFrom" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtPlaceTo" alignment="CENTER_RIGHT" layoutX="539.0" layoutY="15.0" prefHeight="25.0" prefWidth="127.0" text="placeTo" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Rectangle fx:id="destinationBar" arcHeight="5.0" arcWidth="5.0" fill="#cdefcf" height="10.0" layoutX="56.0" layoutY="104.0" nodeOrientation="RIGHT_TO_LEFT" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 10;" width="600.0" />
+                  <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="616.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/bus-stop.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="14.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/bus-stop.png" />
+                     </image>
+                  </ImageView>
+                  <Rectangle fx:id="progressBar" arcHeight="5.0" arcWidth="5.0" fill="#19e123" height="10.0" layoutX="26.0" layoutY="104.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 10;" width="30.0" />
+                  <ImageView fx:id="busIcon" fitHeight="86.0" fitWidth="113.0" layoutX="31.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="14.0" layoutY="231.0" prefHeight="414.0" prefWidth="675.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10;">
+               <children>
+                  <Label fx:id="txtBusLineId" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="326.0" text="busLineId" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtActivityStatus" alignment="CENTER_RIGHT" layoutX="555.0" layoutY="17.0" prefHeight="21.0" prefWidth="106.0" text="Activity Status" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="71.0" textFill="WHITE" />
+                  <Label fx:id="txtTimeFrom" layoutX="14.0" layoutY="88.0" text="18:00" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Line endX="-66.19998168945312" layoutX="181.0" layoutY="106.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+                  <Line endX="-66.19998168945312" layoutX="183.0" layoutY="101.0" rotate="45.0" startX="-78.23876953125" startY="0.5567863583564758" stroke="WHITE" strokeWidth="2.0" />
+                  <Line endX="-66.19998168945312" layoutX="183.0" layoutY="110.0" rotate="-45.0" startX="-78.23876953125" startY="0.5567863583564758" stroke="WHITE" strokeWidth="2.0" />
+                  <Label fx:id="txtTimeTill" layoutX="127.0" layoutY="88.0" text="19:00" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="57.0" text="From/Till" textFill="#ace2ff">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtDate" alignment="CENTER_RIGHT" layoutX="485.0" layoutY="89.0" prefHeight="36.0" prefWidth="179.0" text="12/24/2024" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="621.0" layoutY="66.0" text="Date" textFill="#ace2ff">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtCompanyAssigned" layoutX="14.0" layoutY="171.0" prefHeight="36.0" prefWidth="159.0" text="Fehmiu" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="143.0" text="Company assigned" textFill="#ace2ff">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="577.0" layoutY="143.0" text="Bus Model" textFill="#ace2ff">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtBusModel" alignment="CENTER_RIGHT" layoutX="450.0" layoutY="171.0" prefHeight="36.0" prefWidth="216.0" text="Mercedes" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="16.0" layoutY="228.0" text="Comfort Rating" textFill="#ace2ff">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="257.0" layoutY="228.0" text="Passanger Capacity" textFill="#ace2ff">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="574.0" layoutY="228.0" text="Total Stops" textFill="#ace2ff">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtComfortRating" layoutX="14.0" layoutY="256.0" prefHeight="36.0" prefWidth="159.0" text="⭐⭐⭐⭐" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtPassangerCapacity" alignment="CENTER" layoutX="258.0" layoutY="256.0" prefHeight="36.0" prefWidth="159.0" text="156" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtTotalStops" alignment="CENTER_RIGHT" layoutX="583.0" layoutY="256.0" prefHeight="36.0" prefWidth="75.0" text="13" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="18.0" layoutY="337.0" mnemonicParsing="false" onAction="#handleFailLine" prefHeight="50.0" prefWidth="98.0" style="-fx-background-color: #cb0e40;" text="Mark Failed">
+                     <effect>
+                        <Bloom threshold="0.41">
+                           <input>
+                              <InnerShadow choke="0.07" radius="9.415" width="18.66">
+                                 <color>
+                                    <Color red="0.15789473056793213" green="0.0362573117017746" blue="0.0362573117017746" />
+                                 </color>
+                              </InnerShadow>
+                           </input>
+                        </Bloom>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect></Pane>
+      <fx:include source="Base.fxml" />
+   </children>
+</AnchorPane>

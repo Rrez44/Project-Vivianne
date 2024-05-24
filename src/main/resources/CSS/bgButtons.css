@@ -1,0 +1,5 @@
+/* button.css */
+.button {
+
+    -fx-transition: translate 0.2s ease-in-out;
+}

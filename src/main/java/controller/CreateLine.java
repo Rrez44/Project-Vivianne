@@ -1,6 +1,8 @@
 package controller;
 
+import app.Navigator;
 import app.Session;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,15 +23,16 @@ import java.util.ResourceBundle;
 //import static controller.RegisterLine.busLine;
 import static controller.RegisterLine.getBusLine;
 
-public class CreateLine implements Initializable  {
+public class CreateLine extends BGmain implements Initializable  {
 
     @FXML
     private AnchorPane paneGetAllAvailableBus;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+           BusLine busline = getBusLine();
 
-            getAllAvailableCompanies(BusLineService.getCompany(getBusLine().getStartLocation()));
+            getAllAvailableCompanies(BusLineService.getCompany(busline.getStartLocation(), busline.getEndLocation(), busline.getStartTime(), busline.getEndTime()));
 
     }
 
@@ -37,6 +40,8 @@ public class CreateLine implements Initializable  {
     public void getAllAvailableCompanies(List<BusLine> busLines){
         double totalHeight=0;
         paneGetAllAvailableBus.getChildren().clear();
+        if (busLines.isEmpty()){showError("No eligible buses", null); Navigator.navigate(new ActionEvent(), Navigator.CREATE_LINE);}
+
         for (BusLine bus :busLines) {
             try {
 
@@ -54,6 +59,7 @@ public class CreateLine implements Initializable  {
         }
         paneGetAllAvailableBus.setPrefHeight(totalHeight);
         }
+
 
    }
 
