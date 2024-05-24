@@ -16,12 +16,10 @@
 
       <Button fx:id="btnGoToProfile" layoutX="64.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleGotToProfile" prefHeight="51.0" prefWidth="52.0" style="-fx-background-color: #2b2d42;" text="Button" />
       <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleDashboard" prefHeight="64.0" prefWidth="146.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Dashboard" textFill="WHITE">
-<<<<<<< Updated upstream
-=======
 
 <!--      <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" layoutX="35.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleDashboard" prefHeight="64.0" prefWidth="186.0" style="-fx-background-radius: 0; -fx-font-family: Poppins; -fx-background-color: rgba(1,1,1,0); -fx-font-size: 20; -fx-font-weight: Bold;" text="Dashboard" textFill="WHITE"/>-->
 
->>>>>>> Stashed changes
+
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
