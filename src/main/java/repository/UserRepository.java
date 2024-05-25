@@ -205,12 +205,13 @@ public class UserRepository  {
 
     public static List<User> getAllAdminUsers(String loggedUser){
         List<User> users = new ArrayList<>();
-        String query = "SELECT * FROM users where  username !=?";
+        String query = "SELECT * FROM users where  username !=? and role=?";
         Connection connection = DatabaseUtil.getConnection();
 
         try{
             PreparedStatement pst = connection.prepareStatement(query);
             pst.setString(1, loggedUser);
+            pst.setString(2, Role.ADMIN.toString());
             ResultSet result = pst.executeQuery();
 
             while(result.next()){

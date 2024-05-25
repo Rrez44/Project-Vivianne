@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -24,38 +25,48 @@
                   <AnchorPane fx:id="paneAddCompanyLine" minHeight="0.0" minWidth="0.0" prefHeight="456.0" prefWidth="668.0" />
                </content>
             </ScrollPane>
-            <TextField fx:id="txtFrom" alignment="CENTER" focusTraversable="false" layoutX="71.0" layoutY="49.0" prefHeight="25.0" prefWidth="106.0" promptText="From" />
-            <TextField fx:id="txtTo" alignment="CENTER" layoutX="220.0" layoutY="49.0" prefHeight="25.0" prefWidth="106.0" promptText="To" />
+            <TextField fx:id="txtFrom" alignment="CENTER" focusTraversable="false" layoutX="71.0" layoutY="49.0" onKeyPressed="#handleSearchWithKeyboard" prefHeight="25.0" prefWidth="106.0" promptText="From" />
+            <TextField fx:id="txtTo" alignment="CENTER" layoutX="220.0" layoutY="49.0" onKeyPressed="#handleSearchWithKeyboard" prefHeight="25.0" prefWidth="106.0" promptText="To" />
             <Polyline fill="WHITE" layoutX="148.0" layoutY="155.0" points="51.0, -102.19999694824219, 58.20001220703125, -95.5, 38.20001220703125, -95.5, 58.20001220703125, -95.5" stroke="WHITE" strokeType="OUTSIDE" />
-            <DatePicker fx:id="dateFrom" layoutX="388.0" layoutY="49.0" prefHeight="25.0" prefWidth="106.0" promptText="Date" />
+            <DatePicker fx:id="dateFrom" layoutX="388.0" layoutY="49.0" onKeyPressed="#handleSearchWithKeyboard" prefHeight="25.0" prefWidth="106.0" promptText="Date" />
             <Label fx:id="txtSinceLabel" alignment="CENTER" layoutX="326.0" layoutY="49.0" prefHeight="25.0" prefWidth="62.0" style="-fx-font-weight: bold;" text="Since:" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <DatePicker fx:id="dateTo" layoutX="556.0" layoutY="49.0" prefHeight="25.0" prefWidth="106.0" promptText="Date" />
+            <DatePicker fx:id="dateTo" layoutX="556.0" layoutY="49.0" onKeyPressed="#handleSearchWithKeyboard" prefHeight="25.0" prefWidth="106.0" promptText="Date" />
             <Label fx:id="txtToLabel" alignment="CENTER" layoutX="494.0" layoutY="49.0" prefHeight="25.0" prefWidth="62.0" style="-fx-font-weight: bold;" text="To:" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <MenuButton fx:id="menuStatus" layoutX="71.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: white;" text="Status" >
+            <MenuButton fx:id="menuStatus" layoutX="71.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: white;" text="Status">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Active"  />
+                  <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Active" />
                   <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Completed" />
                   <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Failed" />
                   <MenuItem mnemonicParsing="false" onAction="#handleStatusMenuItemClicked" text="Delayed" />
                </items>
             </MenuButton>
 
-            <TextField fx:id="txtCompany" alignment="CENTER" layoutX="282.0" layoutY="97.0" prefHeight="25.0" prefWidth="106.0" promptText="Company Name" />
+            <TextField fx:id="txtCompany" alignment="CENTER" layoutX="282.0" layoutY="97.0" onKeyPressed="#handleSearchWithKeyboard" prefHeight="25.0" prefWidth="106.0" promptText="Company Name" />
             <Label fx:id="txtCompanyLabel" alignment="CENTER" layoutX="189.0" layoutY="97.0" prefHeight="25.0" prefWidth="106.0" style="-fx-font-weight: bold;" text="Company:" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btnClear" layoutX="419.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #ef233c; -fx-font-weight: bold;" text="Clear" textFill="WHITE" />
-            <Button fx:id="btnSearch" layoutX="556.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #edf2f4; -fx-font-weight: bold;" text="Search" />
+            <Button fx:id="btnClear" layoutX="419.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleClearSearchInputs" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #ef233c; -fx-font-weight: bold;" text="Clear" textFill="WHITE" />
+            <Button fx:id="btnSearch" layoutX="556.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleSearch" onKeyPressed="#handleSearchWithKeyboard" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #edf2f4; -fx-font-weight: bold;" text="Search" />
+            <Button fx:id="btnDashboardHelpId" layoutX="662.0" layoutY="2.0" mnemonicParsing="false" onMouseEntered="#handleHelpDashboard" onMouseExited="#handleExitHelpDashboard" prefHeight="25.0" prefWidth="38.0" style="-fx-background-radius: 50%; -fx-background-color: #2b2d42; -fx-text-fill: white; -fx-font-weight: bold;" text="!">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Pane fx:id="paneHelpDashboard" layoutX="377.0" layoutY="22.0" onMouseEntered="#handleHelpDashboard" onMouseExited="#handleExitHelpDashboard" prefHeight="286.0" prefWidth="285.0" style="-fx-background-color: white;">
+               <children>
+                  <TextArea fx:id="txtAreaHelpDashboard" editable="false" layoutX="11.0" layoutY="14.0" prefHeight="266.0" prefWidth="267.0" style="-fx-font-weight: bold;" text="1.From: Enter the starting location of your journey.&#10;2.To: Enter your destination.&#10;3.Since: Select the start date.&#10;4.To: Select the end date.&#10;5.Status: Choose the bus line status (Active, Completed, Failed, Delayed).&#10;6.Company: Enter the bus company name.&#10;7.Search: Click to find bus lines.&#10;8.Clear: Click to reset all fields.For further assistance, contact support." wrapText="true" />
+               </children>
+            </Pane>
          </children>
          <effect>
             <DropShadow />

@@ -43,7 +43,9 @@ public class TranslateRecords {
             "txtFirstNameLastNameProfile",
             "txtUsernameProfile",
             "txtEmailProfile",
-            "txtRoleProfile"
+            "txtRoleProfile",
+            "menuTranslate",
+            "txtAreaDescription"
     ));
 
 
@@ -67,6 +69,8 @@ public class TranslateRecords {
                             translateForm(language, (Pane) node);
                         }else if(node instanceof PasswordField){
                             ((PasswordField) node).setPromptText(bundle.getString(node.getId()));
+                        }else if(node instanceof TextArea){
+                            ((TextArea) node).setText(bundle.getString(node.getId()));
                         }
                         else if (node instanceof TextInputControl) {
                             ((TextInputControl) node).setPromptText(bundle.getString(node.getId()));

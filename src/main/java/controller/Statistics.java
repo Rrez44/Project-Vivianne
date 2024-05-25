@@ -1,6 +1,8 @@
 package controller;
 
+import ENUMS.Role;
 import ENUMS.Status;
+import app.Session;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,6 +14,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -65,6 +68,15 @@ public class Statistics extends BGmain implements Initializable {
     @FXML
     private Pane paneStatistics;
 
+    @FXML
+    private Pane paneHelpStatistics;
+
+    @FXML
+    private  Button btnStatisticsHelp;
+
+    @FXML
+    private TextArea txtAreaHelpStatistics;
+
 
 
 
@@ -88,7 +100,13 @@ public class Statistics extends BGmain implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        if(Session.getUser().getRole() != Role.USER){
+            paneStatistics.getChildren().remove(btnStatisticsHelp);
+        }
+        Translate.translateForAllPanes(paneHelpStatistics);
         Translate.translateForAllPanes(paneStatistics);
+
+
 
         txtCompanyName.addEventHandler(KeyEvent.KEY_RELEASED, event -> updateSuggestions());
 
@@ -252,5 +270,13 @@ public class Statistics extends BGmain implements Initializable {
     public void handleTimeDistance(ActionEvent actionEvent) {
         MenuItem item =(MenuItem) actionEvent.getSource();
         mbtnTimeDistance.setText(item.getText());
+    }
+
+    public void handleHelpStatistics(MouseEvent mouseEvent) {
+        paneHelpStatistics.setVisible(true);
+    }
+
+    public void handleExitHelpStatistics(MouseEvent mouseEvent) {
+        paneHelpStatistics.setVisible(false);
     }
 }

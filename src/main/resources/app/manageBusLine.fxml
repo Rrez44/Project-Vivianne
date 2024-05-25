@@ -77,17 +77,17 @@
                      </font>
                   </Label>
                   <Label layoutX="14.0" layoutY="71.0" textFill="WHITE" />
-                  <Label fx:id="txtTimeFrom" layoutX="14.0" layoutY="88.0" text="18:00" textFill="WHITE">
+                  <Label fx:id="txtTimeFrom" layoutX="14.0" layoutY="91.0" style="-fx-font-weight: bold;" text="18:00" textFill="WHITE">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Line endX="-66.19998168945312" layoutX="181.0" layoutY="106.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
                   <Line endX="-66.19998168945312" layoutX="183.0" layoutY="101.0" rotate="45.0" startX="-78.23876953125" startY="0.5567863583564758" stroke="WHITE" strokeWidth="2.0" />
                   <Line endX="-66.19998168945312" layoutX="183.0" layoutY="110.0" rotate="-45.0" startX="-78.23876953125" startY="0.5567863583564758" stroke="WHITE" strokeWidth="2.0" />
-                  <Label fx:id="txtTimeTill" layoutX="127.0" layoutY="88.0" text="19:00" textFill="WHITE">
+                  <Label fx:id="txtTimeTill" layoutX="127.0" layoutY="91.0" style="-fx-font-weight: bold;" text="19:00" textFill="WHITE">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="txtFromTillLabel" layoutX="14.0" layoutY="57.0" style="-fx-font-weight: bold;" text="From/Till" textFill="#ace2ff">
@@ -95,19 +95,19 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtDate" alignment="CENTER_RIGHT" layoutX="485.0" layoutY="89.0" prefHeight="36.0" prefWidth="179.0" text="12/24/2024" textFill="WHITE">
+                  <Label fx:id="txtDate" layoutX="527.0" layoutY="99.0" prefHeight="36.0" prefWidth="151.0" style="-fx-font-weight: bold;" text="12/24/2024" textFill="WHITE">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtDateLabel" layoutX="614.0" layoutY="66.0" style="-fx-font-weight: bold;" text="Date" textFill="#ace2ff">
+                  <Label fx:id="txtDateLabel" layoutX="527.0" layoutY="71.0" style="-fx-font-weight: bold;" text="Date" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtCompanyAssigned" layoutX="14.0" layoutY="171.0" prefHeight="36.0" prefWidth="159.0" text="Fehmiu" textFill="WHITE">
+                  <Label fx:id="txtCompanyAssigned" layoutX="14.0" layoutY="171.0" prefHeight="36.0" prefWidth="159.0" style="-fx-font-weight: bold;" text="Fehmiu" textFill="WHITE">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="txtCompanyAssignedLabel" layoutX="14.0" layoutY="143.0" text="Company assigned" textFill="#ace2ff">
@@ -115,14 +115,14 @@
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtBusModelLabel" layoutX="564.0" layoutY="143.0" style="-fx-font-weight: bold;" text="Bus Model" textFill="#ace2ff">
+                  <Label fx:id="txtBusModelLabel" layoutX="527.0" layoutY="143.0" style="-fx-font-weight: bold;" text="Bus Model" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtBusModel" alignment="CENTER_RIGHT" layoutX="450.0" layoutY="171.0" prefHeight="36.0" prefWidth="216.0" text="Mercedes" textFill="WHITE">
+                  <Label fx:id="txtBusModel" layoutX="527.0" layoutY="171.0" prefHeight="36.0" prefWidth="151.0" style="-fx-font-weight: bold;" text="Mercedes" textFill="WHITE">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="txtComfortRatingLabel" layoutX="16.0" layoutY="228.0" style="-fx-font-weight: bold;" text="Comfort Rating" textFill="#ace2ff">
@@ -135,24 +135,24 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtTotalStopsLabel" layoutX="563.0" layoutY="228.0" style="-fx-font-weight: bold;" text="Total Stops" textFill="#ace2ff">
+                  <Label fx:id="txtTotalStopsLabel" layoutX="527.0" layoutY="228.0" style="-fx-font-weight: bold;" text="Total Stops" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtComfortRating" layoutX="14.0" layoutY="256.0" prefHeight="36.0" prefWidth="159.0" text="⭐⭐⭐⭐" textFill="WHITE">
+                  <Label fx:id="txtComfortRating" layoutX="14.0" layoutY="256.0" prefHeight="36.0" prefWidth="159.0" style="-fx-font-weight: bold;" text="⭐⭐⭐⭐" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtPassangerCapacity" alignment="CENTER" layoutX="258.0" layoutY="256.0" prefHeight="36.0" prefWidth="159.0" text="156" textFill="WHITE">
+                  <Label fx:id="txtPassangerCapacity" alignment="CENTER" layoutX="258.0" layoutY="256.0" prefHeight="36.0" prefWidth="159.0" style="-fx-font-weight: bold;" text="156" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtTotalStops" alignment="CENTER_RIGHT" layoutX="583.0" layoutY="256.0" prefHeight="36.0" prefWidth="75.0" text="13" textFill="WHITE">
+                  <Label fx:id="txtTotalStops" layoutX="527.0" layoutY="256.0" prefHeight="36.0" prefWidth="75.0" style="-fx-font-weight: bold;" text="13" textFill="WHITE">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Button fx:id="btnMarkFailed" layoutX="18.0" layoutY="337.0" mnemonicParsing="false" onAction="#handleFailLine" prefHeight="50.0" prefWidth="98.0" style="-fx-background-color: #cb0e40; -fx-font-weight: bold; -fx-text-fill: white;" text="Mark Failed">

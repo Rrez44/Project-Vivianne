@@ -89,7 +89,7 @@
             <Cursor fx:constant="OPEN_HAND" />
          </cursor>
       </Button>
-      <MenuButton fx:id="menuTranslate" layoutX="35.0" layoutY="602.0" mnemonicParsing="false" onAction="#menuTranslate" style="-fx-background-radius: 0px; -fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8);" text="MenuButton">
+      <MenuButton fx:id="menuTranslate" layoutX="54.0" layoutY="603.0" mnemonicParsing="false" onAction="#menuTranslate" style="-fx-background-radius: 0px; -fx-background-color: white; -fx-border-color: rgba(211,211,211,0.8); -fx-font-weight: bold;" text="English'">
         <items>
           <MenuItem mnemonicParsing="false" onAction="#menuTranslate" text="Albanian" />
           <MenuItem mnemonicParsing="false" onAction="#menuTranslate" text="English" />

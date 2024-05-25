@@ -9,6 +9,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
@@ -22,7 +23,14 @@
    <children>
       <Pane fx:id="paneStatistics" layoutX="180.0" layoutY="20.0" prefHeight="662.0" prefWidth="706.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: black;">
          <children>
-            <Pane layoutX="15.0" layoutY="5.0" prefHeight="47.0" prefWidth="673.0" style="-fx-background-color: #2b2d42;" />
+            <Pane layoutX="15.0" layoutY="5.0" prefHeight="47.0" prefWidth="673.0" style="-fx-background-color: #2b2d42;">
+               <children>
+                  <Button fx:id="btnStatisticsHelp" layoutX="654.0" layoutY="2.0" mnemonicParsing="false" onMouseEntered="#handleHelpStatistics" onMouseExited="#handleExitHelpStatistics" prefHeight="25.0" prefWidth="38.0" style="-fx-background-radius: 50%; -fx-background-color: white; -fx-text-fill: black; -fx-font-weight: bold;" text="!">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children></Pane>
             <Polyline fill="WHITE" layoutX="148.0" layoutY="155.0" points="51.0, -102.19999694824219, 58.20001220703125, -95.5, 38.20001220703125, -95.5, 58.20001220703125, -95.5" stroke="WHITE" strokeType="OUTSIDE" />
             <Label alignment="CENTER" layoutX="326.0" layoutY="49.0" prefHeight="25.0" prefWidth="62.0" style="-fx-font-weight: bold;" text="Since:" textFill="WHITE">
                <font>
@@ -179,5 +187,10 @@
             <DropShadow />
          </effect></Pane>
       <fx:include source="Base.fxml" />
+      <Pane fx:id="paneHelpStatistics" layoutX="567.0" layoutY="43.0" onMouseEntered="#handleHelpStatistics" onMouseExited="#handleExitHelpStatistics" prefHeight="286.0" prefWidth="285.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <TextArea fx:id="txtAreaHelpStatistics" editable="false" layoutX="11.0" layoutY="14.0" onMouseEntered="#handleHelpStatistics" onMouseExited="#handleExitHelpStatistics" prefHeight="266.0" prefWidth="267.0" style="-fx-font-weight: bold;" text="Help: How to Use the Statistics Form&#10;1. Company Name: Enter the name of the bus company.&#10;2. Report Type: Select the type of report (Line-Report, Area-Report).&#10;3. Time Distance: Choose the time range for the report (Weekly, Bi-Weekly, Monthly, Yearly, All-Time).&#10;4. Create Report: Click to generate the report based on the selected criteria.&#10;5. Since: Enter the start date for the report.&#10;6. To: Enter the end date for the report.&#10;7. The results will be displayed in the form of Bar Charts and Pie Charts for Line-Reports, or in a detailed table for Area-Reports.&#10;&#10;For further assistance, contact support.&#10;" wrapText="true" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
