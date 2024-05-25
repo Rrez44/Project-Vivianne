@@ -33,7 +33,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Pane layoutX="14.0" layoutY="22.0" prefHeight="188.0" prefWidth="675.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10;">
+            <Pane fx:id="paneBusAnimation" layoutX="14.0" layoutY="22.0" prefHeight="188.0" prefWidth="675.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10;">
                <children>
                   <Label fx:id="txtPlaceFrom" layoutX="18.0" layoutY="15.0" prefHeight="25.0" prefWidth="159.0" text="placeFrom" textFill="WHITE">
                      <font>

@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -21,6 +22,7 @@ import service.animations.BusAnimation;
 import java.net.URL;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ManageBusLine extends BGmain implements Initializable {
@@ -66,11 +68,13 @@ public class ManageBusLine extends BGmain implements Initializable {
     private Button btnMarkFailed;
     
     @FXML Button btnMarkCompleted;
+    @FXML Pane paneBusAnimation;
 
     private static BusLine passedBusLine;
     private static model.Company companyAssigned;
     private static model.Bus bus;
 
+    private List<String> stops;
     private BusAnimation busAnimation;
     private static final double BUS_MAX_POSITION = 550;
 
@@ -84,6 +88,8 @@ public class ManageBusLine extends BGmain implements Initializable {
         Translate.translateForAllPanes(paneSearchLines);
         companyAssigned = passedBusLine.getCompanyAssigned();
         bus = passedBusLine.getBusModel();
+        stops = BusLineService.getBusLineStops(passedBusLine);
+        System.out.println(stops.size());
         setData();
         setInitialBusAnimationState();
     }
@@ -105,7 +111,9 @@ public class ManageBusLine extends BGmain implements Initializable {
         txtPassangerCapacity.setText(String.valueOf(bus.getPassangerCapacity()));
         txtTotalStops.setText("0");
         txtActivityStatus.setText(passedBusLine.getStatus().name());
+        txtTotalStops.setText(String.valueOf(stops.size()));
         setActivityColor();
+        populatePins();
     }
 
     private void setActivityColor() {
@@ -186,6 +194,31 @@ public class ManageBusLine extends BGmain implements Initializable {
         Navigator.navigate(actionEvent, Navigator.HOME_PAGE);
 
     }
+    private void populatePins() {
+        if (stops.isEmpty()) {
+            System.out.println("stops are empty");
+            return;
+        }
+        int start = 40;
+        int end = 590;
+        int averageDistance = (end - start) / stops.size();
+        for (int i = 1; i <= stops.size(); i++) {
+            Image image = new Image(getClass().getResource("/Images/location-pin.png").toString());
+            ImageView stop = new ImageView(image);
+            stop.setX(i * averageDistance);
+            stop.setY(60);
+            stop.setFitHeight(40);
+            stop.setFitWidth(40);
+
+            Label temp = new Label(stops.get(i - 1));
+            temp.setStyle("-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: white; -fx-text-alignment: center");
+            temp.setLayoutX((i * averageDistance) + (stop.getFitWidth() / 2) - (temp.getWidth() / 2) - 10);
+            temp.setLayoutY(40);
+
+            paneBusAnimation.getChildren().addAll(stop, temp);
+        }
+    }
+
 
 
 }

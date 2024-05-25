@@ -52,6 +52,8 @@ public class BusLineService {
     }
 
 
-
+    public static List<String> getBusLineStops(BusLine busLine){
+        return BusLineRepository.getBusLineStops(busLine);
+    }
 
 }

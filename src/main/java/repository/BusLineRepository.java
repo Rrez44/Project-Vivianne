@@ -20,7 +20,7 @@ public class BusLineRepository {
         try {
 
             PreparedStatement preparedStatement = conn.prepareStatement(query);
-            preparedStatement.setString(1, String.valueOf(UUID.randomUUID()));
+            preparedStatement.setString(1, lineId);
             preparedStatement.setString(2, String.valueOf(Status.ACTIVE));
             preparedStatement.setString(3, DateFormatter.SQLformat(creationBusLine.getStartTime()));
             preparedStatement.setString(4, DateFormatter.SQLformat(creationBusLine.getEndTime()));
@@ -296,6 +296,23 @@ public static List<BusLine> getLineData(String cName) throws RuntimeException{
             throw new RuntimeException(se.getMessage());
         }
 
+    }
+    public static List<String> getBusLineStops(BusLine busLine){
+        List<String> stops = new ArrayList<>();
+        Connection conn = DatabaseUtil.getConnection();
+        String query = "SELECT stop_name from bus_line_stops where line_id = ?;";
+        try{
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, busLine.getLineId());
+            stmt.execute();
+            ResultSet resultSet = stmt.getResultSet();
+            while (resultSet.next()){
+                stops.add(resultSet.getString("stop_name"));
+            }
+            return stops;
+        }catch (SQLException se){
+            throw new RuntimeException(se.getMessage());
+        }
     }
 }
 

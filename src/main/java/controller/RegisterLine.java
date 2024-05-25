@@ -17,7 +17,6 @@ import javafx.scene.layout.StackPane;
 import model.BusLine;
 import otherFunctionality.AddStop;
 import otherFunctionality.AddTime;
-import service.ClearForm;
 import service.DateConversion;
 import service.Translate;
 
@@ -116,7 +115,7 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
     }
 
     public void handleClear(ActionEvent event) {
-        ClearForm.clearFormInputs(paneRegisterLine);
+        Navigator.navigate(event, Navigator.CREATE_LINE);
     }
 
     public void handleAddLine(ActionEvent event) {
@@ -148,6 +147,7 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
         try {
             MenuItem item = (MenuItem) event.getSource();
             menuCityFrom.setText(item.getText());
+            menuCityFrom.setDisable(true);
         }catch (Exception e){
         }
     }
@@ -156,6 +156,7 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
         try {
             MenuItem item = (MenuItem) event.getSource();
             menuCityTo.setText(item.getText());
+            menuCityTo.setDisable(true);
         }catch (Exception e){
 
         }
