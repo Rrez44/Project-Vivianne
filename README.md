@@ -24,3 +24,19 @@
 ![image](https://github.com/Rrez44/Project-Vivianne/assets/82002444/331679dd-d520-4ed0-8ac9-a9ccb0c986e4)
 
 ![image](https://github.com/Rrez44/Project-Vivianne/assets/82002444/f2cbcbb9-6f60-437a-b68c-5b4232476e17)
+
+
+
+## Contributers
+Rrezon Beqiri
+
+Albin Arifaj
+
+Rinor Muji
+
+Reart Krasniqi
+
+Arbios Morina
+
+Argjend Nimanaj
+
