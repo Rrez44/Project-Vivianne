@@ -127,9 +127,19 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
     }
 
     public void handleAddLine(ActionEvent event) {
-        travelTime = menuCityFrom.getText() +"_" +menuCityTo.getText();
+
+        if( DateConversion.localDate(dateDate.getValue(),"00:00:00").isBefore(LocalDateTime.now().plusDays(-1))){
+            showError("Invalid Date","Cannot add line in Past ");
+            return;
+        }
+
+
+
+            travelTime = menuCityFrom.getText() +"_" +menuCityTo.getText();
+
         localDateTimeFrom =DateConversion.fromDateTimeComponents(dateDate.getValue(),menuSelectHoursFrom.getText(),menuSelectMinutesFrom.getText());
         localDateTimeTo =DateConversion.calculateEndDateTime(localDateTimeFrom,TravelTime.valueOf(travelTime).getTime());
+
         AddStop.restartForm();
         busLine = new BusLine(generateId(), Status.ACTIVE,localDateTimeFrom,localDateTimeTo, Session.getUser(),LocalDateTime.now(),getStops ,menuCityFrom.getText(),menuCityTo.getText(),null,null);
         Navigator.navigate(event, Navigator.CREATE_LINE);
@@ -178,14 +188,18 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
     }
 
     public void changeTime() {
-        try {
+//        try {
+        if(menuSelectHoursFrom.getText().equals("Hours") || menuSelectMinutesFrom.getText().equals("Minutes") ) {
+            return;
+        }
             travelTime = menuCityFrom.getText() + "_" + menuCityTo.getText();
             localDateTimeFrom = DateConversion.fromDateTimeComponents(dateDate.getValue(), menuSelectHoursFrom.getText(), menuSelectMinutesFrom.getText());
             localDateTimeTo = DateConversion.calculateEndDateTime(localDateTimeFrom, TravelTime.valueOf(travelTime).getTime());
             menuSelectHoursTo.setText(String.valueOf(localDateTimeTo.getHour()));
             menuSelectMinutesTo.setText(String.valueOf(localDateTimeTo.getMinute()));
-        }catch (Exception e){
+//        }catch (Exception e){
 
-        }
+
+//        }
     }
 }
