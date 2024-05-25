@@ -1,11 +1,8 @@
 package service;
 
-import model.Bus;
+import ENUMS.Status;
 import model.BusLine;
-import model.Company;
 import model.filter.BusLineFilter;
-//import model.filter.Filter;
-//import model.filter.CompanyBusLineFilter;
 import repository.BusLineRepository;
 
 import java.time.LocalDateTime;
@@ -50,6 +47,10 @@ public class BusLineService {
 //    public static List<BusLine> getCompanyBusLines(CompanyBusLineFilter filter) {
 //        return BusLineRepository.getByFilter(filter);
 //    }
+
+    public static void updateBusLineStatus(BusLine busLine, Status status){
+        BusLineRepository.updateBusLineStatus(busLine, status);
+    }
 
 
 

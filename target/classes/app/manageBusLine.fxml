@@ -95,12 +95,12 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtDate" layoutX="527.0" layoutY="99.0" prefHeight="36.0" prefWidth="151.0" style="-fx-font-weight: bold;" text="12/24/2024" textFill="WHITE">
+                  <Label fx:id="txtDate" alignment="CENTER_RIGHT" layoutX="510.0" layoutY="99.0" prefHeight="36.0" prefWidth="151.0" style="-fx-font-weight: bold;" text="12/24/2024" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtDateLabel" layoutX="527.0" layoutY="71.0" style="-fx-font-weight: bold;" text="Date" textFill="#ace2ff">
+                  <Label fx:id="txtDateLabel" layoutX="619.0" layoutY="71.0" style="-fx-font-weight: bold;" text="Date" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -115,12 +115,12 @@
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtBusModelLabel" layoutX="527.0" layoutY="143.0" style="-fx-font-weight: bold;" text="Bus Model" textFill="#ace2ff">
+                  <Label fx:id="txtBusModelLabel" layoutX="565.0" layoutY="143.0" style="-fx-font-weight: bold;" text="Bus Model" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtBusModel" layoutX="527.0" layoutY="171.0" prefHeight="36.0" prefWidth="151.0" style="-fx-font-weight: bold;" text="Mercedes" textFill="WHITE">
+                  <Label fx:id="txtBusModel" alignment="CENTER_RIGHT" layoutX="489.0" layoutY="171.0" prefHeight="36.0" prefWidth="171.0" style="-fx-font-weight: bold;" text="Mercedes" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -135,7 +135,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtTotalStopsLabel" layoutX="527.0" layoutY="228.0" style="-fx-font-weight: bold;" text="Total Stops" textFill="#ace2ff">
+                  <Label fx:id="txtTotalStopsLabel" layoutX="562.0" layoutY="228.0" style="-fx-font-weight: bold;" text="Total Stops" textFill="#ace2ff">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -150,12 +150,20 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtTotalStops" layoutX="527.0" layoutY="256.0" prefHeight="36.0" prefWidth="75.0" style="-fx-font-weight: bold;" text="13" textFill="WHITE">
+                  <Label fx:id="txtTotalStops" alignment="CENTER_RIGHT" layoutX="582.0" layoutY="256.0" prefHeight="36.0" prefWidth="75.0" style="-fx-font-weight: bold;" text="13" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
                   <Button fx:id="btnMarkFailed" layoutX="18.0" layoutY="337.0" mnemonicParsing="false" onAction="#handleFailLine" prefHeight="50.0" prefWidth="98.0" style="-fx-background-color: #cb0e40; -fx-font-weight: bold; -fx-text-fill: white;" text="Mark Failed">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button fx:id="btnMarkCompleted" layoutX="132.0" layoutY="337.0" mnemonicParsing="false" onAction="#handleCompleteLine" prefHeight="50.0" prefWidth="115.0" style="-fx-background-color: #ffa51b; -fx-font-weight: bold; -fx-text-fill: white;" text="Mark Completed">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

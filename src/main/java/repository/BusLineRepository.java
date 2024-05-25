@@ -5,14 +5,11 @@ import ENUMS.Status;
 import databaseConnection.DatabaseUtil;
 import model.*;
 import model.filter.BusLineFilter;
-//import model.filter.Filter;
 import service.DateFormatter;
 
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.*;
-
-import static repository.CompanyRepository.getCompanyFromResult;
 
 
 public class BusLineRepository {
@@ -284,6 +281,21 @@ public static List<BusLine> getLineData(String cName) throws RuntimeException{
             return null;
 
         }
+    }
+
+    public static void updateBusLineStatus(BusLine busLine, Status status){
+        Connection conn = DatabaseUtil.getConnection();
+        String query = "UPDATE company_lines SET status = ? WHERE line_id = ?;";
+        try {
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, status.name());
+            stmt.setString(2, busLine.getLineId());
+            stmt.execute();
+            stmt.close();
+        }catch (SQLException se){
+            throw new RuntimeException(se.getMessage());
+        }
+
     }
 }
 

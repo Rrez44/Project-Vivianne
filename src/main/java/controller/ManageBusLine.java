@@ -2,6 +2,8 @@ package controller;
 
 import ENUMS.ComfortRating;
 import ENUMS.Role;
+import ENUMS.Status;
+import app.Navigator;
 import app.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import model.BusLine;
+import service.BusLineService;
 import service.Translate;
 import service.animations.BusAnimation;
 
@@ -61,12 +64,15 @@ public class ManageBusLine extends BGmain implements Initializable {
 
     @FXML
     private Button btnMarkFailed;
+    
+    @FXML Button btnMarkCompleted;
 
     private static BusLine passedBusLine;
     private static model.Company companyAssigned;
     private static model.Bus bus;
 
     private BusAnimation busAnimation;
+    private static final double BUS_MAX_POSITION = 550;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -81,7 +87,7 @@ public class ManageBusLine extends BGmain implements Initializable {
     }
 
     public static void passBusLine(BusLine bl) {
-        passedBusLine = bl;
+        passedBusLine =bl;
     }
 
     private void setData() {
@@ -114,9 +120,8 @@ public class ManageBusLine extends BGmain implements Initializable {
     }
 
     private void setInitialBusAnimationState() {
-        double maxBusIconPosition = 550; // Max position of bus icon
         LocalDateTime now = LocalDateTime.now();
-        busAnimation = new BusAnimation(busIcon, maxBusIconPosition);
+        busAnimation = new BusAnimation(busIcon, BUS_MAX_POSITION);
 
         if (txtActivityStatus.getText().equals("ACTIVE")) {
             LocalDateTime startTime = passedBusLine.getStartTime();
@@ -135,17 +140,50 @@ public class ManageBusLine extends BGmain implements Initializable {
             progressBar.setWidth(newProgressBarWidth);
 
 
-            double newBusIconPosition = percentageCompleted * maxBusIconPosition;
+            double newBusIconPosition = percentageCompleted * BUS_MAX_POSITION;
             busIcon.setTranslateX(newBusIconPosition);
             busAnimation.startAnimation(passedBusLine.getStartTime(), passedBusLine.getEndTime(), now);
         }
         else if (txtActivityStatus.getText().equals("COMPLETED")) {
-            busIcon.setTranslateX(maxBusIconPosition);
+            busIcon.setTranslateX(BUS_MAX_POSITION);
             progressBar.setWidth(630);
+        }
+        else if(txtActivityStatus.getText().equals("FAILED")){
+            busIcon.setTranslateX(0);
+            progressBar.setWidth(30);
         }
     }
 
     public void handleFailLine(ActionEvent actionEvent) {
-        // Handle failure action here
+        if (!txtActivityStatus.getText().equals("ACTIVE")){
+            showError("Cannot mark as failed", "Already marked as completed or failed");
+            return;
+        }
+        txtActivityStatus.setText("FAILED");
+        try {
+            BusLineService.updateBusLineStatus(passedBusLine, Status.FAILED);
+
+        }catch (RuntimeException re){
+            showError("Failed to update", re.getMessage());
+        }
+        Navigator.navigate(actionEvent, Navigator.HOME_PAGE);
     }
+
+    public void handleCompleteLine(ActionEvent actionEvent){
+        if (!txtActivityStatus.getText().equals("ACTIVE")){
+            showError("Cannot mark as completed", "Already marked as completed or failed");
+            return;
+        }
+        txtActivityStatus.setText("COMPLETED");
+        try {
+            BusLineService.updateBusLineStatus(passedBusLine, Status.COMPLETED);
+
+        }catch (RuntimeException re){
+            showError("Failed to update", re.getMessage());
+        }
+        Navigator.navigate(actionEvent, Navigator.HOME_PAGE);
+
+    }
+
+
 }
