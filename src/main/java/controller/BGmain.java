@@ -60,7 +60,7 @@ public abstract class BGmain implements Initializable {
 
         if (paneButtons != null) {
             Translate.translateForAllPanes(paneButtons);
-
+            menuTranslate.setText(Translate.getLanguage());
             if(Session.getUser().getRole() == Role.USER){
                 paneButtons.getChildren().remove(btnRegister);
                 paneButtons.getChildren().remove(btnCreateLine);

@@ -34,7 +34,8 @@ public class UserService {
                 user.getEmail(),
                 salt,
                 hashedPassword,
-                user.getRole()
+                user.getRole(),
+                user.getBirthday()
         );
 
         return UserRepository.insertUser(createUser);

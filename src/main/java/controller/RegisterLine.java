@@ -155,7 +155,6 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
 
         MenuItem item = (MenuItem) event.getSource();
         menuCityTo.setText(item.getText());
-
     }
 
     public void handleSelectHourFrom(ActionEvent event) {

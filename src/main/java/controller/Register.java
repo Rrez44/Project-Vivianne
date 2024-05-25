@@ -10,10 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import model.dto.UserDto;
-import service.ClearForm;
-import service.GenerateEmail;
-import service.Translate;
-import service.UserService;
+import service.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -85,7 +82,7 @@ public class Register extends BGmain implements Identifiable, Initializable {
     public void handleSignUp(ActionEvent event) {
         email = GenerateEmail.email(txtFirstName.getText(), txtLastName.getText(), UserService.checkDuplicate(txtFirstName.getText(),txtLastName.getText()));
         String role = menuSelectPriority.getText();
-        UserDto userDto = new UserDto(generateId(),txtFirstName.getText(),txtLastName.getText(),email,txtUsername.getText(),pwdPassword.getText(),pwdConfirmPassword.getText(), Role.valueOf(role));
+        UserDto userDto = new UserDto(generateId(),txtFirstName.getText(),txtLastName.getText(),email,txtUsername.getText(),pwdPassword.getText(),pwdConfirmPassword.getText(), Role.valueOf(role), DateConversion.localDate(dateBirthday.getValue(),"01:00:00"));
         if(UserService.signUP(userDto)){
             showConfirmation("Register","Register Successful");
             ClearForm.clearFormInputs(paneRegister);

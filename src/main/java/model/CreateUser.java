@@ -2,6 +2,8 @@ package model;
 
 import ENUMS.Role;
 
+import java.time.LocalDateTime;
+
 public class CreateUser {
 
     private String id;
@@ -12,8 +14,9 @@ public class CreateUser {
     private String salt;
     private String passwordHash;
     private Role role;
+    private LocalDateTime birthday;
 
-    public CreateUser(String id, String first_name, String last_name, String username, String email, String salt, String passwordHash, Role role) {
+    public CreateUser(String id, String first_name, String last_name, String username, String email, String salt, String passwordHash, Role role,LocalDateTime birthday) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -22,6 +25,7 @@ public class CreateUser {
         this.salt = salt;
         this.passwordHash = passwordHash;
         this.role = role;
+        this.birthday = birthday;
     }
 
     public String getId() {
@@ -54,5 +58,9 @@ public class CreateUser {
 
     public Role getRole() {
         return role;
+    }
+
+    public LocalDateTime getBirthday() {
+        return birthday;
     }
 }

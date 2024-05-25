@@ -71,25 +71,21 @@ public class TranslateRecords {
                             ((PasswordField) node).setPromptText(bundle.getString(node.getId()));
                         }else if(node instanceof TextArea){
                             ((TextArea) node).setText(bundle.getString(node.getId()));
-                        }
-                        else if (node instanceof TextInputControl) {
+                        }else if (node instanceof TextInputControl) {
                             ((TextInputControl) node).setPromptText(bundle.getString(node.getId()));
                         } else if (node instanceof Button) {
                             ((Button) node).setText(bundle.getString(node.getId()));
                         }else if(node instanceof MenuButton) {
                             ((MenuButton) node).setText(bundle.getString(node.getId()));
                         }else if(node instanceof Label){
-
                                 ((Label) node).setText(bundle.getString(node.getId()));
                         }else if(node instanceof DatePicker){
                             ((DatePicker) node).setPromptText(bundle.getString(node.getId()));
                         }else if(node instanceof TableView<?>){
                             TableView<?> tableView = (TableView<?>) node;
-
                             for (TableColumn<?, ?> column : tableView.getColumns()) {
                                 column.setText(bundle.getString(column.getId()));
                             }
-
                         }
                     }
                 }

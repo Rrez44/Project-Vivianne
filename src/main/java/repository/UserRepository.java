@@ -7,6 +7,7 @@ import model.CreateUser;
 import model.User;
 import model.dto.ChangePassword;
 import model.dto.UpdateUser;
+import service.DateFormatter;
 import service.PasswordHasher;
 
 import java.sql.*;
@@ -20,7 +21,7 @@ public class UserRepository  {
 
     public static boolean insertUser(CreateUser user)  {
 
-        String query = "INSERT INTO users(user_id,first_name,last_name,username,email,salt,hashed_password,role) VALUES (?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO users(user_id,first_name,last_name,username,email,salt,hashed_password,role,birthday) VALUES (?,?,?,?,?,?,?,?,?)";
         Connection connection = DatabaseUtil.getConnection();
 
         try{
@@ -33,6 +34,7 @@ public class UserRepository  {
             preparedStatement.setString(6,user.getSalt());
             preparedStatement.setString(7,user.getPasswordHash());
             preparedStatement.setString(8,user.getRole().name());
+            preparedStatement.setString(9, DateFormatter.SQLformat(user.getBirthday()));
             preparedStatement.execute();
             preparedStatement.close();
 
@@ -73,6 +75,7 @@ public class UserRepository  {
             preparedStatement.setString(6,salt);
             preparedStatement.setString(7,hashPassword);
             preparedStatement.setString(8,role);
+
             preparedStatement.execute();
 //            preparedStatement.close();
 
