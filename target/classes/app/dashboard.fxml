@@ -62,9 +62,9 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Pane fx:id="paneHelpDashboard" layoutX="377.0" layoutY="22.0" onMouseEntered="#handleHelpDashboard" onMouseExited="#handleExitHelpDashboard" prefHeight="286.0" prefWidth="285.0" style="-fx-background-color: white;">
+            <Pane fx:id="paneHelpDashboard" layoutX="377.0" layoutY="22.0" onMouseEntered="#handleHelpDashboard" onMouseExited="#handleExitHelpDashboard" prefHeight="286.0" prefWidth="285.0" style="-fx-background-color: white;" visible="false">
                <children>
-                  <TextArea fx:id="txtAreaHelpDashboard" editable="false" layoutX="11.0" layoutY="14.0" prefHeight="266.0" prefWidth="267.0" style="-fx-font-weight: bold;" text="1.From: Enter the starting location of your journey.&#10;2.To: Enter your destination.&#10;3.Since: Select the start date.&#10;4.To: Select the end date.&#10;5.Status: Choose the bus line status (Active, Completed, Failed, Delayed).&#10;6.Company: Enter the bus company name.&#10;7.Search: Click to find bus lines.&#10;8.Clear: Click to reset all fields.For further assistance, contact support." wrapText="true" />
+                  <TextArea fx:id="txtAreaHelpDashboard" editable="false" layoutX="11.0" layoutY="14.0" prefHeight="266.0" prefWidth="267.0" style="-fx-font-weight: bold;" text="txtAreaHelpStatistics=Help: How to Use the Statistics Form\n\&#10;1. Company Name: Enter the name of the bus company.\n\&#10;2. Report Type: Select the type of report (Line-Report, Area-Report).\n\&#10;3. Time Distance: Choose the time range for the report (Weekly, Bi-Weekly, Monthly, Yearly, All-Time).\n\&#10;4. Create Report: Click to generate the report based on the selected criteria.\n\&#10;5. Since: Enter the start date for the report.\n\&#10;6. To: Enter the end date for the report.\n\&#10;7. The results will be displayed in the form of Bar Charts and Pie Charts for Line-Reports, or in a detailed table for Area-Reports.\n\&#10;8. For further assistance, contact support.&#10;" wrapText="true" />
                </children>
             </Pane>
          </children>

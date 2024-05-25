@@ -3,6 +3,7 @@ package controller;
 import ENUMS.Role;
 import ENUMS.Status;
 import app.Session;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -77,6 +78,12 @@ public class Statistics extends BGmain implements Initializable {
     @FXML
     private TextArea txtAreaHelpStatistics;
 
+    @FXML
+    private AnchorPane mainPaneForStatistics;
+
+    @FXML
+    private Pane paneButton;
+
 
 
 
@@ -100,10 +107,14 @@ public class Statistics extends BGmain implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+//        Platform.runLater(()->{
         if(Session.getUser().getRole() != Role.USER){
-            paneStatistics.getChildren().remove(btnStatisticsHelp);
+            paneButton.getChildren().remove(btnStatisticsHelp);
+
         }
         Translate.translateForAllPanes(paneHelpStatistics);
+
+//        });
         Translate.translateForAllPanes(paneStatistics);
 
 
