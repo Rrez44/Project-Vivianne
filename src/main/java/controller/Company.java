@@ -182,6 +182,7 @@ public class Company extends BGmain implements Initializable {
                             updateStatusManagerView();
                             CompanyService.updateCompany(company);
                             showConfirmation("Coompany Suspended", "The activities of this company have been suspended");
+                            Navigator.navigate(actionEvent,Navigator.SEARCH_COMPANY_PAGE);
 
                 break;
             case SUSPENDED:
@@ -190,6 +191,8 @@ public class Company extends BGmain implements Initializable {
                             updateStatusManagerView();
                             CompanyService.updateCompany(company);
                             showConfirmation("Company Activated", "The activities of this company have been activated");
+                            Navigator.navigate(actionEvent,Navigator.SEARCH_COMPANY_PAGE);
+
                             break;
         }
 

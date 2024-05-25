@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import model.BusLine;
 import service.BusLineService;
+import service.BusService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,7 +41,7 @@ public class CreateLine extends BGmain implements Initializable  {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/components/addLineComponent.fxml"));
                 AnchorPane busPane = loader.load();
                 ComponentAddLine addLineController = loader.getController();
-                addLineController.getSpecificBusComany(bus.getCompanyAssigned().getCompanyName(),bus.getBusModel().getBusModel(),bus.getPassengerCapacity());
+                addLineController.getSpecificBusComany(bus.getCompanyAssigned().getCompanyName(),bus.getBusModel().getBusModel(),bus.getPassengerCapacity(), BusService.getBusByModelNumer(bus.getBusModel().getBusModel()).getComfortRating());
                 busPane.setLayoutY(totalHeight);
                 paneGetAllAvailableBus.getChildren().add(busPane);
                 totalHeight += busPane.getPrefHeight();

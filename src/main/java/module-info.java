@@ -4,6 +4,7 @@ module Vivianne {
     requires java.sql;
     requires jdk.xml.dom;
     requires javafx.base;
+    requires java.desktop;
 
     exports app;
     opens controller to javafx.fxml ,javafx.base;

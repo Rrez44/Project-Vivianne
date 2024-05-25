@@ -184,7 +184,7 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
     }
 
     public void changeTime() {
-//        try {
+        try {
         if(menuSelectHoursFrom.getText().equals("Hours") || menuSelectMinutesFrom.getText().equals("Minutes") ) {
             return;
         }
@@ -193,9 +193,9 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
             localDateTimeTo = DateConversion.calculateEndDateTime(localDateTimeFrom, TravelTime.valueOf(travelTime).getTime());
             menuSelectHoursTo.setText(String.valueOf(localDateTimeTo.getHour()));
             menuSelectMinutesTo.setText(String.valueOf(localDateTimeTo.getMinute()));
-//        }catch (Exception e){
+        }catch (Exception e){
 
 
-//        }
+        }
     }
 }

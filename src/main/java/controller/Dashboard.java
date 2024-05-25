@@ -111,7 +111,7 @@ public class Dashboard extends BGmain implements Initializable {
         try {
 
 
-            dateTo.setValue(LocalDate.from(LocalDateTime.now()));
+            dateTo.setValue(LocalDate.from(LocalDateTime.now().plusDays(1)));
             search(new ActionEvent());
         }catch (NullPointerException e){
 

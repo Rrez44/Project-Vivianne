@@ -45,7 +45,9 @@ public class TranslateRecords {
             "txtEmailProfile",
             "txtRoleProfile",
             "menuTranslate",
-            "txtAreaDescription"
+            "txtAreaDescription",
+            "txtCityFromLabelLine",
+            "txtCityTooLabelLine"
     ));
 
 
