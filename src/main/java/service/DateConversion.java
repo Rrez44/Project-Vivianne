@@ -31,10 +31,6 @@ public class DateConversion {
     }
 
     public static LocalDateTime calculateEndDateTime(LocalDateTime startDateTime, String duration) {
-//                TravelTime travelTime1= ;
-//        String duration = travelTime1.getTime();
-//
-
 
 
         if (startDateTime != null && duration != null) {

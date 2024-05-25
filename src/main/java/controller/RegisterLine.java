@@ -106,8 +106,6 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
         super.initialize(url,resourceBundle);
         Translate.translateForAllPanes(paneRegisterLine);
         Translate.translateForAllPanes(stackPaneAddStops);
-
-
         menuSelectHoursFrom.textProperty().addListener((observable, oldValue, newValue) -> changeTime());
         menuSelectMinutesFrom.textProperty().addListener((observable, oldValue, newValue) -> changeTime());
 
@@ -121,14 +119,20 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
         ClearForm.clearFormInputs(paneRegisterLine);
     }
 
-
-
-
-
     public void handleAddLine(ActionEvent event) {
-        travelTime = menuCityFrom.getText() +"_" +menuCityTo.getText();
+
+        if( DateConversion.localDate(dateDate.getValue(),"00:00:00").isBefore(LocalDateTime.now().plusDays(-1))){
+            showError("Invalid Date","Cannot add line in Past ");
+            return;
+        }
+
+
+
+            travelTime = menuCityFrom.getText() +"_" +menuCityTo.getText();
+
         localDateTimeFrom =DateConversion.fromDateTimeComponents(dateDate.getValue(),menuSelectHoursFrom.getText(),menuSelectMinutesFrom.getText());
         localDateTimeTo =DateConversion.calculateEndDateTime(localDateTimeFrom,TravelTime.valueOf(travelTime).getTime());
+
         AddStop.restartForm();
 
         busLine = new BusLine(generateId(), Status.ACTIVE,localDateTimeFrom,localDateTimeTo, Session.getUser(),LocalDateTime.now() ,menuCityFrom.getText(),menuCityTo.getText(),null,null);
@@ -141,21 +145,24 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
     }
 
     public void handleSeelctCityFrom(ActionEvent event) {
-
-        MenuItem item = (MenuItem) event.getSource();
-        menuCityFrom.setText(item.getText());
-
+        try {
+            MenuItem item = (MenuItem) event.getSource();
+            menuCityFrom.setText(item.getText());
+        }catch (Exception e){
+        }
     }
 
     public void handleSelectCityTo(ActionEvent event) {
+        try {
+            MenuItem item = (MenuItem) event.getSource();
+            menuCityTo.setText(item.getText());
+        }catch (Exception e){
 
-        MenuItem item = (MenuItem) event.getSource();
-        menuCityTo.setText(item.getText());
+        }
     }
 
     public void handleSelectHourFrom(ActionEvent event) {
         MenuItem item = (MenuItem) event.getSource();
-
         menuSelectHoursFrom.setText(item.getText());
     }
 
@@ -167,7 +174,6 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
 
     public void handleSelectMinutesTo(ActionEvent event) {
         MenuItem item = (MenuItem) event.getSource();
-
         menuSelectMinutesTo.setText(item.getText());
     }
 
@@ -176,11 +182,19 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
         menuSelectHoursTo.setText(item.getText());
     }
 
-    public void changeTime(){
-        travelTime = menuCityFrom.getText() + "_" + menuCityTo.getText();
-        localDateTimeFrom =DateConversion.fromDateTimeComponents(dateDate.getValue(),menuSelectHoursFrom.getText(),menuSelectMinutesFrom.getText());
-        localDateTimeTo =DateConversion.calculateEndDateTime(localDateTimeFrom,TravelTime.valueOf(travelTime).getTime());
-        menuSelectHoursTo.setText(String.valueOf(localDateTimeTo.getHour()));
-        menuSelectMinutesTo.setText(String.valueOf(localDateTimeTo.getMinute()));
+    public void changeTime() {
+//        try {
+        if(menuSelectHoursFrom.getText().equals("Hours") || menuSelectMinutesFrom.getText().equals("Minutes") ) {
+            return;
+        }
+            travelTime = menuCityFrom.getText() + "_" + menuCityTo.getText();
+            localDateTimeFrom = DateConversion.fromDateTimeComponents(dateDate.getValue(), menuSelectHoursFrom.getText(), menuSelectMinutesFrom.getText());
+            localDateTimeTo = DateConversion.calculateEndDateTime(localDateTimeFrom, TravelTime.valueOf(travelTime).getTime());
+            menuSelectHoursTo.setText(String.valueOf(localDateTimeTo.getHour()));
+            menuSelectMinutesTo.setText(String.valueOf(localDateTimeTo.getMinute()));
+//        }catch (Exception e){
+
+
+//        }
     }
 }
