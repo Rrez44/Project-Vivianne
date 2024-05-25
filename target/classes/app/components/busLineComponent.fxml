@@ -13,8 +13,8 @@
    <children>
       <Pane fx:id="paneBusLineComponent" layoutX="13.0" layoutY="12.0" prefHeight="83.0" prefWidth="652.0" style="-fx-background-color: #2b2d42; -fx-background-radius: 10PX;">
          <children>
-            <Label fx:id="txtGetStartLocation" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="105.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" text="From" />
-            <Label fx:id="txtGetEndLocation" layoutX="178.0" layoutY="14.0" prefHeight="30.0" prefWidth="195.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" text="To" />
+            <Label fx:id="txtGetStartLocation" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="143.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" text="From" />
+            <Label fx:id="txtGetEndLocation" layoutX="208.0" layoutY="14.0" prefHeight="30.0" prefWidth="195.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 20px;" text="To" />
             <Label fx:id="txtStart" layoutX="14.0" layoutY="59.0" prefHeight="21.0" prefWidth="225.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15px;" text="Start" />
             <Label fx:id="txtStatus" layoutX="426.0" layoutY="23.0" prefHeight="37.0" prefWidth="105.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 15px;" text="Status">
                <font>
@@ -28,7 +28,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Polyline fill="WHITE" layoutX="12.0" layoutY="123.0" points="116.19999694824219, -95.50001525878906, 116.19999694824219, -95.50001525878906, 143.40000915527344, -95.50001525878906, 133.7999725341797, -103.80000305175781" stroke="WHITE" strokeType="OUTSIDE" style="-fx-fill: transparent; -fx-stroke-width: bold;" />
+            <Polyline fill="WHITE" layoutX="48.0" layoutY="123.0" points="116.19999694824219, -95.50001525878906, 116.19999694824219, -95.50001525878906, 143.40000915527344, -95.50001525878906, 133.7999725341797, -103.80000305175781" stroke="WHITE" strokeType="OUTSIDE" style="-fx-fill: transparent; -fx-stroke-width: bold;" />
          </children>
       </Pane>
    </children>

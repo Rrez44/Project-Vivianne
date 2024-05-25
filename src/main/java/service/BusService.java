@@ -30,4 +30,13 @@ public class BusService {
     public static Bus getBusByModelNumer(String modelNumber){
         return BusRepository.getBusByModelNumer(modelNumber);
     }
+
+    public static  List<model.Bus> getBusList(model.filter.Bus filter){
+
+        return BusRepository.getByFilter(filter);
+
+
+    }
+
+
 }

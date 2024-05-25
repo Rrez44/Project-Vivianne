@@ -5,7 +5,9 @@ import ENUMS.BusType;
 import ENUMS.ComfortRating;
 import databaseConnection.DatabaseUtil;
 import model.Bus;
+import model.BusLine;
 import model.Company;
+import model.filter.BusLineFilter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -136,26 +138,58 @@ public class BusRepository {
             throw new RuntimeException("Error loading bus "+ se.getMessage());
         }
     }
-//    public static Bus getBusById(String Id){
+
+
+//    public static List<Bus> getByFilter(model.filter.Bus filter){
+//        List<Bus> Bus = new ArrayList<>();
+//        String query = "SELECT * FROM" +
+//                " company_buses" +
+//                " INNER JOIN companies ON companies.company_id = company_buses.company_id" +
+//                " INNNER JOIN buses ON company.bus_id = buses.bus_id" +
+//                 " WHERE 1 = 1 "; // Added space after 1 = 1
+//        String filterQuery = filter.buildQuery();
+//        query += filterQuery;
 //        Connection conn = DatabaseUtil.getConnection();
-//        String query = "SELECT * FROM buses where bus_id = ?";
-//        try {
-//            PreparedStatement stmt = conn.prepareStatement(query);
-//            stmt.setString(1, Id.trim());
-//            stmt.execute();
-//            ResultSet result = stmt.getResultSet();
-//            if (result.next()){
-//                return getBusFromResult(result);
+//        try (
+//                PreparedStatement pstmt = conn.prepareStatement(query)) {
+//
+//            ResultSet rs = pstmt.executeQuery();
+//
+//            while (rs.next()) {
+//
 //            }
-//            return null;
-//        }catch (SQLException se){
-//            throw new RuntimeException("Error loading bus "+ se.getMessage());
+//            return Bus;
+//        } catch (SQLException e) {
+//            e.printStackTrace();
 //        }
+//        return null;
 //    }
 
-//    public static Bus getSpecificBus(String from, String to){
-//        String query = "SELECT * FROM buses where bus_id = ? and bus_model = ?";
-//    }
+    public static List<Bus> getByFilter(model.filter.Bus filter) {
+        List<Bus> busList = new ArrayList<>();
+        String query = "SELECT * FROM" +
+                " company_buses" +
+                " INNER JOIN companies ON companies.company_id = company_buses.company_id" +
+                " INNER JOIN buses ON company_buses.bus_id = buses.bus_id" + // Fixed typo here
+                " WHERE 1 = 1 "; // Added space after 1 = 1
+        String filterQuery = filter.buildQuery();
+        query += filterQuery;
+        Connection conn = DatabaseUtil.getConnection();
+        try (
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+             busList.add(getBusFromResult(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return busList;
+    }
+
+
 
 
 }

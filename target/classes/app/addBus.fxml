@@ -7,10 +7,8 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
@@ -51,28 +49,20 @@
             <SVGPath fx:id="svgStar5" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="289.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
             <Button fx:id="btnButtonStar1" layoutX="71.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleFillStar1" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: white;" text="Hi" />
             <SVGPath fx:id="svgStar1" content="M 25,0 L 30.9,19.1 L 50,19.1 L 34.8,30.9 L 40.2,50 L 25,40.2 L 9.8,50 L 15.2,30.9 L 0,19.1 L 19.1,19.1 Z" layoutX="73.0" layoutY="365.0" mouseTransparent="true" style="-fx-fill: white; -fx-stroke: black;" />
-            <Button id="btnDiscard" fx:id="btnDiscard" layoutX="179.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleDiscard" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #8388a4;" text="Discard">
+            <Button id="btnDiscard" fx:id="btnDiscard" layoutX="179.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleDiscard" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #8388a4; -fx-font-weight: bold; -fx-text-fill: white; -fx-background-color: #ef233c;" text="Discard">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
                <effect>
-                  <InnerShadow>
-                     <color>
-                        <Color red="0.410526305437088" green="0.40444445610046387" blue="0.40444445610046387" />
-                     </color>
-                  </InnerShadow>
+                  <DropShadow />
                </effect>
             </Button>
-            <Button id="btnCreate" fx:id="btnCreate" layoutX="422.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleCreate" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #1DB954;" text="Create">
+            <Button id="btnCreate" fx:id="btnCreate" layoutX="422.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleCreate" prefHeight="47.0" prefWidth="106.0" style="-fx-background-color: #1DB954; -fx-font-weight: bold; -fx-text-fill: white;" text="Create">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
                <effect>
-                  <InnerShadow>
-                     <color>
-                        <Color red="0.08421052992343903" green="0.378947377204895" blue="0.08912280946969986" />
-                     </color>
-                  </InnerShadow>
+                  <DropShadow />
                </effect>
             </Button>            <Pane fx:id="paneAddBusLabel" layoutX="68.0" layoutY="14.0" prefHeight="63.0" prefWidth="564.0" style="-fx-background-color: #2b2d42;">
                <children>

@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import model.Bus;
@@ -21,6 +22,9 @@ public class SearchBus extends BGmain implements Initializable {
     @FXML
     private VBox paneQueryResult;
 
+    @FXML
+    private TextField txtBusVin;
+
 
     public static void passCompany(model.Company cmp){
         company = cmp;
@@ -29,6 +33,8 @@ public class SearchBus extends BGmain implements Initializable {
     }
 
     public void handleSearch(ActionEvent actionEvent) {
+
+            displayBuses(BusService.getBusList(new model.filter.Bus(txtBusVin.getText())));
     }
 
     public void handleAddBus(ActionEvent actionEvent) {
