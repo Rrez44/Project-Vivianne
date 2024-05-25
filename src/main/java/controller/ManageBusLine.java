@@ -78,7 +78,9 @@ public class ManageBusLine extends BGmain implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(Session.getUser().getRole() == Role.USER ){
             paneGetLineInfor.getChildren().remove(btnMarkFailed);
+            paneGetLineInfor.getChildren().remove(btnMarkCompleted);
         }
+
         Translate.translateForAllPanes(paneSearchLines);
         companyAssigned = passedBusLine.getCompanyAssigned();
         bus = passedBusLine.getBusModel();

@@ -77,7 +77,6 @@ public class BusLineFilter extends Filter{
                 query += " AND start_time >= '" + this.date +"'";
             }
 
-        System.out.println("BusLineFilter buildQuery: "+query);
 
         return query;
     }

@@ -22,6 +22,7 @@ import otherFunctionality.AddTime;
 import service.*;
 
 import java.net.URL;
+import java.security.spec.ECField;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -112,8 +113,6 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
         super.initialize(url,resourceBundle);
         Translate.translateForAllPanes(paneRegisterLine);
         Translate.translateForAllPanes(stackPaneAddStops);
-
-
         menuSelectHoursFrom.textProperty().addListener((observable, oldValue, newValue) -> changeTime());
         menuSelectMinutesFrom.textProperty().addListener((observable, oldValue, newValue) -> changeTime());
 
@@ -126,10 +125,6 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
     public void handleClear(ActionEvent event) {
         ClearForm.clearFormInputs(paneRegisterLine);
     }
-
-
-
-
 
     public void handleAddLine(ActionEvent event) {
         travelTime = menuCityFrom.getText() +"_" +menuCityTo.getText();
@@ -145,21 +140,24 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
     }
 
     public void handleSeelctCityFrom(ActionEvent event) {
-
-        MenuItem item = (MenuItem) event.getSource();
-        menuCityFrom.setText(item.getText());
-
+        try {
+            MenuItem item = (MenuItem) event.getSource();
+            menuCityFrom.setText(item.getText());
+        }catch (Exception e){
+        }
     }
 
     public void handleSelectCityTo(ActionEvent event) {
+        try {
+            MenuItem item = (MenuItem) event.getSource();
+            menuCityTo.setText(item.getText());
+        }catch (Exception e){
 
-        MenuItem item = (MenuItem) event.getSource();
-        menuCityTo.setText(item.getText());
+        }
     }
 
     public void handleSelectHourFrom(ActionEvent event) {
         MenuItem item = (MenuItem) event.getSource();
-
         menuSelectHoursFrom.setText(item.getText());
     }
 
@@ -171,7 +169,6 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
 
     public void handleSelectMinutesTo(ActionEvent event) {
         MenuItem item = (MenuItem) event.getSource();
-
         menuSelectMinutesTo.setText(item.getText());
     }
 
@@ -180,11 +177,15 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
         menuSelectHoursTo.setText(item.getText());
     }
 
-    public void changeTime(){
-        travelTime = menuCityFrom.getText() + "_" + menuCityTo.getText();
-        localDateTimeFrom =DateConversion.fromDateTimeComponents(dateDate.getValue(),menuSelectHoursFrom.getText(),menuSelectMinutesFrom.getText());
-        localDateTimeTo =DateConversion.calculateEndDateTime(localDateTimeFrom,TravelTime.valueOf(travelTime).getTime());
-        menuSelectHoursTo.setText(String.valueOf(localDateTimeTo.getHour()));
-        menuSelectMinutesTo.setText(String.valueOf(localDateTimeTo.getMinute()));
+    public void changeTime() {
+        try {
+            travelTime = menuCityFrom.getText() + "_" + menuCityTo.getText();
+            localDateTimeFrom = DateConversion.fromDateTimeComponents(dateDate.getValue(), menuSelectHoursFrom.getText(), menuSelectMinutesFrom.getText());
+            localDateTimeTo = DateConversion.calculateEndDateTime(localDateTimeFrom, TravelTime.valueOf(travelTime).getTime());
+            menuSelectHoursTo.setText(String.valueOf(localDateTimeTo.getHour()));
+            menuSelectMinutesTo.setText(String.valueOf(localDateTimeTo.getMinute()));
+        }catch (Exception e){
+
+        }
     }
 }
