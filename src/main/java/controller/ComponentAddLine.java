@@ -34,10 +34,11 @@ public class ComponentAddLine {
 
     public void handleCreateLine(ActionEvent event) {
         BusLine addBusLine =new BusLine(getBusLine().getLineId(),getBusLine().getStatus(),getBusLine().getStartTime(),getBusLine().getEndTime(), Session.getUser(),LocalDateTime.now(),getBusLine().getStops(),getBusLine().getStartLocation(),getBusLine().getEndLocation(), CompanyRepository.getCompanyFromName(txtCompanyNameAddLine.getText()), BusService.getBusByModelNumer(txtBusModelAddLine.getText()));
-        BusLineService.insertAddStop(addBusLine.getCompanyAssigned().getCompanyId(), BusService.getBusByModelNumer(txtBusModelAddLine.getText()).getBusId(),addBusLine.getStops());
+        if (!(addBusLine.getStops() == null)) {
+            BusLineService.insertAddStop(addBusLine.getLineId(), addBusLine.getStops());
+        }
         BusLineService.insertBusLine(addBusLine);
         Navigator.navigate(event,Navigator.HOME_PAGE);
-
     }
 
 

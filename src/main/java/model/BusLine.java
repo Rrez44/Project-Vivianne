@@ -2,17 +2,9 @@ package model;
 
 import ENUMS.Status;
 import INTERFACES.Identifiable;
-import app.Session;
-import javafx.application.Platform;
-import repository.BusRepository;
-import repository.CompanyRepository;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.UUID;
-
-import static controller.RegisterLine.getBusLine;
+import java.util.List;
 
 public class BusLine implements Identifiable {
     private String lineId;
@@ -21,14 +13,14 @@ public class BusLine implements Identifiable {
     private LocalDateTime endTime;
     private User creator;
     private LocalDateTime creationTime;
-    private HashMap<String, LocalDateTime> stops;
+    private List<String> stops;
     private Company companyAssigned;
     private Bus busModel;
     private int passengerCapacity;
     private String startLocation;
     private String endLocation;
 
-    public BusLine(String lineId,Status status,LocalDateTime startTime, LocalDateTime endTime, User creator,LocalDateTime creationTime,HashMap<String,LocalDateTime> stops ,String startLocation, String endLocation, Company company, Bus bus) {
+    public BusLine(String lineId, Status status, LocalDateTime startTime, LocalDateTime endTime, User creator, LocalDateTime creationTime, List<String> stops , String startLocation, String endLocation, Company company, Bus bus) {
         this.lineId = lineId;
         this.status = status;
         this.startTime = startTime;
@@ -65,7 +57,6 @@ public class BusLine implements Identifiable {
         this.creationTime = creationTime;
         this.companyAssigned = companyAssignedId;
         this.busModel = bus;
-        this.stops = new HashMap<>();
         this.startLocation = startLocation;
         this.endLocation = endLocation;
     }
@@ -96,7 +87,7 @@ public class BusLine implements Identifiable {
         return creationTime;
     }
 
-    public HashMap<String, LocalDateTime> getStops() {
+    public List<String> getStops() {
         return stops;
     }
 
@@ -119,10 +110,10 @@ public class BusLine implements Identifiable {
     public void setStatus(Status status) {
         this.status = status;
     }
-    public void addStop(String coordinates, LocalDateTime stopTime){
-        stops.put(coordinates,stopTime);
-    }
 
+    public void setStops(List<String> stops){
+        this.stops = stops;
+    }
     @Override
     public String toString() {
         return "BusLine{" +
@@ -140,4 +131,5 @@ public class BusLine implements Identifiable {
                 ", endLocation='" + endLocation + '\'' +
                 '}';
     }
+
 }

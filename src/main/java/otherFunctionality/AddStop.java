@@ -4,6 +4,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AddStop {
 
 
@@ -14,6 +17,7 @@ public class AddStop {
     private static double lableLayoutX=70;
     private TextField textField;
 
+    private List<String> stops = new ArrayList<>();
     public void addStop(String inputName, String labelName, AnchorPane addComponentsPane){
         textField = createNewTextField(inputName);
         Label label = createNewLabel(labelName);
@@ -31,9 +35,10 @@ public class AddStop {
 
 
     private TextField createNewTextField(String text){
-
         TextField textField = new TextField(text);
         textField.setId("txtAddStop"+labelCounter);
+        textField.setDisable(true);
+        stops.add(text);
         return textField;
     }
 
@@ -70,13 +75,10 @@ public class AddStop {
 
     }
 
-
-
-
-
-
-
-
+    public List<String> getStops(){
+        if (stops.isEmpty()){return null;}
+        return stops;
+    }
 
 
 

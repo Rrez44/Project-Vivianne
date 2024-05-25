@@ -65,6 +65,7 @@ public class BusLineRepository {
         String query = "SELECT cb.company_id, cb.bus_id " +
                 "FROM company_buses AS cb " +
                 "INNER JOIN companies AS c ON c.company_id = cb.company_id " +
+                "INNER JOIN buses AS b ON b.bus_id = cb.bus_id " +
                 "WHERE cb.bus_id NOT IN (" +
                 "    SELECT cl.bus_model_id " +
                 "    FROM company_lines AS cl " +
@@ -74,6 +75,7 @@ public class BusLineRepository {
                 "    AND cl.end_time = ?" +
                 ") " +
                 "AND c.company_status = 'ACTIVE'" +
+                "AND b.activity_status = 'ACTIVE'" +
                 "AND (c.area_code = ? or c.area_code = ?)" +
                 "GROUP BY cb.company_id, cb.bus_id, c.area_code " +
                 "ORDER BY " +
@@ -116,21 +118,19 @@ public class BusLineRepository {
 
 
 
-        public static void insertAddStops(String company_id, String bus_id, HashMap<String, LocalDateTime> stops){
+        public static void insertAddStops(String line_id, List<String> stops){
 
-        String query = "INSERT INTO bus_stops(company_id,bus_id,stop_key,stop_value) VALUES(?,?,?,?)";
+        String query = "INSERT INTO bus_line_stops(line_id,stop_name) VALUES(?,?);";
 
         Connection con  = DatabaseUtil.getConnection();
 
         try{
             PreparedStatement ps = con.prepareStatement(query);
-            for (Map.Entry<String, LocalDateTime> entry : stops.entrySet()) {
-                ps.setString(1, company_id);
-                ps.setString(2, bus_id);
-                ps.setString(3, entry.getKey());
-                ps.setString(4, entry.getValue().toString());
-                System.out.println("Executed For Each Stop");
+            for (String entry : stops) {
+                ps.setString(1, line_id);
+                ps.setString(2, entry);
 
+                System.out.println(entry);
                 ps.execute();
             }
             ps.close();
