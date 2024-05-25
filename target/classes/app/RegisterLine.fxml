@@ -57,6 +57,7 @@
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="PRISTINA" />
                 <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="GJILAN" />
+                <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="FERIZAJ" />
                  <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="PEJA" />
                  <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="PRIZREN" />
                  <MenuItem mnemonicParsing="false" onAction="#handleSeelctCityFrom" text="GJAKOVA" />
@@ -67,6 +68,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="PRISTINA" />
                   <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="GJILAN" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="FERIZAJ" />
                   <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="PEJA" />
                   <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="PRIZREN" />
                   <MenuItem mnemonicParsing="false" onAction="#handleSelectCityTo" text="GJAKOVA" />

@@ -6,7 +6,6 @@ import model.filter.BusLineFilter;
 import repository.BusLineRepository;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
 //import repository.BusLineRepository;
 
@@ -33,9 +32,9 @@ public class BusLineService {
 
 
 
-    public static void insertAddStop(String company_id, String bus_id, HashMap<String , LocalDateTime> stops ) {
+    public static void insertAddStop(String line_id, List<String> stops ) {
 
-        BusLineRepository.insertAddStops(company_id,bus_id,stops);
+        BusLineRepository.insertAddStops(line_id,stops);
 
     }
 

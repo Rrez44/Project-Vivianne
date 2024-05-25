@@ -14,18 +14,16 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import model.Bus;
 import model.BusLine;
-//import otherFunctionality.AddHours;
 import otherFunctionality.AddStop;
 import otherFunctionality.AddTime;
-import service.*;
+import service.ClearForm;
+import service.DateConversion;
+import service.Translate;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ResourceBundle;
 
 public class RegisterLine extends BGmain implements Initializable, Identifiable {
 
@@ -79,23 +77,19 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
 
     private static BusLine busLine;
 
-    private HashMap<String, LocalDateTime> getStops = new HashMap<>();
 
     private LocalDateTime localDateTimeTo;
     private LocalDateTime localDateTimeFrom;
     public  String travelTime ;
 
 
-
+    private AddStop addStop = new AddStop();
 
     public void addStops(){
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime localDateTimeTo = LocalDateTime.parse("2022-10-11 10:11:11" ,dateTimeFormatter);
-        getStops.put(txtAddStop.getText(),localDateTimeTo);
-        AddStop addStop = new AddStop();
         addStop.addStop(txtAddStop.getText(),txtStopName.getText(),paneAddStop);
         txtAddStop.clear();
         paneAddStop.setPrefHeight(paneAddStop.getHeight()+30);
+
 
     }
 
@@ -136,7 +130,9 @@ public class RegisterLine extends BGmain implements Initializable, Identifiable 
         localDateTimeFrom =DateConversion.fromDateTimeComponents(dateDate.getValue(),menuSelectHoursFrom.getText(),menuSelectMinutesFrom.getText());
         localDateTimeTo =DateConversion.calculateEndDateTime(localDateTimeFrom,TravelTime.valueOf(travelTime).getTime());
         AddStop.restartForm();
-        busLine = new BusLine(generateId(), Status.ACTIVE,localDateTimeFrom,localDateTimeTo, Session.getUser(),LocalDateTime.now(),getStops ,menuCityFrom.getText(),menuCityTo.getText(),null,null);
+
+        busLine = new BusLine(generateId(), Status.ACTIVE,localDateTimeFrom,localDateTimeTo, Session.getUser(),LocalDateTime.now() ,menuCityFrom.getText(),menuCityTo.getText(),null,null);
+        busLine.setStops(addStop.getStops());
         Navigator.navigate(event, Navigator.CREATE_LINE);
     }
 

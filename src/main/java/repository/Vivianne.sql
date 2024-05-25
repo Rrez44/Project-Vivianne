@@ -101,3 +101,10 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
+create table bus_line_stops(
+    line_id char(36),
+    stop_name varchar(256),
+    PRIMARY KEY (line_id, stop_name)
+);
